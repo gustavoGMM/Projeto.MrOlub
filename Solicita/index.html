@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Consulta de CEP</title>
+    <link rel="stylesheet" type="text/css" href="/Solicita/style.css">
+    <style>
+        /* Adicionando estilo para mover o texto h2 para o canto esquerdo */
+        h2 {
+            position: absolute;
+            left: 10px;
+            top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <!-- Barra de navegação -->
+    <div class="navbar">
+        <h2>Mr.Oluc</h2>
+        <a href="/Site/index.html" class="return-home">Voltar à Home</a>
+    </div>
+
+    <!-- Retângulo no centro -->
+    <div class="background-rectangle"></div>
+
+    <!-- Restante do conteúdo -->
+    <div class="center-box">
+        <div class="container">
+            <h1>Solicite a Coleta</h1>
+            <!-- Formulário de Consulta de CEP -->
+            <form>
+                <label>Nome:
+                    <input name="nome" type="text" id="nome" size="40" />
+                </label><br />
+                <label>Cep:
+                    <input name="cep" type="text" id="cepInput" value="" size="10" maxlength="9"
+                        onblur="buscarCEP(this.value);" />
+                </label><br />
+                <label>Rua:
+                    <input name="rua" type="text" id="rua" size="60" />
+                </label><br />
+                <label>Bairro:
+                    <input name="bairro" type="text" id="bairro" size="40" />
+                </label><br />
+                <label>Cidade:
+                    <input name="cidade" type="text" id="cidade" size="40" />
+                </label><br />
+                <label>Estado:
+                    <input name="uf" type="text" id="uf" size="2" />
+                </label><br />
+
+                <!-- Slot para deixar uma mensagem -->
+                <label>Mensagem:
+                    <textarea name="mensagem" id="mensagem" rows="4" cols="50"></textarea>
+                </label><br />
+            </form>
+        </div>
+    </div>
+
+    <script src="/Solicita/script.js"></script>
+</body>
+</html>
+
+

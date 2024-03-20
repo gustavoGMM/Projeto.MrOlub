@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Login</title>
+  <link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <div class="container-login">
+      <div class="wrap-login">
+        <form class="login-form">
+          <span class="login-form-title">Faça o login</span>
+
+        <div class="wrap-input margin-top-35 margin-bottom-35">
+    <input class="input-form" type="text" name="email" autocomplete="off" placeholder="E-mail">
+    <span class="focus-input-form"></span>
+</div>
+
+<div class="input-password-container">
+    <div class="wrap-input margin-bottom-35">
+        <input class="input-form" type="password" name="password" id="password" placeholder="Senha">
+        <span class="focus-input-form"></span>
+    </div>
+
+            <!-- Botão para mostrar senha -->
+            <button type="button" id="showPasswordBtn" class="password-btn">Mostrar Senha</button>
+            <!-- Botão para ocultar senha -->
+            <button type="button" id="hidePasswordBtn" class="password-btn" style="display: none;">Ocultar Senha</button>
+          </div>
+
+          <div class="container-login-form-btn">
+            <a href="/Site/index.html" class="login-form-btn">Login</a>
+          </div>
+          
+
+          <ul class="login-utils">
+            <li class="margin-bottom-8 margin-top-8">
+              <span class="text1">Esqueceu sua</span>
+              <a href="#" class="text2">senha?</a>
+            </li>
+            <li>
+              <span class="text1">Ainda sem conta?</span>
+              <a href="#" class="text2">Criar</a>
+            </li>
+          </ul>
+        </form>
+      </div>
+      <img src="/Imagens/login.png" width="300" height="300" class="margin-left-50" />
+    </div>
+  </div>
+  <script src="/Loguin/scritp.js"></script>
+</body>
+</html>

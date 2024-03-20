@@ -1,0 +1,103 @@
+/* Estilos para a barra de navegação */
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 60px; /* Altura reduzida para 40 pixels */
+    background-color: #41203e;
+    padding: 0; /* Removido o padding */
+    text-align: center;
+    z-index: 9999; /* Garante que a barra de navegação fique acima de tudo */
+    color: white;
+    font-family: 'Roboto', sans-serif; /* Adicionando fonte */
+}
+
+/* Estilos para o retângulo no centro */
+.background-rectangle {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100vw; /* Alterado para 100% da largura da viewport */
+    height: 100vh; /* Alterado para 100% da altura da viewport */
+    background-image: url('/Imagens/background.png');
+    background-size: cover;
+    z-index: -1;
+}
+
+/* Estilos para o layout e a aparência */
+.center-box {
+    display: flex;
+    justify-content: center;
+}
+
+.container {
+    width: 400px;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #41203e;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-family: 'Roboto', sans-serif; /* Adicionando fonte */
+}
+
+h1 {
+    text-align: center;
+    color: #ffffff;
+}
+
+form {
+    margin-top: 20px;
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+    color: white; /* Adicionado para definir a cor do texto como branco */
+}
+
+input[type="text"] {
+    padding: 8px;
+    font-size: 16px;
+    width: calc(100% - 16px);
+    margin-bottom: 10px;
+}
+
+button {
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+.return-home {
+    position: absolute;
+    top: 50%;
+    right: 20px;
+    transform: translateY(-50%);
+    color: white;
+    text-decoration: none;
+}
+
+.return-home:hover {
+    text-decoration: underline;
+}
+
+textarea[name="mensagem"] {
+    max-height: 150px; /* Defina o limite de altura desejado */
+    overflow-y: auto; /* Adiciona uma barra de rolagem vertical quando o conteúdo excede o limite de altura */
+    resize: vertical; /* Permite que o usuário redimensione a altura verticalmente */
+    font-size: 14.9px; /* Defina o tamanho da fonte desejado */
+    font-family: 'Roboto', sans-serif; /* Adicionando fonte */
+}
