@@ -22,12 +22,28 @@ document.addEventListener("DOMContentLoaded", function() {
     let email = document.querySelector('input[name="email"]').value;
     let password = document.querySelector('input[name="password"]').value;
 
-    // teste da chamada de API para validar o login
-    if (email === "usuario@teste.com" && password === "senha123") {
+    // Simulação da chamada de API para validar o login usando Reqres.in
+    fetch('https://reqres.in/api/login', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({ email: email, password: password })
+    })
+    .then(response => {
+      if (response.ok) {
+        return response.json();
+      } else {
+        throw new Error('Credenciais inválidas. Por favor, verifique seu e-mail e senha.');
+      }
+    })
+    .then(data => {
       alert("Login bem-sucedido!");
-      // redirecionar pra a página de destino após o login
-    } else {
-      alert("Credenciais inválidas. Por favor, verifique seu e-mail e senha.");
-    }
+      // Aqui você pode redirecionar o usuário para a página de destino após o login
+    })
+    .catch(error => {
+      console.error('Erro ao fazer login:', error);
+      alert("Ocorreu um erro ao processar sua solicitação. Por favor, tente novamente mais tarde.");
+    });
   });
 });
