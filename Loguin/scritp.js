@@ -22,7 +22,7 @@ document.addEventListener("DOMContentLoaded", function() {
     let email = document.querySelector('input[name="email"]').value;
     let password = document.querySelector('input[name="password"]').value;
 
-    // testando a chamada de API para validar o login usando Reqres.in
+    // Testando a chamada de API para validar o login usando Reqres.in
     fetch('https://reqres.in/api/login', {
       method: 'POST',
       headers: {
@@ -38,12 +38,14 @@ document.addEventListener("DOMContentLoaded", function() {
       }
     })
     .then(data => {
-      alert("Login bem-sucedido!");
-      
+      // Exibir uma mensagem de sucesso para o usuário
+      alert("Login bem-sucedido! Bem-vindo, " + email + ".");
     })
     .catch(error => {
+      // Exibir uma mensagem de erro para o usuário
       console.error('Erro ao fazer login:', error);
       alert("Ocorreu um erro ao processar sua solicitação. Por favor, tente novamente mais tarde.");
     });
   });
 });
+
