@@ -22,10 +22,10 @@ document.addEventListener("DOMContentLoaded", function() {
     let email = document.querySelector('input[name="email"]').value;
     let password = document.querySelector('input[name="password"]').value;
 
-    // Simulação da chamada de API para validar o login
+    // teste da chamada de API para validar o login
     if (email === "usuario@teste.com" && password === "senha123") {
       alert("Login bem-sucedido!");
-      // Aqui você pode redirecionar o usuário para a página de destino após o login
+      // redirecionar pra a página de destino após o login
     } else {
       alert("Credenciais inválidas. Por favor, verifique seu e-mail e senha.");
     }
