@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Login</title>
-  <link rel="stylesheet" type="text/css" href="style.css">
+  <link rel="stylesheet" type="text/css" href="/Loguin/style.css">
 </head>
 <body>
   <div class="container">
@@ -13,27 +13,23 @@
         <form class="login-form">
           <span class="login-form-title">Faça o login</span>
 
-        <div class="wrap-input margin-top-35 margin-bottom-35">
-    <input class="input-form" type="text" name="email" autocomplete="off" placeholder="E-mail">
-    <span class="focus-input-form"></span>
-</div>
+          <div class="wrap-input margin-top-35 margin-bottom-35">
+            <input class="input-form" type="text" name="email" autocomplete="off" placeholder="E-mail" required>
+            <span class="focus-input-form"></span>
+          </div>
 
-<div class="input-password-container">
-    <div class="wrap-input margin-bottom-35">
-        <input class="input-form" type="password" name="password" id="password" placeholder="Senha">
-        <span class="focus-input-form"></span>
-    </div>
-
-            <!-- Botão para mostrar senha -->
+          <div class="input-password-container">
+            <div class="wrap-input margin-bottom-35">
+              <input class="input-form" type="password" name="password" placeholder="Senha" required>
+              <span class="focus-input-form"></span>
+            </div>
             <button type="button" id="showPasswordBtn" class="password-btn">Mostrar Senha</button>
-            <!-- Botão para ocultar senha -->
             <button type="button" id="hidePasswordBtn" class="password-btn" style="display: none;">Ocultar Senha</button>
           </div>
 
           <div class="container-login-form-btn">
-            <a href="/Site/index.html" class="login-form-btn">Login</a>
+            <button type="submit" class="login-form-btn">Login</button>
           </div>
-          
 
           <ul class="login-utils">
             <li class="margin-bottom-8 margin-top-8">

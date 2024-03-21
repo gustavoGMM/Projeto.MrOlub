@@ -1,7 +1,8 @@
 document.addEventListener("DOMContentLoaded", function() {
-  let passwordInput = document.getElementById('password');
+  let passwordInput = document.querySelector('input[name="password"]');
   let showPasswordBtn = document.getElementById('showPasswordBtn');
   let hidePasswordBtn = document.getElementById('hidePasswordBtn');
+  let form = document.querySelector('.login-form');
 
   showPasswordBtn.addEventListener('click', function() {
     passwordInput.type = 'text';
@@ -13,5 +14,20 @@ document.addEventListener("DOMContentLoaded", function() {
     passwordInput.type = 'password';
     showPasswordBtn.style.display = 'inline-block';
     hidePasswordBtn.style.display = 'none';
+  });
+
+  form.addEventListener('submit', function(event) {
+    event.preventDefault();
+
+    let email = document.querySelector('input[name="email"]').value;
+    let password = document.querySelector('input[name="password"]').value;
+
+    // Simulação da chamada de API para validar o login
+    if (email === "usuario@teste.com" && password === "senha123") {
+      alert("Login bem-sucedido!");
+      // Aqui você pode redirecionar o usuário para a página de destino após o login
+    } else {
+      alert("Credenciais inválidas. Por favor, verifique seu e-mail e senha.");
+    }
   });
 });
