@@ -22,7 +22,7 @@ document.addEventListener("DOMContentLoaded", function() {
     let email = document.querySelector('input[name="email"]').value;
     let password = document.querySelector('input[name="password"]').value;
 
-    // Simulação da chamada de API para validar o login usando Reqres.in
+    // testando a chamada de API para validar o login usando Reqres.in
     fetch('https://reqres.in/api/login', {
       method: 'POST',
       headers: {
@@ -39,7 +39,7 @@ document.addEventListener("DOMContentLoaded", function() {
     })
     .then(data => {
       alert("Login bem-sucedido!");
-      // Aqui você pode redirecionar o usuário para a página de destino após o login
+      
     })
     .catch(error => {
       console.error('Erro ao fazer login:', error);
