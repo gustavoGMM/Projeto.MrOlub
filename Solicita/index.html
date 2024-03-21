@@ -5,14 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Consulta de CEP</title>
     <link rel="stylesheet" type="text/css" href="/Solicita/style.css">
-    <style>
-        /* Adicionando estilo para mover o texto h2 para o canto esquerdo */
-        h2 {
-            position: absolute;
-            left: 10px;
-            top: 10px;
-        }
-    </style>
 </head>
 <body>
     <!-- Barra de navegação -->
@@ -21,45 +13,39 @@
         <a href="/Site/index.html" class="return-home">Voltar à Home</a>
     </div>
 
-    <!-- Retângulo no centro -->
-    <div class="background-rectangle"></div>
+    <!-- Container principal -->
+    <div class="container">
+        <!-- Container do formulário e imagem -->
+        <div class="content-container">
+            <!-- Container do formulário -->
+            <div class="form-container">
+                <h1>Solicite a Coleta</h1>
+                <form>
+                    <label for="nome">Nome:</label>
+                    <input type="text" id="nome" name="nome" size="40"><br>
+                    <label for="cepInput">CEP:</label>
+                    <input type="text" id="cepInput" name="cep" size="10" maxlength="9" onblur="buscarCEP(this.value);"><br>
+                    <label for="rua">Rua:</label>
+                    <input type="text" id="rua" name="rua" size="60"><br>
+                    <label for="bairro">Bairro:</label>
+                    <input type="text" id="bairro" name="bairro" size="40"><br>
+                    <label for="cidade">Cidade:</label>
+                    <input type="text" id="cidade" name="cidade" size="40"><br>
+                    <label for="uf">Estado:</label>
+                    <input type="text" id="uf" name="uf" size="2"><br>
+                    <label for="mensagem">Mensagem:</label><br>
+                    <textarea id="mensagem" name="mensagem" rows="4" cols="50"></textarea><br>
+                    <button type="submit">Enviar</button>
+                </form>
+            </div>
 
-    <!-- Restante do conteúdo -->
-    <div class="center-box">
-        <div class="container">
-            <h1>Solicite a Coleta</h1>
-            <!-- Formulário de Consulta de CEP -->
-            <form>
-                <label>Nome:
-                    <input name="nome" type="text" id="nome" size="40" />
-                </label><br />
-                <label>Cep:
-                    <input name="cep" type="text" id="cepInput" value="" size="10" maxlength="9"
-                        onblur="buscarCEP(this.value);" />
-                </label><br />
-                <label>Rua:
-                    <input name="rua" type="text" id="rua" size="60" />
-                </label><br />
-                <label>Bairro:
-                    <input name="bairro" type="text" id="bairro" size="40" />
-                </label><br />
-                <label>Cidade:
-                    <input name="cidade" type="text" id="cidade" size="40" />
-                </label><br />
-                <label>Estado:
-                    <input name="uf" type="text" id="uf" size="2" />
-                </label><br />
-
-                <!-- Slot para deixar uma mensagem -->
-                <label>Mensagem:
-                    <textarea name="mensagem" id="mensagem" rows="4" cols="50"></textarea>
-                </label><br />
-            </form>
+            <!-- Imagem no lado direito -->
+            <div class="image-container">
+                <img src="/Imagens/Sem título (1)-fotor-20240312172619 (1).png" alt="Imagem">
+            </div>
         </div>
     </div>
 
     <script src="/Solicita/script.js"></script>
 </body>
 </html>
-
-

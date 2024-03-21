@@ -7,125 +7,75 @@ body {
   height: 100vh;
   margin: 0;
   padding: 0;
+  overflow-y: hidden; /* Remover barra de rolagem vertical */
 }
 
-/* Estilos para a barra de navegação */
+
 .navbar {
-  background-color: #41203e !important;
-  height: 60px;
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
+  background-color: #41203e;
+  color: white;
+  padding: 4px 0;
+  text-align: center;
+  font-size: 16px; /* Aumentar o tamanho da fonte da barra de navegação */
 }
 
-.navbar-brand {
-  position: absolute;
-  left: 15px;
-  top: 50%;
-  transform: translateY(-50%);
-  color: #fff; 
-  font-size: 26px; 
-  text-decoration: none; 
+.navbar .container {
+  padding: 10px 0; /* Reduzir o preenchimento superior e inferior */
 }
 
-.navbar-nav {
-  position: absolute;
-  right: 15px;
-  top: 50%;
-  transform: translateY(-50%);
+
+.navbar h2 {
+  margin: 0;
 }
 
-.navbar-nav a {
-  color: #fff;
+.return-home {
+  color: white;
   text-decoration: none;
-  margin-right: 20px;
 }
 
-.navbar-nav a:hover {
-  text-decoration: underline;
-}
-
-/* Estilos para o conteúdo principal */
 .container {
-  text-align: left;
-  margin-top: 10px;
+  max-width: 900px; /* Reduzir o tamanho máximo do contêiner */
+  margin: 0 auto; /* Centralizar o contêiner na tela */
+  padding: 40px; /* Manter o espaço interno */
 }
 
 .image-container {
   display: flex;
-  justify-content: center;
   align-items: center;
-  margin-top: 80px; 
+  justify-content: center; /* Centralizar horizontalmente o conteúdo */
+  margin-bottom: 20px; /* Reduzir a margem inferior */
 }
 
 .small-image {
-  width: 400px;
+  width: 300px; /* Aumentar o tamanho da imagem */
   height: auto;
-  margin: 0 10px;
-  border-radius: 20%;
-}
-
-.additional-text {
-  margin-left: 10px;
-  color: #fff;
-  max-width: 300px;
-}
-
-.about-text {
-  font-size: 18px;
-  line-height: 1.6;
-  color: #ffffff;
-  margin-bottom: 20px;
-  max-width: 500px;
-}
-
-.additional-text {
-  margin-left: 20px;
+  border-radius: 20px; /* Torna as bordas da imagem redondas */
   margin-right: 20px;
-  color: #fff;
-  max-width: 500px;
 }
 
-.additional-text,
+
+.small-image:hover {
+  transform: rotate(5deg); /* Rotacionar a imagem em 5 graus ao passar o mouse */
+  transition: transform 0.3s ease; /* Adicionar transição suave */
+}
+
+.additional-text {
+  flex-grow: 1;
+}
+
+.additional-text:hover {
+  font-size: 22px; /* Aumentar o tamanho do texto ao passar o mouse */
+  transition: font-size 0.3s ease; /* Adicionar transição suave */
+}
+
 .about-text {
-  font-size: 20px;
+  font-size: 20px; /* Aumentar o tamanho do texto adicional */
+  line-height: 1.6;
+  color: #ffffff; /* Definir cor do texto adicional como branco */
 }
 
-/* Animação para as imagens */
-.small-image {
-  width: 400px;
-  height: auto;
-  margin: 0 10px;
-  border-radius: 20%;
-  animation: fadeIn 1.5s ease-in-out; 
+.additional-text h2 {
+  margin-top: 0;
+  margin-bottom: 20px; /* Aumentar a margem inferior */
+  color: white; /* Definir cor do título como branco */
 }
-
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-    transform: translateY(50px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0); 
-  }
-}
-
-/* Animação para o texto */
-.additional-text, .about-text {
-  font-size: 20px;
-  animation: slideIn 1.5s ease-in-out;
-}
-
-@keyframes slideIn {
-  from {
-    opacity: 0;
-    transform: translateX(-50px);
-  }
-  to {
-    opacity: 1;
-    transform: translateX(0); 
-  }
-}
-
