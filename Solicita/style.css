@@ -99,12 +99,12 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-left: 20px; /* Espaçamento entre o botão e a imagem */
+    margin-left: 40px; /* Afastamento aumentado entre o botão e a imagem */
 }
 
 .image-container img {
-    max-width: 107%;
-    height: auto;
+    max-width: 100%; /* A imagem ocupa 100% da largura do contêiner */
+    max-height: 100%; /* A imagem ocupa 100% da altura do contêiner */
     border-radius: 5px;
 }
 
