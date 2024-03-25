@@ -14,7 +14,7 @@ body {
 }
 
 .navbar {
-    background-color: hsl(305, 34%, 19%); /* Cor roxa */
+    background-color: #802782; /* Cor roxa */
     height: 60px; /* Definindo a altura da barra de navegação */
 }
 
@@ -71,9 +71,3 @@ p {
     bottom: 0; /* Colocando o rodapé na parte inferior */
     width: 100%; /* Definindo a largura do rodapé para ocupar toda a largura da página */
 }
-
-
-
-
-  
-  
