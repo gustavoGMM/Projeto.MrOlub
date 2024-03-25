@@ -14,7 +14,7 @@ body {
 }
 
 .navbar {
-    background-color: #41203e; /* Cor roxa */
+    background-color: hsl(305, 34%, 19%); /* Cor roxa */
     height: 60px; /* Definindo a altura da barra de navegação */
 }
 
