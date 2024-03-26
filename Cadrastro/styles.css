@@ -4,10 +4,10 @@ body {
     padding: 0;
     height: 100vh;
     overflow: hidden;
-    display: flex; /* Torna o corpo da página um contêiner flexível */
-    justify-content: center; /* Centraliza o conteúdo horizontalmente */
-    align-items: center; /* Centraliza o conteúdo verticalmente */
-    color: white; /* Define a cor da fonte como branca */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
 }
 
 .background-image {
@@ -23,14 +23,16 @@ body {
 }
 
 .container-wrapper {
-    display: flex; /* Torna o contêiner pai um contêiner flexível */
-    justify-content: center; /* Centraliza os contêineres filhos horizontalmente */
-    align-items: flex-start; /* Alinha os contêineres filhos no topo */
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
 }
 
 .container {
-    display: flex; /* Torna os contêineres filhos um contêiner flexível */
-    flex-direction: row; /* Alinha os contêineres filhos em linha */
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between; /* Adicionando espaço entre os contêineres */
+    margin-top: 20px; /* Adicionando espaçamento entre os contêineres */
 }
 
 .form-section {
@@ -40,7 +42,7 @@ body {
     border-radius: 5px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     margin: 0 10px;
-    width: 300px; /* Define uma largura fixa para os contêineres */
+    width: 300px;
 }
 
 input {
@@ -54,12 +56,12 @@ button {
     width: calc(100% - 20px);
     padding: 10px;
     background-color: #007bff;
-    color: white; /* Define a cor do texto do botão como branca */
+    color: white;
     border: none;
     cursor: pointer;
+    margin-top: 10px; /* Afastando o botão de cadastrar */
 }
 
 button:hover {
     background-color: #0056b3;
 }
-

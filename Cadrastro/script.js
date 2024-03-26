@@ -5,9 +5,9 @@ function cadastrarPessoaFisica() {
     var senha = document.getElementById("senha").value;
     var confirmarSenha = document.getElementById("confirmarSenha").value;
 
-    // Adicione a lógica de validação e cadastro aqui
+    // Lógica de validação e cadastro aqui
 
-    document.getElementById("messageFisica").innerText = "Cadastro de pessoa física realizado para " + nome + ".";
+    document.getElementById("messageFisica").innerText = "Cadastro de pessoa física realizado " + nome + ".";
 }
 
 function cadastrarPessoaJuridica() {
@@ -18,16 +18,13 @@ function cadastrarPessoaJuridica() {
     var senha = document.getElementById("senhaJuridica").value;
     var confirmarSenha = document.getElementById("confirmarSenhaJuridica").value;
 
-    // Adicione a lógica de validação e cadastro aqui
+    // Lógica de validação e cadastro aqui
 
-    document.getElementById("messageJuridica").innerText = "Cadastro de pessoa jurídica realizado para " + razaoSocial + ".";
+    document.getElementById("messageJuridica").innerText = "Cadastro de pessoa jurídica realizado " + razaoSocial + ".";
 }
 
 function mostrarSenha(id) {
     var senhaInput = document.getElementById(id);
-    if (senhaInput.type === "password") {
-        senhaInput.type = "text";
-    } else {
-        senhaInput.type = "password";
-    }
+    senhaInput.type = senhaInput.type === "password" ? "text" : "password";
 }
+
