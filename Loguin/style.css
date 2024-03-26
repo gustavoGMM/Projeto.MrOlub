@@ -9,7 +9,7 @@ a {
 }
 
 :root {
-    --main-color: #ae8ca4;
+    --main-color: #9777a6;
     --link-color: #666666;
     --text1: #999999;
     --highligth-text: #ffffff;
@@ -283,7 +283,7 @@ a {
   .password-btn {
     margin-left: 10px;
     padding: 10px 20px;
-    background-color: #ae8ca4; 
+    background-color: #9777a6; 
     color: #000000; 
     border: none;
     border-radius: 5px;

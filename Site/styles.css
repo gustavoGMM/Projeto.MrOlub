@@ -7,14 +7,14 @@ body, html {
 }
 
 body {
-    background-image: url('/Imagens/background.png');
+    background-image: url('/Imagens//LimeWire\ AI\ Studio\ Asset.jpeg');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
 }
 
 .navbar {
-    background-color: #802782; /* Cor roxa */
+    background-color: #551658; /* Cor roxa */
     height: 60px; /* Definindo a altura da barra de navegação */
 }
 
@@ -52,14 +52,14 @@ p {
 }
 
 .btn-primary {
-    background-color: #6a0dad; /* Cor roxa */
-    border-color: #6a0dad; /* Cor da borda */
+    background-color: #551658; /* Cor roxa */
+    border-color: #9777a6; /* Cor da borda */
     font-size: 20px;
 }
 
 .btn-primary:hover {
-    background-color: #4a086d; /* Cor roxa mais escura ao passar o mouse */
-    border-color: #4a086d; /* Cor da borda ao passar o mouse */
+    background-color: #551658; /* Cor roxa mais escura ao passar o mouse */
+    border-color: #551658; /* Cor da borda ao passar o mouse */
 }
 
 .footer {
