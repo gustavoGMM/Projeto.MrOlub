@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastro de Pessoa</title>
+    <link rel="stylesheet" href="/Cadrastro/styles.css">
+</head>
+<body>
+    <div class="background-image"></div>
+    <div class="container">
+        <div class="form-section">
+            <h2>Cadastro Pessoa Física</h2>
+            <input type="text" id="nome" placeholder="Nome">
+            <input type="text" id="cpf" placeholder="CPF">
+            <input type="email" id="email" placeholder="E-mail">
+            <input type="password" id="senha" placeholder="Senha">
+            <input type="password" id="confirmarSenha" placeholder="Confirmar Senha">
+            <input type="checkbox" id="mostrarSenhaFisica" onclick="mostrarSenha('senha')"> Mostrar Senha
+            <button onclick="cadastrarPessoaFisica()">Cadastrar</button>
+            <p id="messageFisica"></p>
+        </div>
+
+        <div class="form-section">
+            <h2>Cadastro Pessoa Jurídica</h2>
+            <input type="text" id="razaoSocial" placeholder="Razão Social">
+            <input type="text" id="cnpj" placeholder="CNPJ">
+            <input type="text" id="nomeFantasia" placeholder="Nome Fantasia">
+            <input type="email" id="emailJuridica" placeholder="E-mail">
+            <input type="password" id="senhaJuridica" placeholder="Senha">
+            <input type="password" id="confirmarSenhaJuridica" placeholder="Confirmar Senha">
+            <input type="checkbox" id="mostrarSenhaJuridica" onclick="mostrarSenha('senhaJuridica')"> Mostrar Senha
+            <button onclick="cadastrarPessoaJuridica()">Cadastrar</button>
+            <p id="messageJuridica"></p>
+        </div>
+    </div>
+
+    <script src="/Cadrastro/script.js"></script>
+</body>
+</html>
