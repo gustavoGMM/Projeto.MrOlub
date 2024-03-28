@@ -3,14 +3,28 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Autorização de Fornecedores</title>
+    <title>Gerenciamento de Fornecedores</title>
     <link rel="stylesheet" href="/loguinADM/styles.css">
 </head>
 <body>
     <div class="container">
-        <h1>Autorização de Fornecedores</h1>
-        <h2>Fornecedores Registrados:</h2>
-        <ul id="listaFornecedores"></ul>
+        <h1>Gerenciamento de Fornecedores</h1>
+        <form id="loginForm">
+            <label for="username">Usuário:</label>
+            <input type="text" id="username" name="username" required>
+
+            <label for="password">Senha:</label>
+            <input type="password" id="password" name="password" required>
+
+            <button type="submit">Login</button>
+        </form>
+
+        <div id="mensagemSucesso" class="mensagem"></div>
+        <div id="mensagemErro" class="mensagem"></div>
+
+        <ul id="listaFornecedores" class="fornecedores-lista">
+            <!-- Lista de fornecedores será preenchida dinamicamente aqui -->
+        </ul>
     </div>
 
     <script src="/loguinADM/script.js"></script>

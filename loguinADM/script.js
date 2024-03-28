@@ -1,119 +1,112 @@
-// URL da API de login
-const loginEndpoint = 'http://localhost:8080/api/auth/user/login';
-const autorizarEndpoint = 'http://localhost:8080/admin/fornecedores/autorizar/';
-const naoAutorizarEndpoint = 'http://localhost:8080/admin/fornecedores/nao-autorizados/';
+const ApiService = {
+    baseURL: 'http://localhost:8080',
 
-// Função para fazer login do usuário
-function fazerLogin() {
-    const dadosLogin = {
-        nomeDeUsuario: 'marciaadmin',
-        senhaDoUsuario: 'senha123'
-    };
+    httpClient: criarHttpClient(),
 
-    fetch(loginEndpoint, {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json'
-        },
-        body: JSON.stringify(dadosLogin)
-    })
-    .then(response => {
-        if (response.ok) {
-            return response.json();
+    async login(username, password) {
+        try {
+            const response = await this.request('/api/auth/user/login', 'POST', { nomeDeUsuario: username, senhaDoUsuario: password });
+            this.setAuthorizationHeader(response.token, response.tipo);
+            exibirMensagemSucesso('Login bem-sucedido!');
+            return response;
+        } catch (error) {
+            console.error('Erro ao fazer login:', error);
+            exibirMensagemErro('Erro ao fazer login. Verifique suas credenciais.');
+            throw error;
         }
-        throw new Error('Login falhou. Usuário ou senha incorretos.');
-    })
-    .then(data => {
-        console.log('Login bem-sucedido:', data);
-        // Após o login bem-sucedido, habilitar a funcionalidade de autorização/não autorização
-        habilitarFuncionalidade();
-    })
-    .catch(error => {
+    },
+
+    async autorizarFornecedor(id) {
+        try {
+            const response = await this.request(`/admin/fornecedores/autorizar/${id}`, 'POST');
+            return response;
+        } catch (error) {
+            console.error('Erro ao autorizar fornecedor:', error);
+            throw error;
+        }
+    },
+
+    async naoAutorizarFornecedor(id) {
+        try {
+            const response = await this.request(`/admin/fornecedores/nao-autorizados/${id}`, 'POST');
+            return response;
+        } catch (error) {
+            console.error('Erro ao não autorizar fornecedor:', error);
+            throw error;
+        }
+    },
+
+    async request(endpoint, method = 'GET', data = null) {
+        try {
+            const url = `${this.baseURL}${endpoint}`;
+            const options = {
+                method,
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: data ? JSON.stringify(data) : null,
+            };
+
+            const response = await fetch(url, options);
+            const responseData = await response.json();
+
+            if (!response.ok) {
+                throw new Error(responseData.message || 'Erro na requisição.');
+            }
+
+            return responseData;
+        } catch (error) {
+            console.error('Erro na requisição:', error);
+            throw error;
+        }
+    },
+
+    setAuthorizationHeader(token, type) {
+        this.httpClient.defaults.headers.common['Authorization'] = `${type} ${token}`;
+    }
+};
+
+// Função para criar um cliente HTTP personalizado
+function criarHttpClient() {
+    const httpClient = axios.create({
+        baseURL: 'http://localhost:8080',
+        timeout: 60000, // 1 minuto de timeout
+    });
+
+    // Adiciona o interceptor para logar as requisições
+    httpClient.interceptors.request.use(function (config) {
+        console.log('Requisição:', config);
+        return config;
+    });
+
+    return httpClient;
+}
+
+// Funções para exibir mensagens de sucesso e erro
+function exibirMensagemSucesso(mensagem) {
+    const mensagemSucesso = document.getElementById('mensagemSucesso');
+    mensagemSucesso.innerText = mensagem;
+    mensagemSucesso.classList.add('success');
+    mensagemSucesso.classList.remove('error');
+}
+
+function exibirMensagemErro(mensagem) {
+    const mensagemErro = document.getElementById('mensagemErro');
+    mensagemErro.innerText = mensagem;
+    mensagemErro.classList.add('error');
+    mensagemErro.classList.remove('success');
+}
+
+// Evento de submit do formulário de login
+document.getElementById('loginForm').addEventListener('submit', async function(event) {
+    event.preventDefault();
+    const username = document.getElementById('username').value;
+    const password = document.getElementById('password').value;
+    try {
+        await ApiService.login(username, password);
+        // Você pode adicionar redirecionamento ou outras ações após o login bem-sucedido
+    } catch (error) {
         console.error('Erro ao fazer login:', error);
-    });
-}
-
-// Função para habilitar a funcionalidade de autorização/não autorização após o login bem-sucedido
-function habilitarFuncionalidade() {
-    // Adicionar evento de click aos botões de autorização/não autorização
-    document.querySelectorAll('.autorizarButton').forEach(button => {
-        button.addEventListener('click', function() {
-            const fornecedorId = this.getAttribute('data-fornecedor-id');
-            autorizarFornecedor(fornecedorId);
-        });
-    });
-
-    document.querySelectorAll('.naoAutorizarButton').forEach(button => {
-        button.addEventListener('click', function() {
-            const fornecedorId = this.getAttribute('data-fornecedor-id');
-            naoAutorizarFornecedor(fornecedorId);
-        });
-    });
-}
-
-// Função para enviar requisição para autorizar um fornecedor
-function autorizarFornecedor(id) {
-    fetch(autorizarEndpoint + id, { method: 'POST' })
-        .then(response => {
-            if (response.ok) {
-                return response.json();
-            }
-            throw new Error('Erro ao autorizar fornecedor.');
-        })
-        .then(data => {
-            console.log('Fornecedor autorizado:', data);
-            atualizarListaFornecedores(); // Atualiza a lista após autorizar
-        })
-        .catch(error => {
-            console.error('Erro:', error);
-        });
-}
-
-// Função para enviar requisição para não autorizar um fornecedor
-function naoAutorizarFornecedor(id) {
-    fetch(naoAutorizarEndpoint + id, { method: 'POST' })
-        .then(response => {
-            if (response.ok) {
-                return response.json();
-            }
-            throw new Error('Erro ao não autorizar fornecedor.');
-        })
-        .then(data => {
-            console.log('Fornecedor não autorizado:', data);
-            atualizarListaFornecedores(); // Atualiza a lista após não autorizar
-        })
-        .catch(error => {
-            console.error('Erro:', error);
-        });
-}
-
-// Exibir a lista de fornecedores registrados na inicialização da página
-window.addEventListener('DOMContentLoaded', function() {
-    // Inicia o processo de login do usuário ao carregar a página
-    fazerLogin();
+        // Você pode adicionar tratamento adicional para o erro aqui, se necessário
+    }
 });
-
-// Função para atualizar a lista de fornecedores na página
-function atualizarListaFornecedores() {
-    var listaFornecedores = document.getElementById('listaFornecedores');
-    listaFornecedores.innerHTML = ''; // Limpar a lista antes de atualizar
-
-    fornecedoresRegistrados.forEach(function(fornecedor) {
-        var listItem = document.createElement('li');
-        listItem.textContent = fornecedor.nome + ' (CNPJ: ' + fornecedor.cnpj + ', Chave Pix: ' + fornecedor.chavePix + ')';
-
-        var autorizarButton = document.createElement('button');
-        autorizarButton.textContent = 'Autorizar';
-        autorizarButton.className = 'autorizarButton';
-        autorizarButton.setAttribute('data-fornecedor-id', fornecedor.id);
-        listItem.appendChild(autorizarButton);
-
-        var naoAutorizarButton = document.createElement('button');
-        naoAutorizarButton.textContent = 'Não Autorizar';
-        naoAutorizarButton.className = 'naoAutorizarButton';
-        naoAutorizarButton.setAttribute('data-fornecedor-id', fornecedor.id);
-        listItem.appendChild(naoAutorizarButton);
-
-        listaFornecedores.appendChild(listItem);
-    });
-}
