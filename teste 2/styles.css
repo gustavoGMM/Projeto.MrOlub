@@ -4,8 +4,24 @@
   --primary-color: #2e004d;
   --text-dark: #000000;
   --white: #ffffff;
+  --gray: #808080; /* Definindo a cor cinza */
   --max-width: 1200px;
 }
+
+/* Outros estilos CSS permanecem inalterados */
+
+.nav__links a {
+  white-space: nowrap;
+  font-weight: 500;
+  color: var(--white);
+  transition: color 0.3s; /* Adicionando uma transição suave para a mudança de cor */
+}
+
+.nav__links a:hover {
+  color: var(--gray); /* Mudando a cor para cinza quando passa o mouse */
+}
+
+/* Outros estilos CSS permanecem inalterados */
 
 * {
   padding: 0;
@@ -26,7 +42,7 @@
 }
 
 .btn:hover {
-  background-color: rgba(255, 154, 48, 0.8);
+  background-color: #4900da;
 }
 
 img {
