@@ -38,7 +38,6 @@ body {
   background-color: #4900da; /* Cor de fundo ao passar o mouse */
 }
 
-
 /* Estilos para o container principal */
 .container {
   max-width: 1200px;
@@ -56,11 +55,11 @@ body {
 /* Estilos para o formulário */
 .form-container {
   flex: 1; /* Ocupa todo o espaço disponível */
-  background-color: #f4f4f4;
+  background-color: #2e004d;
   padding: 30px;
   border-radius: 10px;
-  box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
   max-width: calc(50% - 10px); /* Metade do container - espaço */
+  color: white; /* Definindo a cor do texto como branco */
 }
 
 .form-container h1 {
@@ -81,10 +80,15 @@ body {
   margin-bottom: 15px;
   border: 1px solid #ccc;
   border-radius: 5px;
+  max-height: 100px; /* limite de altura */
+  max-width: 100%; /* limite de largura */
+  overflow-x: auto; /* adiciona barra de rolagem horizontal quando necessário */
+  overflow-y: auto; /* adiciona barra de rolagem vertical quando necessário */
 }
 
+
 .form-container button {
-  background-color: #2e004d;
+  background-color: #4900da;
   color: #ffffff;
   border: none;
   padding: 10px 20px;
@@ -100,7 +104,6 @@ body {
 /* Estilos para a imagem */
 .image-container {
   max-width: calc(50% - 10px); /* Metade do container - espaço */
- 
 }
 
 .image-container img {
