@@ -18,8 +18,9 @@
 }
 
 .nav__links a:hover {
-  color: var(--gray); /* Mudando a cor para cinza quando passa o mouse */
+  color: #4900da !important;
 }
+
 
 /* Outros estilos CSS permanecem inalterados */
 
