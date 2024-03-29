@@ -36,7 +36,7 @@ button {
     color: white;
     border: none;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    transition: background-color 0.3s ease;
+    transition: background-color 0.1s ease;
 }
 
 button:hover {
@@ -44,19 +44,26 @@ button:hover {
 }
 
 .back-to-login-btn {
-    background-color: #ff4500;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-    margin-right: 5px; /* Diminuir a margem à direita */
-    width: calc(50% - 5px); /* 50% da largura menos a margem entre os botões */
+    background-color: #40e6cc; /* Cor de fundo */
+    color: white; /* Cor do texto */
+    border: none; /* Remover a borda */
+    border-radius: 5px; /* Adicionar bordas arredondadas */
+    cursor: pointer; /* Alterar o cursor ao passar o mouse */
+    transition: background-color 0.1s ease; /* Adicionar transição suave na mudança de cor de fundo */
+    margin-right: 15px; /* Ajustar margem à direita */
+    margin-left: 110px; /* Ajustar margem à esquerda */
+    width: calc(50% - 20px); /* Ajustar largura do botão */
+    text-decoration: none; /* Remover sublinhado */
+    display: inline-block; /* Garantir que o link se comporte como um bloco */
+    text-align: center; /* Centralizar texto */
+    line-height: 40px; /* Centralizar verticalmente o texto */
 }
 
+
 .back-to-login-btn:hover {
-    background-color: #cc3700;
+    background-color: #32CAE3; /* Cor de fundo ao passar o mouse */
 }
+
 
 .send-recovery-btn {
     background-color: #007bff;
@@ -64,7 +71,7 @@ button:hover {
     border: none;
     border-radius: 5px;
     cursor: pointer;
-    transition: background-color 0.3s ease;
+    transition: background-color 0.1s ease;
 }
 
 .send-recovery-btn:hover {
