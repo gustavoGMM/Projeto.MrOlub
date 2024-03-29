@@ -160,7 +160,7 @@ nav {
 }
 
 .header__image.reveal {
-  background-image: url("assets/02\ COR\ -\ Logotipo\ MR\ OLUC\ \ -\ Calile\ Comunicação.png");
+  background-image: url("/assets/02\ COR\ -\ Logotipo\ MR\ OLUC\ \ -\ Calile\ Comunicação.png");
   background-size: 90%; /* Define o tamanho da imagem como 50% do elemento pai */
   background-repeat: no-repeat;
   height: 200px; /* Define uma altura para o elemento pai */
