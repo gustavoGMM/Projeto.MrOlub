@@ -14,7 +14,7 @@
   white-space: nowrap;
   font-weight: 500;
   color: var(--white);
-  transition: color 0.3s; /* Adicionando uma transição suave para a mudança de cor */
+  transition: color 0.2s; /* Adicionando uma transição suave para a mudança de cor */
 }
 
 .nav__links a:hover {
@@ -38,7 +38,7 @@
   color: var(--white);
   background-color: var(--primary-color);
   border-radius: 5px;
-  transition: 0.3s;
+  transition: 0.2s;
   cursor: pointer;
 }
 
@@ -53,7 +53,7 @@ img {
 
 a {
   text-decoration: none;
-  transition: 0.3s;
+  transition: 0.2s;
 }
 
 html,

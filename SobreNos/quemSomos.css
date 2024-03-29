@@ -106,17 +106,12 @@ nav {
   transform: scale(1.1); /* Aumenta a escala da foto ao passar o mouse */
 }
 
-.about__item p {
-  font-size: 1.2rem;
-  line-height: 1.5;
-}
-
 .about__item img {
   max-width: 100%;
   height: auto;
   border-radius: 20%; /* Deixa a foto redonda */
   transition: transform 0.3s ease; /* Adiciona animação de transição */
-  max-height: 423px; /* Define o tamanho máximo da imagem */
+  max-height: 393px; /* Define o tamanho máximo da imagem */
 }
 
 .footer {
