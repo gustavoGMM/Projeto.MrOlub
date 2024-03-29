@@ -1,43 +1,56 @@
-body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-    background-image: url('/Imagens/background.png'); /* Caminho para a sua imagem */
-    background-size: cover;
-    background-position: center;
+body, html {
+    height: 100%;
+    font-family: Calibri, Arial, Helvetica, sans-serif; /* Adicionando Calibri à lista de fontes */
+    background-color: #2e004d; /* Nova cor de fundo */
     display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
+    justify-content: center; /* Centralizar horizontalmente */
+    align-items: center; /* Centralizar verticalmente */
 }
 
 .container {
-    width: 400px; /* Aumentando a largura para 400 pixels */
+    width: 500px; /* Largura aumentada para 400px */
     text-align: center;
-    background-color: #2e004d; /* Cor de fundo do container com transparência */
     padding: 20px;
+    background-color: #4900da; /* Cor de fundo do container com transparência */
     border-radius: 5px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Sombra */
     color: white; /* Alterando a cor da fonte para branca */
+    animation: fadeIn 1s ease forwards; /* Animação de fade-in */
 }
 
-input {
-    width: 100%;
-    padding: 10px;
-    margin-bottom: 10px;
-    box-sizing: border-box;
+input, button {
+    width: 60%; /* Ocupar toda a largura do container */
+    padding: 10px; /* Aumentar o preenchimento */
+    margin-bottom: 15px; /* Aumentar a margem inferior */
+    box-sizing: border-box; /* Incluir preenchimento e borda na largura total */
+    opacity: 0; /* Inicialmente, tornar os elementos transparentes */
+    animation: fadeIn 1s ease forwards; /* Animação de fade-in */
+    animation-delay: 0.5s; /* Atrasar a animação para dar tempo ao container aparecer */
 }
 
 button {
-    width: 100%;
-    padding: 10px;
-    background-color: #007bff;
-    color: #fff;
-    border: none;
-    cursor: pointer;
+    margin-top: 20px; /* Adicionar espaço superior ao botão */
+    border-radius: 20px; /* Deixar o botão mais redondo */
+    background-color: #007bff; /* Cor de fundo do botão */
+    color: white; /* Cor do texto do botão */
+    border: none; /* Remover a borda */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Sombra mais destacada */
+    transition: background-color 0.3s ease; /* Transição suave para a cor de fundo */
 }
 
 button:hover {
-    background-color: #0056b3;
+    background-color: #0056b3; /* Cor de fundo do botão ao passar o mouse */
 }
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+
+
 
