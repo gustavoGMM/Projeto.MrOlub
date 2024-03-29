@@ -100,13 +100,13 @@ body {
 /* Estilos para a imagem */
 .image-container {
   max-width: calc(50% - 10px); /* Metade do container - espaço */
+ 
 }
 
 .image-container img {
   max-width: 75%;
   height: auto;
   border-radius: 10px;
-  box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
   animation: slideIn 1s ease;
 }
 
