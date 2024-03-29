@@ -21,17 +21,20 @@
 
 /* Estilos para o botão "Voltar à Home" */
 .return-home {
-  color: white;
+  background-color: #2e004d; /* Cor de fundo */
+  color: white; /* Cor do texto */
   text-decoration: none;
-  padding: 5px 10px;
-  border: 1px solid white;
-  border-radius: 5px;
-  transition: background-color 0.3s ease;
+  padding: 10px 20px; /* Espaçamento interno */
+  border: none;
+  border-radius: 5px; /* Borda arredondada */
+  cursor: pointer;
+  transition: background-color 0.3s ease; /* Transição suave ao passar o mouse */
 }
 
 .return-home:hover {
   background-color: #4900da; /* Cor de fundo ao passar o mouse */
 }
+
 
 /* Estilos para o container principal */
 .container {
