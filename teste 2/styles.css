@@ -1,8 +1,8 @@
-@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;400;500;600;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Calibri:wght@200;400;500;600;700&display=swap");
 
 :root {
-  --primary-color: #ff9a30;
-  --text-dark: #ffffff;
+  --primary-color: #2e004d;
+  --text-dark: #000000;
   --white: #ffffff;
   --max-width: 1200px;
 }
@@ -45,7 +45,7 @@ body {
 }
 
 body {
-  font-family: "Poppins", sans-serif;
+  font-family: "Calibri", sans-serif;
 }
 
 .header {
@@ -99,11 +99,11 @@ nav {
 .nav__links a {
   white-space: nowrap;
   font-weight: 500;
-  color: var(--text-dark);
+  color: var(--white);
 }
 
 .nav__links a:hover {
-  color: var(--white);
+  color: var(--primary-color);
 }
 
 .nav__menu__btn {
@@ -172,31 +172,25 @@ nav {
 .header__content {
   text-align: center;
   padding: 4rem 1rem;
-}
-
-.header__content h1 {
-  font-size: 4rem;
-  font-weight: 700;
-  line-height: 3rem;
   color: var(--text-dark);
 }
 
 .header__content h2 {
   margin-bottom: 2rem;
-  font-size: 4rem;
+  font-size: 5rem;
   font-weight: 200;
   line-height: 3rem;
-  color: var(--text-dark);
 }
 
 .header__content p {
   margin-bottom: 2rem;
-  color: var(--text-dark);
+  font-size: 1.2rem;
 }
 
 .banner {
   margin-top: 5rem;
   display: grid;
+  color: var(--white); /* Alteração para definir a cor do texto dentro de .banner como branco */
 }
 
 .banner__card {
@@ -225,19 +219,16 @@ nav {
 .banner__card h4 {
   font-size: 1.2rem;
   font-weight: 500;
-  color: var(--text-dark);
 }
 
 .banner__card p {
   margin-bottom: 0.5rem;
   font-size: 0.9rem;
-  color: var(--text-dark);
 }
 
 .banner__card a {
   font-size: 1rem;
   font-weight: 600;
-  color: var(--text-dark);
 }
 
 .banner__content {
@@ -261,18 +252,15 @@ nav {
   font-size: 6rem;
   font-weight: 700;
   line-height: 5rem;
-  color: var(--text-dark);
 }
 
 .banner__content p {
   font-weight: 500;
-  color: var(--text-dark);
 }
 
 .banner__content h3 {
   font-size: 1.5rem;
   font-weight: 600;
-  color: var(--text-dark);
 }
 
 @media (width > 540px) {
@@ -369,3 +357,4 @@ nav {
     gap: 4rem;
   }
 }
+
