@@ -1,4 +1,7 @@
-/* Reset de estilos */
+body {
+  font-family: Calibri, sans-serif; /* Definindo Calibri como a fonte padrão */
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -16,7 +19,7 @@
 
 /* Estilos para o ícone */
 .navbar__icon {
-  width: 100px; /* Ajuste o tamanho do ícone conforme necessário */
+  width: 150px; /* Ajuste o tamanho do ícone conforme necessário */
 }
 
 /* Estilos para o botão "Voltar à Home" */
