@@ -45,7 +45,7 @@ button:hover {
 
 .back-to-login-btn {
     background-color: #40e6cc; /* Cor de fundo */
-    color: white; /* Cor do texto */
+    color: rgb(0, 0, 0); /* Cor do texto */
     border: none; /* Remover a borda */
     border-radius: 5px; /* Adicionar bordas arredondadas */
     cursor: pointer; /* Alterar o cursor ao passar o mouse */
@@ -67,7 +67,7 @@ button:hover {
 
 .send-recovery-btn {
     background-color: #007bff;
-    color: white;
+    color: rgb(0, 0, 0);
     border: none;
     border-radius: 5px;
     cursor: pointer;
