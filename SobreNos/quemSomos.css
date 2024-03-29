@@ -1,81 +1,97 @@
-body {
-  font-family: Arial, sans-serif;
-  background-image: url('/Imagens//Sem\ Título-1\ copiar.jpg');
-  background-size: cover;
-  background-position: center center;
-  background-repeat: no-repeat;
-  height: 100vh;
-  margin: 0;
+@import url("https://fonts.googleapis.com/css2?family=Calibri:wght@200;400;500;600;700&display=swap");
+
+:root {
+  --primary-color: #2e004d;
+  --text-dark: #000000;
+  --white: #ffffff;
+  --gray: #808080;
+  --max-width: 1200px;
+}
+
+* {
   padding: 0;
-  overflow-y: hidden; /* Remover barra de rolagem vertical */
-}
-
-
-.navbar {
-  background-color: #41203e;
-  color: white;
-  padding: 4px 0;
-  text-align: center;
-  font-size: 16px; /* Aumentar o tamanho da fonte da barra de navegação */
-}
-
-.navbar .container {
-  padding: 10px 0; /* Reduzir o preenchimento superior e inferior */
-}
-
-
-.navbar h2 {
   margin: 0;
+  box-sizing: border-box;
 }
 
-.return-home {
-  color: white;
-  text-decoration: none;
+body {
+  font-family: "Calibri", sans-serif;
 }
 
-.container {
-  max-width: 900px; /* Reduzir o tamanho máximo do contêiner */
-  margin: 0 auto; /* Centralizar o contêiner na tela */
-  padding: 40px; /* Manter o espaço interno */
+.header {
+  position: relative;
+  isolation: isolate;
 }
 
-.image-container {
+nav {
+  position: absolute;
+  width: 100%;
+  max-width: var(--max-width);
+  top: 0;
+  left: 50%;
+  transform: translate(-50%);
+  padding: 1rem;
   display: flex;
   align-items: center;
-  justify-content: center; /* Centralizar horizontalmente o conteúdo */
-  margin-bottom: 20px; /* Reduzir a margem inferior */
+  justify-content: space-between;
+  z-index: 9;
 }
 
-.small-image {
-  width: 300px; /* Aumentar o tamanho da imagem */
-  height: auto;
-  border-radius: 20px; /* Torna as bordas da imagem redondas */
-  margin-right: 20px;
+.nav__logo a img {
+  max-width: 150px;
 }
 
-
-.small-image:hover {
-  transform: rotate(5deg); /* Rotacionar a imagem em 5 graus ao passar o mouse */
-  transition: transform 0.3s ease; /* Adicionar transição suave */
+.nav__links a {
+  white-space: nowrap;
+  font-weight: 500;
+  color: var(--white);
+  transition: color 0.3s;
 }
 
-.additional-text {
-  flex-grow: 1;
+.nav__links a:hover {
+  color: #4900da !important;
 }
 
-.additional-text:hover {
-  font-size: 22px; /* Aumentar o tamanho do texto ao passar o mouse */
-  transition: font-size 0.3s ease; /* Adicionar transição suave */
+.nav__menu__btn {
+  padding: 5px 11px;
+  font-size: 1.5rem;
+  color: var(--white);
+  background-color: rgba(0, 0, 0, 0.2);
+  border: 1px solid var(--white);
+  border-radius: 5px;
 }
 
-.about-text {
-  font-size: 20px; /* Aumentar o tamanho do texto adicional */
-  line-height: 1.6;
-  color: #ffffff; /* Definir cor do texto adicional como branco */
+.about {
+  padding: 4rem 1rem;
 }
 
-.additional-text h2 {
-  margin-top: 0;
-  margin-bottom: 20px; /* Aumentar a margem inferior */
-  color: white; /* Definir cor do título como branco */
+.about__container {
+  max-width: var(--max-width);
+  margin: 0 auto;
+}
+
+.about h2 {
+  text-align: center;
+  margin-bottom: 2rem;
+  font-size: 3rem;
+  font-weight: 700;
+  color: var(--primary-color);
+}
+
+.about p {
+  margin-bottom: 2rem;
+  font-size: 1.2rem;
+  line-height: 1.5;
+  color: var(--text-dark);
+}
+
+.footer {
+  padding: 2rem 1rem;
+  background-color: var(--primary-color);
+  color: var(--white);
+  text-align: center;
+}
+
+.footer p {
+  font-size: 1rem;
 }
