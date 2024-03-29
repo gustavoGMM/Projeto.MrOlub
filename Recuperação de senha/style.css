@@ -1,45 +1,74 @@
 body, html {
     height: 100%;
-    font-family: Calibri, Arial, Helvetica, sans-serif; /* Adicionando Calibri à lista de fontes */
-    background-color: #2e004d; /* Nova cor de fundo */
+    font-family: Calibri, Arial, Helvetica, sans-serif;
+    background-color: #2e004d; /* Cor de fundo geral */
     display: flex;
-    justify-content: center; /* Centralizar horizontalmente */
-    align-items: center; /* Centralizar verticalmente */
+    justify-content: center;
+    align-items: center;
+    margin: 0; /* Remover margens padrão */
 }
 
 .container {
-    width: 500px; /* Largura aumentada para 400px */
-    text-align: center;
-    padding: 20px;
-    background-color: #4900da; /* Cor de fundo do container com transparência */
-    border-radius: 5px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Sombra */
-    color: white; /* Alterando a cor da fonte para branca */
-    animation: fadeIn 1s ease forwards; /* Animação de fade-in */
+    max-width: 400px;
+    margin: 0 auto;
+    padding: 40px;
+    background-color: #4900da; /* Cor de fundo do container */
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1); /* Sombra suave */
+    color: #ffffff; /* Cor do texto */
+    animation: fadeIn 1s ease forwards;
 }
 
 input, button {
-    width: 60%; /* Ocupar toda a largura do container */
-    padding: 10px; /* Aumentar o preenchimento */
-    margin-bottom: 15px; /* Aumentar a margem inferior */
-    box-sizing: border-box; /* Incluir preenchimento e borda na largura total */
-    opacity: 0; /* Inicialmente, tornar os elementos transparentes */
-    animation: fadeIn 1s ease forwards; /* Animação de fade-in */
-    animation-delay: 0.5s; /* Atrasar a animação para dar tempo ao container aparecer */
+    width: 100%; /* Ocupar toda a largura do container */
+    padding: 12px; /* Aumentar o preenchimento */
+    margin-bottom: 15px;
+    box-sizing: border-box;
+    opacity: 0;
+    animation: fadeIn 1s ease forwards;
+    animation-delay: 0.5s;
+    border: 1px solid #dddddd; /* Adicionar borda */
 }
 
 button {
-    margin-top: 20px; /* Adicionar espaço superior ao botão */
-    border-radius: 20px; /* Deixar o botão mais redondo */
-    background-color: #007bff; /* Cor de fundo do botão */
-    color: white; /* Cor do texto do botão */
-    border: none; /* Remover a borda */
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Sombra mais destacada */
-    transition: background-color 0.3s ease; /* Transição suave para a cor de fundo */
+    border-radius: 5px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.3s ease;
 }
 
 button:hover {
-    background-color: #0056b3; /* Cor de fundo do botão ao passar o mouse */
+    background-color: #0056b3;
+}
+
+.back-to-login-btn {
+    background-color: #ff4500;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin-right: 5px; /* Diminuir a margem à direita */
+    width: calc(50% - 5px); /* 50% da largura menos a margem entre os botões */
+}
+
+.back-to-login-btn:hover {
+    background-color: #cc3700;
+}
+
+.send-recovery-btn {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.send-recovery-btn:hover {
+    background-color: #0056b3;
 }
 
 @keyframes fadeIn {
@@ -50,7 +79,6 @@ button:hover {
         opacity: 1;
     }
 }
-
 
 
 

@@ -4,16 +4,18 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Recuperação de Senha</title>
-    <link rel="stylesheet" href="/Recuperação de senha/style.css">
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <div class="container">
         <h2>Recuperação de Senha</h2>
         <input type="email" id="email" placeholder="Digite seu e-mail">
-        <button onclick="sendRecoveryEmail()">Enviar E-mail de Recuperação</button>
+        <button onclick="sendRecoveryEmail()" class="send-recovery-btn">Enviar E-mail de Recuperação</button>
         <p id="message"></p>
+        <a href="link_para_a_pagina_de_login" class="back-to-login-btn">Voltar para o Login</a>
     </div>
 
-    <script src="/Recuperação de senha/script.js"></script>
+    <script src="script.js"></script>
 </body>
 </html>
+
