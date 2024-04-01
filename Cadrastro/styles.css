@@ -18,7 +18,7 @@
 
 .navbar-title {
     font-size: 20px;
-    color: #ffffff; /* Cor do texto */
+    color: #422727; /* Cor do texto */
 }
 
 .container-wrapper {
@@ -41,6 +41,12 @@
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     margin: 10px;
     width: 300px;
+    color: #ffffff; /* Cor do texto */
+}
+
+/* Definindo a cor do texto para os campos de entrada de texto */
+.form-section input {
+    color: #000000; /* Cor do texto */
 }
 
 input, button {
@@ -48,7 +54,6 @@ input, button {
     padding: 10px;
     margin: 10px 0;
     box-sizing: border-box;
-    color: #ffffff; /* Cor do texto */
 }
 
 button {
@@ -87,4 +92,3 @@ body {
     background-attachment: fixed; /* Fixar o gradiente para que não role com a página */
     color: #ffffff; /* Cor do texto */
 }
-
