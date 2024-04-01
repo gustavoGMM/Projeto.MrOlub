@@ -21,6 +21,26 @@
     color: #422727; /* Cor do texto */
 }
 
+/* Botão "Voltar à Home" */
+.nav__return {
+    position: fixed; /* Torna o botão fixo na página */
+    top: 20px; /* Distância do topo da página */
+    right: 20px; /* Distância da direita da página */
+    padding: 10px 20px; /* Adicionando espaçamento interno */
+    background-color: #4900da;
+    color: #ffffff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    text-decoration: none; /* Removendo sublinhado */
+    transition: background-color 0.3s ease;
+}
+
+.nav__return:hover {
+    background-color: #3700ad; /* Cor mais escura ao passar o mouse */
+}
+
+
 .container-wrapper {
     margin-top: 60px; /* Ajusta o espaço para evitar que o conteúdo fique por baixo do navbar */
 }
