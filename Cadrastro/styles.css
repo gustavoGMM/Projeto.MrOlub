@@ -1,3 +1,29 @@
+.navbar {
+    position: fixed; /* Torna o navbar fixo na página */
+    top: 0; /* Alinha o navbar no topo da página */
+    left: 100; /* Alinha o navbar no canto esquerdo da página */
+    padding: 10px;
+    display: flex;
+    align-items: center;
+}
+
+.navbar img {
+    width: 200px; /* Ajuste o tamanho conforme necessário */
+    height: auto; /* Para manter a proporção */
+    margin-right: auto; /* Move o ícone para a esquerda */
+}
+
+.navbar-title {
+    font-size: 20px;
+}
+
+.container-wrapper {
+    margin-top: 80px; /* Ajusta o espaço para evitar que o conteúdo fique por baixo do navbar */
+}
+
+
+/* Restante do seu CSS permanece o mesmo */
+
 body {
     font-family: Arial, sans-serif;
     margin: 0;
@@ -11,12 +37,6 @@ body {
     background: linear-gradient(to bottom, #4A264A, #40e6cc, #2e004d); /* Gradiente de fundo */
 }
 
-
-.container-wrapper {
-    display: flex;
-    justify-content: center;
-    align-items: flex-start;
-}
 
 .container {
     display: flex;

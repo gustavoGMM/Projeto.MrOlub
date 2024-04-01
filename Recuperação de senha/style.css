@@ -8,6 +8,17 @@ body, html {
     background: linear-gradient(to bottom, #4A264A, #40e6cc, #2e004d);
 }
 
+/* Adicionando estilos para o ícone no canto superior esquerdo */
+.icon-left-top {
+    position: fixed; /* Torna o ícone fixo na página */
+    top: 10px; /* Define a distância do topo da página */
+    left: 860px; /* Define a distância da borda esquerda da página */
+}
+
+.icon-left-top img {
+    width: 200px; /* Ajuste o tamanho do ícone conforme necessário */
+}
+
 .container {
     max-width: 400px;
     margin: 0 auto;
@@ -59,11 +70,9 @@ button:hover {
     line-height: 40px; /* Centralizar verticalmente o texto */
 }
 
-
 .back-to-login-btn:hover {
     background-color: #ffffff; /* Cor de fundo ao passar o mouse */
 }
-
 
 .send-recovery-btn {
     background-color: #4900da;
@@ -78,6 +87,16 @@ button:hover {
     background-color: #ffffff;
 }
 
+.icon-title {
+    display: flex;
+    align-items: center;
+}
+
+.icon-title img {
+    width: 100px; /* Ajuste o tamanho do ícone conforme necessário */
+    margin-right: 10px; /* Adiciona um espaço entre o ícone e o título */
+}
+
 @keyframes fadeIn {
     from {
         opacity: 0;
@@ -86,6 +105,5 @@ button:hover {
         opacity: 1;
     }
 }
-
 
 
