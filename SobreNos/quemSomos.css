@@ -122,7 +122,10 @@ nav {
 }
 
 .footer {
-  padding: 1rem; /* Reduzindo o padding */
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  padding: 1rem;
   background-color: var(--primary-color);
   color: var(--white);
   text-align: center;
@@ -183,5 +186,17 @@ nav {
   .nav__links li {
     margin-right: 0;
     margin-bottom: 1rem;
+  }
+
+  /* Ajuste de tamanho para o botão "Voltar ao site" */
+  .nav__return {
+    padding: 0.5rem 1rem;
+    font-size: 0.8rem; /* Tamanho da fonte reduzido */
+  }
+
+  /* Imagens responsivas */
+  .about__item img {
+    max-width: 100%; /* Largura máxima ajustável */
+    height: auto; /* Mantém a proporção da imagem */
   }
 }
