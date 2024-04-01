@@ -1,18 +1,18 @@
 body, html {
     height: 100%;
     font-family: Calibri, Arial, Helvetica, sans-serif;
-    background-color: #2e004d; /* Cor de fundo geral */
     display: flex;
     justify-content: center;
     align-items: center;
     margin: 0; /* Remover margens padrão */
+    background: linear-gradient(to bottom, #4A264A, #40e6cc, #2e004d);
 }
 
 .container {
     max-width: 400px;
     margin: 0 auto;
     padding: 40px;
-    background-color: #4900da; /* Cor de fundo do container */
+    background-color:transparent; /* Cor de fundo do container */
     border-radius: 10px;
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.1); /* Sombra suave */
     color: #ffffff; /* Cor do texto */
@@ -44,7 +44,7 @@ button:hover {
 }
 
 .back-to-login-btn {
-    background-color: #40e6cc; /* Cor de fundo */
+    background-color: #4900da; /* Cor de fundo */
     color: rgb(0, 0, 0); /* Cor do texto */
     border: none; /* Remover a borda */
     border-radius: 5px; /* Adicionar bordas arredondadas */
@@ -61,12 +61,12 @@ button:hover {
 
 
 .back-to-login-btn:hover {
-    background-color: #32CAE3; /* Cor de fundo ao passar o mouse */
+    background-color: #ffffff; /* Cor de fundo ao passar o mouse */
 }
 
 
 .send-recovery-btn {
-    background-color: #007bff;
+    background-color: #4900da;
     color: rgb(0, 0, 0);
     border: none;
     border-radius: 5px;
@@ -75,7 +75,7 @@ button:hover {
 }
 
 .send-recovery-btn:hover {
-    background-color: #0056b3;
+    background-color: #ffffff;
 }
 
 @keyframes fadeIn {

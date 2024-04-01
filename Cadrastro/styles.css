@@ -8,19 +8,9 @@ body {
     justify-content: center;
     align-items: center;
     color: white;
+    background: linear-gradient(to bottom, #4A264A, #40e6cc, #2e004d); /* Gradiente de fundo */
 }
 
-.background-image {
-    background-image: url('/Imagens/background.png');
-    background-size: cover;
-    background-position: center;
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    z-index: -1;
-}
 
 .container-wrapper {
     display: flex;
@@ -37,7 +27,7 @@ body {
 
 .form-section {
     text-align: center;
-    background-color: #2e004d;
+    background-color: transparent;
     padding: 20px;
     border-radius: 5px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
@@ -55,13 +45,15 @@ input {
 button {
     width: calc(100% - 20px);
     padding: 10px;
-    background-color: #007bff;
-    color: white;
+    background-color: #4900da;
+    color: rgb(0, 0, 0);
     border: none;
     cursor: pointer;
     margin-top: 10px; /* Afastando o botão de cadastrar */
+    border-radius: 20px; /* Deixando os botões mais arredondados */
 }
 
 button:hover {
-    background-color: #0056b3;
+    background-color: #ffffff;
+    color: #000000; /* Alterando a cor do texto ao passar o mouse */
 }
