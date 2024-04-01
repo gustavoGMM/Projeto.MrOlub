@@ -1,48 +1,36 @@
+/* Navbar */
 .navbar {
     position: fixed; /* Torna o navbar fixo na página */
     top: 0; /* Alinha o navbar no topo da página */
-    left: 100; /* Alinha o navbar no canto esquerdo da página */
+    left: 0; /* Alinha o navbar no canto esquerdo da página */
+    width: 100%; /* Define a largura total */
     padding: 10px;
+    background-color: transparent; /* Cor de fundo */
     display: flex;
     align-items: center;
 }
 
 .navbar img {
-    width: 200px; /* Ajuste o tamanho conforme necessário */
+    width: 150px; /* Ajuste o tamanho conforme necessário */
     height: auto; /* Para manter a proporção */
     margin-right: auto; /* Move o ícone para a esquerda */
 }
 
 .navbar-title {
     font-size: 20px;
+    color: #ffffff; /* Cor do texto */
 }
 
 .container-wrapper {
-    margin-top: 80px; /* Ajusta o espaço para evitar que o conteúdo fique por baixo do navbar */
+    margin-top: 60px; /* Ajusta o espaço para evitar que o conteúdo fique por baixo do navbar */
 }
 
-
-/* Restante do seu CSS permanece o mesmo */
-
-body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-    height: 100vh;
-    overflow: hidden;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    color: white;
-    background: linear-gradient(to bottom, #4A264A, #40e6cc, #2e004d); /* Gradiente de fundo */
-}
-
-
+/* Container */
 .container {
     display: flex;
-    flex-direction: row;
-    justify-content: space-between; /* Adicionando espaço entre os contêineres */
-    margin-top: 20px; /* Adicionando espaçamento entre os contêineres */
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-top: 20px;
 }
 
 .form-section {
@@ -51,29 +39,52 @@ body {
     padding: 20px;
     border-radius: 5px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    margin: 0 10px;
+    margin: 10px;
     width: 300px;
 }
 
-input {
-    width: calc(100% - 20px);
-    margin: 10px 0;
+input, button {
+    width: 100%;
     padding: 10px;
+    margin: 10px 0;
     box-sizing: border-box;
+    color: #ffffff; /* Cor do texto */
 }
 
 button {
-    width: calc(100% - 20px);
-    padding: 10px;
     background-color: #4900da;
-    color: rgb(0, 0, 0);
+    color: #ffffff;
     border: none;
+    border-radius: 5px;
     cursor: pointer;
-    margin-top: 10px; /* Afastando o botão de cadastrar */
-    border-radius: 20px; /* Deixando os botões mais arredondados */
 }
 
 button:hover {
-    background-color: #ffffff;
-    color: #000000; /* Alterando a cor do texto ao passar o mouse */
+    background-color: #3700ad; /* Cor mais escura ao passar o mouse */
 }
+
+/* Media Queries */
+@media screen and (max-width: 768px) {
+    .navbar img {
+        width: 120px; /* Reduzindo o tamanho do logo */
+    }
+
+    .container {
+        flex-direction: column; /* Mudando a direção do flex para coluna */
+        align-items: center; /* Centralizando os itens na coluna */
+    }
+
+    .form-section {
+        width: 90%; /* Ajustando a largura dos formulários */
+        max-width: 400px; /* Definindo uma largura máxima */
+    }
+}
+
+/* Gradiente de fundo */
+body {
+    background: linear-gradient(to bottom, #4A264A, #40e6cc, #2e004d); /* Gradiente de fundo */
+    background-size: cover; /* Cobrir todo o fundo */
+    background-attachment: fixed; /* Fixar o gradiente para que não role com a página */
+    color: #ffffff; /* Cor do texto */
+}
+
