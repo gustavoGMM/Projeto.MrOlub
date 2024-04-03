@@ -8,6 +8,16 @@ a {
   font-family: Arial, Helvetica, sans-serif;
 }
 
+body, html {
+  height: 100%;
+  font-family: Arial, Helvetica, sans-serif;
+  background: linear-gradient(to bottom, #4A264A, #40e6cc, #2e004d);
+}
+
+.container-login img {
+width: 350px; /* Ajuste a largura conforme necessário */
+}
+
 :root {
     --main-color: #4900da;
     --link-color: #666666;
