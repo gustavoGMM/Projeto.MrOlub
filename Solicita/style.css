@@ -67,9 +67,6 @@ body {
   box-shadow: 0 0 10px rgba(2, 2, 2, 0.3); /* Borda borrada com sombra vermelha semi-transparente */
 }
 
-
-
-
 .form-container h1 {
   font-size: 24px;
   margin-bottom: 20px;
@@ -88,12 +85,7 @@ body {
   margin-bottom: 15px;
   border: 1px solid #ccc;
   border-radius: 5px;
-  max-height: 100px; /* limite de altura */
-  max-width: 100%; /* limite de largura */
-  overflow-x: auto; /* adiciona barra de rolagem horizontal quando necessário */
-  overflow-y: auto; /* adiciona barra de rolagem vertical quando necessário */
 }
-
 
 .form-container button {
   background-color: #4900da;
@@ -139,12 +131,23 @@ body {
     align-items: center; /* Centraliza os elementos na tela */
   }
 
-  .form-container {
+  .form-container,
+  .image-container {
     max-width: 100%; /* Ocupa toda a largura do container pai */
+    margin: 0 auto; /* Centralizar os containers */
+  }
+
+  .form-container {
+    padding: 20px; /* Reduzir o preenchimento do formulário */
+    margin-bottom: 20px; /* Adicionar espaço entre o formulário e a imagem */
   }
 
   .image-container {
-    max-width: 100%; /* Ocupa toda a largura do container pai */
-    margin-top: 20px; /* Adiciona um espaçamento entre o formulário e a imagem */
+    margin-top: 20px; /* Adicionar espaço acima da imagem */
+  }
+
+  .image-container img {
+    width: 100%; /* Garantir que a imagem ocupe toda a largura do container */
+    height: auto; /* Altura automática para manter a proporção */
   }
 }
