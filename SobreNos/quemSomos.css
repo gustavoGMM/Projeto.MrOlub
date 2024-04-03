@@ -158,8 +158,49 @@ nav {
   color: #ffffff;
 }
 
-/* Media Query para menu responsivo */
-@media screen and (max-width: 768px) {
+/* Media Query para telas menores de 390x844 */
+@media screen and (max-width: 390px) {
+  :root {
+    --max-width: 90%; /* Reduzindo a largura máxima para dispositivos menores */
+  }
+
+  body {
+    font-size: 14px; /* Reduzindo o tamanho da fonte para dispositivos menores */
+  }
+
+  .nav__return {
+    padding: 0.5rem 1rem; /* Ajustando o padding do botão */
+    font-size: 0.8rem; /* Reduzindo o tamanho da fonte do botão */
+  }
+
+  .footer {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    padding: 1rem;
+    background-color: var(--primary-color);
+    color: var(--white);
+    text-align: center;
+  }
+
+  .about h2 {
+    font-size: 2rem; /* Reduzindo o tamanho do título */
+    margin-bottom: 1rem; /* Adicionando margem inferior ao título */
+  }
+
+  .about__item img {
+    max-width: 70%; /* Reduzindo a largura da imagem */
+    margin: 1rem auto; /* Centralizando imagens e aumentando a margem superior e inferior */
+  }
+
+  .about__item {
+    text-align: center; /* Centralizando texto nos itens */
+  }
+}
+
+/* Media Query para telas maiores de 390x844 até 768x1024 */
+@media screen and (min-width: 391px) and (max-width: 768px) {
   .nav__menu__btn {
     display: block;
     cursor: pointer;
@@ -201,45 +242,12 @@ nav {
   }
 }
 
-/* Media Query para telas menores de 390x844 */
-@media screen and (max-width: 390px) {
-  :root {
-    --max-width: 90%; /* Reduzindo a largura máxima para dispositivos menores */
-  }
-
-  body {
-    font-size: 14px; /* Reduzindo o tamanho da fonte para dispositivos menores */
-  }
-
-  .nav__return {
-    padding: 0.5rem 1rem; /* Ajustando o padding do botão */
-    font-size: 0.8rem; /* Reduzindo o tamanho da fonte do botão */
-  }
-
+/* Media Query para telas maiores de 768x1024 até 1440x900 */
+@media screen and (min-width: 769px) and (max-width: 1440px) {
   .footer {
-    position: fixed;
-    bottom: 0;
-    left: 0;
+    position: relative;
+    bottom: auto;
     width: 100%;
-    padding: 1rem;
-    background-color: var(--primary-color);
-    color: var(--white);
-    text-align: center;
   }
 }
 
-@media screen and (min-width: 769px) and (max-width: 1024px) {
-  .about__container {
-    margin-bottom: 50px; /* Adicionando margem inferior para evitar que o conteúdo ultrapasse o rodapé */
-  }
-
-
-
-  .about__item img {
-    margin: 0 auto 1rem; /* Centralizando imagens e adicionando margem inferior */
-  }
-
-  .about__item {
-    text-align: center; /* Centralizando texto nos itens */
-  }
-}
