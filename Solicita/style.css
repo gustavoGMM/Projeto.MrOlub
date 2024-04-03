@@ -1,70 +1,64 @@
 body {
-  font-family: 'Calibri', sans-serif; /* Define Calibri como fonte padrão */
+  font-family: 'Calibri', sans-serif;
   margin: 0;
   padding: 0;
-  background: linear-gradient(to bottom, #2e004d, #ffffff); /* Gradiente do branco para #4900da */
-  min-height: 100vh; /* Faz com que o gradiente cubra a tela inteira */
-  overflow-x: hidden; /* Oculta a barra de rolagem horizontal quando necessário */
+  background: linear-gradient(to right, #2e004d, #ffffff);
+  min-height: 100vh;
+  overflow-x: hidden;
 }
 
 * {
   box-sizing: border-box;
 }
 
-/* Estilos para o navbar */
 .navbar {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background-color: transparent; /* Fundo transparente para a barra de navegação */
+  background-color: transparent;
   padding: 8px 20px;
 }
 
-/* Estilos para o ícone */
 .navbar__icon {
-  width: 150px; /* Ajuste o tamanho do ícone conforme necessário */
+  width: 150px;
 }
 
-/* Estilos para o botão "Voltar à Home" */
 .return-home {
-  background-color: #2e004d; /* Cor de fundo */
-  color: white; /* Cor do texto */
+  background-color: #2e004d;
+  color: white;
   text-decoration: none;
-  padding: 10px 20px; /* Espaçamento interno */
+  padding: 10px 20px;
   border: none;
-  border-radius: 5px; /* Borda arredondada */
+  border-radius: 5px;
   cursor: pointer;
-  transition: background-color 0.3s ease; /* Transição suave ao passar o mouse */
+  transition: background-color 0.3s ease;
 }
 
 .return-home:hover {
-  background-color: #4900da; /* Cor de fundo ao passar o mouse */
+  background-color: #4900da;
 }
 
-/* Estilos para o container principal */
 .container {
   max-width: 1200px;
   margin: 0 auto;
   padding: 20px;
 }
 
-/* Estilos para o conteúdo */
 .content-container {
   display: flex;
-  flex-wrap: wrap; /* Permite que o conteúdo se ajuste em telas menores */
-  justify-content: center; /* Centraliza o conteúdo na tela */
+  flex-wrap: wrap;
+  justify-content: center;
   gap: 20px;
 }
 
-/* Estilos para o formulário */
 .form-container {
-  flex: 1; /* Ocupa todo o espaço disponível */
-  background-color: transparent; /* Fundo transparente */
+  flex: 1;
+  background-color: rgba(255, 255, 255, 0.8);
   padding: 30px;
   border-radius: 10px;
-  max-width: calc(50% - 10px); /* Metade do container - espaço */
-  color: white; /* Definindo a cor do texto como branco */
-  box-shadow: 0 0 10px rgba(2, 2, 2, 0.3); /* Borda borrada com sombra vermelha semi-transparente */
+  max-width: calc(50% - 10px);
+  color: #2e004d;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
 }
 
 .form-container h1 {
@@ -88,7 +82,7 @@ body {
 }
 
 .form-container button {
-  background-color: #4900da;
+  background-color: #2e004d;
   color: #ffffff;
   border: none;
   padding: 10px 20px;
@@ -101,13 +95,12 @@ body {
   background-color: #4900da;
 }
 
-/* Estilos para a imagem */
 .image-container {
-  max-width: calc(50% - 10px); /* Metade do container - espaço */
+  max-width: calc(50% - 10px);
 }
 
 .image-container img {
-  max-width: 150%; /* A imagem se ajusta ao tamanho do container */
+  max-width: 100%;
   height: auto;
   border-radius: 10px;
   animation: slideIn 1s ease;
@@ -124,30 +117,41 @@ body {
   }
 }
 
-/* Estilos para tornar o formulário responsivo */
 @media screen and (max-width: 768px) {
+  .container {
+    max-width: 90%;
+  }
+
   .content-container {
-    flex-direction: column; /* Empilha os elementos em telas menores */
-    align-items: center; /* Centraliza os elementos na tela */
+    flex-direction: column;
+    align-items: center;
   }
 
   .form-container,
   .image-container {
-    max-width: 100%; /* Ocupa toda a largura do container pai */
-    margin: 0 auto; /* Centralizar os containers */
+    max-width: 100%;
+    margin: 0 auto;
   }
 
   .form-container {
-    padding: 20px; /* Reduzir o preenchimento do formulário */
-    margin-bottom: 20px; /* Adicionar espaço entre o formulário e a imagem */
+    padding: 20px;
+    margin-bottom: 20px;
   }
 
   .image-container {
-    margin-top: 20px; /* Adicionar espaço acima da imagem */
+    margin-top: 20px;
+  }
+}
+
+@media screen and (max-width: 390px) {
+  .form-container,
+  .image-container {
+    max-width: 100%;
+    margin: 0 auto;
+    padding: 10px;
   }
 
   .image-container img {
-    width: 100%; /* Garantir que a imagem ocupe toda a largura do container */
-    height: auto; /* Altura automática para manter a proporção */
+    max-width: 100%;
   }
 }
