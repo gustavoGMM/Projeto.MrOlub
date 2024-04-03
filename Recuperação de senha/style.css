@@ -10,20 +10,14 @@ body, html {
 
 /* Adicionando estilos para o ícone no canto superior esquerdo */
 .icon-left-top {
-    position: fixed; /* Torna o ícone fixo na página */
-    top: 10px; /* Define a distância do topo da página */
-    left: 860px; /* Define a distância da borda esquerda da página */
-}
-
-.icon-left-top img {
-    width: 200px; /* Ajuste o tamanho do ícone conforme necessário */
+    display: none; /* Oculta o ícone em telas pequenas */
 }
 
 .container {
-    max-width: 400px;
+    max-width: 90%; /* Usando uma porcentagem para o máximo de largura */
     margin: 0 auto;
-    padding: 40px;
-    background-color:transparent; /* Cor de fundo do container */
+    padding: 20px;
+    background-color: transparent; /* Cor de fundo do container */
     border-radius: 10px;
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.1); /* Sombra suave */
     color: #ffffff; /* Cor do texto */
@@ -55,20 +49,23 @@ button:hover {
 }
 
 .back-to-login-btn {
-    background-color: #4900da; /* Cor de fundo */
-    color: rgb(0, 0, 0); /* Cor do texto */
-    border: none; /* Remover a borda */
-    border-radius: 5px; /* Adicionar bordas arredondadas */
-    cursor: pointer; /* Alterar o cursor ao passar o mouse */
-    transition: background-color 0.1s ease; /* Adicionar transição suave na mudança de cor de fundo */
-    margin-right: 15px; /* Ajustar margem à direita */
-    margin-left: 110px; /* Ajustar margem à esquerda */
-    width: calc(50% - 20px); /* Ajustar largura do botão */
-    text-decoration: none; /* Remover sublinhado */
-    display: inline-block; /* Garantir que o link se comporte como um bloco */
-    text-align: center; /* Centralizar texto */
-    line-height: 40px; /* Centralizar verticalmente o texto */
+    background-color: #4900da;
+    color: rgb(0, 0, 0);
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.1s ease;
+    margin-right: 0;
+    margin-left: 100px; /* Movendo o botão um pouco para a direita */
+    width: calc(50% - 30px); /* Reduzindo a largura do botão */
+    text-decoration: none;
+    display: inline-block;
+    text-align: center;
+    line-height: 40px;
 }
+
+
+
 
 .back-to-login-btn:hover {
     background-color: #ffffff; /* Cor de fundo ao passar o mouse */
@@ -106,4 +103,9 @@ button:hover {
     }
 }
 
+@media only screen and (min-width: 768px) {
+    .container {
+        max-width: 400px; /* Define uma largura máxima para telas maiores */
+    }
+}
 
