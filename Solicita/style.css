@@ -74,12 +74,30 @@ body {
 
 .form-container input,
 .form-container textarea {
-  width: 100%;
+  width: calc(100% - 22px); /* Considerando o espaço ocupado pelas bordas */
   padding: 10px;
   margin-bottom: 15px;
   border: 1px solid #ccc;
   border-radius: 5px;
+  max-width: calc(100% - 22px); /* Considerando o espaço ocupado pelas bordas */
+  min-width: calc(100% - 22px); /* Considerando o espaço ocupado pelas bordas */
+  resize: vertical;
 }
+
+
+.form-container #mensagem {
+  width: calc(100% - 22px); /* Considerando o espaço ocupado pelas bordas */
+  padding: 10px;
+  margin-bottom: 15px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  max-width: calc(100% - 22px); /* Considerando o espaço ocupado pelas bordas */
+  min-width: calc(100% - 22px); /* Considerando o espaço ocupado pelas bordas */
+  max-height: 140px; /* Definindo altura máxima */
+  min-height: 100px; /* Definindo altura mínima */
+  resize: vertical;
+}
+
 
 .form-container button {
   background-color: #2e004d;
@@ -104,6 +122,7 @@ body {
   height: auto;
   border-radius: 10px;
   animation: slideIn 1s ease;
+  margin-top: 100px; /* Ajuste na margem superior */
 }
 
 @keyframes slideIn {
