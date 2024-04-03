@@ -209,7 +209,7 @@ a {
   
   .login-form-btn {
     font-size: 17px;
-    color: var(--white-color);
+    color: #ffffff; /* Definir a cor do texto como branco */
     line-height: 1.2;
     text-transform: uppercase;
     display: flex;
@@ -226,8 +226,9 @@ a {
   
   .login-form-btn:hover {
     background-color: var(--highligth-text);
-    color: var(--white-color);
+    color: #000000; /* Alterar a cor do texto para preto quando o mouse passar por cima */
   }
+  
   
   
   
@@ -283,13 +284,15 @@ a {
     margin-left: 10px;
     padding: 10px 20px;
     background-color: #4900da; 
-    color: #000000; 
+    color: #ffffff; /* Definir a cor do texto como branco */
     border: none;
     border-radius: 5px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    transition: background-color 0.3s ease; 
+    transition: background-color 0.3s ease, color 0.3s ease; /* Adicionar transição para a cor de fundo e a cor do texto */
   }
   
   .password-btn:hover {
     background-color: #ffffff;
+    color: #000000; /* Alterar a cor do texto para preto quando o mouse passar por cima */
   }
+  
