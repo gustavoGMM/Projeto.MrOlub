@@ -44,3 +44,17 @@ document.addEventListener("DOMContentLoaded", function() {
   // Aqui você deve fazer uma solicitação ao backend para obter os dados das requisições de Pix
   // e chamar a função renderPixRequests com os dados recebidos
 });
+
+
+fetch('https://restcountries.com/v3.1/all')
+  .then(response => response.json())
+  .then(data => {
+    // Processar os dados recebidos
+    console.log(data); // Exemplo: exibir os dados no console
+
+    // Atualizar o DOM com os dados recebidos
+    // Exemplo: criar elementos HTML e inserir os dados
+  })
+  .catch(error => {
+    console.error('Erro ao recuperar dados da API:', error);
+  });
