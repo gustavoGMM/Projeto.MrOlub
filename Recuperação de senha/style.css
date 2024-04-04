@@ -56,7 +56,7 @@ button:hover {
     cursor: pointer;
     transition: background-color 0.1s ease;
     margin-right: 0;
-    margin-left: 100px; /* Movendo o botão um pouco para a direita */
+    margin-left: 110px; /* Movendo o botão um pouco para a direita */
     width: calc(50% - 30px); /* Reduzindo a largura do botão */
     text-decoration: none;
     display: inline-block;
