@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Panel</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cabrini&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header class="header">
+        <h1>Painel de Administrador</h1>
+        <a href="logout.php" class="logout">Sair da conta</a>
+    </header>
+    <div class="container">
+        <section class="pix-requests">
+            <h2>Requerimentos de Pix</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Remetente</th>
+                        <th>Quantia</th>
+                        <th>Data</th>
+                        <th>Status</th>
+                        <th>Ação</th>
+                    </tr>
+                </thead>
+                <tbody id="pixRequestsTable">
+                    <!-- Os requerimentos de Pix serão adicionados dinamicamente aqui -->
+                </tbody>
+            </table>
+        </section>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
+
