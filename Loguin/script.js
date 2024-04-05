@@ -61,3 +61,26 @@
       const elemento = document.getElementById(idElemento);
       elemento.innerHTML = mensagem;
     }
+
+     // // // // // // // // // // //
+
+    app.post('/api/auth/user/login', (req, res) => {
+    const { nomeDeUsuario, senhaDoUsuario } = req.body;
+
+    // Verifique as credenciais do usuário
+    if (validarCredenciais(nomeDeUsuario, senhaDoUsuario)) {
+        const papelDoUsuario = obterPapelDoUsuario(nomeDeUsuario);
+
+        // Verifique o papel do usuário
+        if (papelDoUsuario === 'FUNCIONARIO_COLETA_MOTORISTA') {
+            return res.status(403).json({ error: 'Acesso negado para este usuário.' });
+        } else {
+            // Autenticação bem-sucedida para outros papéis de usuário
+            // Gere um token JWT ou crie a sessão do usuário, conforme necessário
+            const token = gerarTokenJWT(nomeDeUsuario);
+            return res.status(200).json({ token: token });
+        }
+    } else {
+        return res.status(401).json({ error: 'Credenciais inválidas.' });
+    }
+});
