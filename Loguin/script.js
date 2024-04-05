@@ -34,12 +34,20 @@ function fetchDataFromLocalhost() {
           password: document.getElementById('senhaDoUsuario').value // O valor do campo de senha
       })
   })
-  .then(response => response.json())
+  .then(response => {
+      if (!response.ok) {
+          throw new Error('Erro ao realizar o login. Por favor, verifique suas credenciais e tente novamente.');
+      }
+      return response.json();
+  })
   .then(data => {
       // Processar os dados recebidos da API
       console.log(data);
+      // Aqui você pode fazer algo com os dados recebidos, como redirecionar o usuário para a próxima página ou exibir uma mensagem de sucesso
   })
   .catch(error => {
       console.error('Erro ao buscar dados da API:', error);
+      // Aqui você pode exibir uma mensagem de erro para o usuário informando que houve um problema ao tentar fazer o login
   });
 }
+
