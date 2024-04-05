@@ -61,5 +61,3 @@
       const elemento = document.getElementById(idElemento);
       elemento.innerHTML = mensagem;
     }
-
-
