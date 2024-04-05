@@ -1,6 +1,6 @@
 document.addEventListener("DOMContentLoaded", async function() {
     try {
-        const response = await fetch('URL_DA_API');
+        const response = await fetch('http://localhost:8080/api/auth/user/login');
         if (!response.ok) {
             throw new Error('Erro ao carregar lista de itens.');
         }
