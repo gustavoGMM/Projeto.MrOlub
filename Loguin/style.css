@@ -306,3 +306,25 @@ width: 350px; /* Ajuste a largura conforme necessário */
     color: #000000; /* Alterar a cor do texto para preto quando o mouse passar por cima */
   }
   
+  .mensagem {
+    opacity: 0;
+    margin-top: 10px;
+    padding: 10px;
+    border-radius: 5px;
+    transition: opacity 0.3s ease;
+}
+
+.sucesso {
+    background-color: #4caf50; /* verde */
+    color: white;
+}
+
+.erro {
+    background-color: #f44336; /* vermelho */
+    color: white;
+}
+
+.mostrar {
+    opacity: 1;
+}
+
