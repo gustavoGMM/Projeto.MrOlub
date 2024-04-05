@@ -1,60 +1,62 @@
 document.addEventListener("DOMContentLoaded", function() {
-  const pixRequestsTable = document.getElementById("pixRequestsTable");
+    const pixRequestsTable = document.getElementById("pixRequestsTable");
 
-  // Função para renderizar a tabela de requisições de Pix
-  function renderPixRequests(requests) {
-      pixRequestsTable.innerHTML = "";
-      requests.forEach(request => {
-          const row = `
-              <tr>
-                  <td>${request.sender}</td>
-                  <td>${request.amount}</td>
-                  <td>${request.date}</td>
-                  <td>${request.status}</td>
-                  <td>
-                      <button class="acceptBtn" data-sender="${request.sender}" data-amount="${request.amount}">Aceitar</button>
-                      <button class="rejectBtn" data-sender="${request.sender}" data-amount="${request.amount}">Rejeitar</button>
-                  </td>
-              </tr>
-          `;
-          pixRequestsTable.innerHTML += row;
-      });
-  }
+    // Função para renderizar a tabela de requisições de Pix
+    function renderPixRequests(requests) {
+        pixRequestsTable.innerHTML = "";
+        requests.forEach(request => {
+            const row = `
+                <tr>
+                    <td>${request.id}</td>
+                    <td>${request.cnpj}</td>
+                    <td>${request.nomeMotorista}</td>
+                    <td>${request.nomeFantasia}</td>
+                    <td>${request.telefone}</td>
+                    <td>${request.status}</td>
+                    <td>${new Date().toLocaleDateString('pt-BR')}</td> <!-- Adiciona a data atual -->
+                    <td>
+                        <button class="confirmBtn" data-sender="${request.sender}" data-amount="${request.amount}">Sim</button>
+                        <button class="rejectBtn" data-sender="${request.sender}" data-amount="${request.amount}">Não</button>
+                    </td>
+                </tr>
+            `;
+            pixRequestsTable.innerHTML += row;
+        });
+    }
 
-  // Função para lidar com o clique no botão "Aceitar"
-  pixRequestsTable.addEventListener("click", function(event) {
-      if (event.target.classList.contains("acceptBtn")) {
-          const sender = event.target.getAttribute("data-sender");
-          const amount = event.target.getAttribute("data-amount");
-          // Aqui você pode implementar a lógica para lidar com a aceitação da requisição de Pix
-          console.log(`Requisição de Pix de ${sender} no valor de ${amount} aceita`);
-      }
-  });
+    // Função para lidar com o clique no botão "Sim" (confirmar)
+    pixRequestsTable.addEventListener("click", function(event) {
+        if (event.target.classList.contains("confirmBtn")) {
+            const sender = event.target.getAttribute("data-sender");
+            const amount = event.target.getAttribute("data-amount");
+            // Mostrar o modal de confirmação
+            confirmationModal.style.display = "block";
+            // Definir a lógica para confirmar a liberação do Pix quando o botão "Sim" é clicado
+            confirmButton.onclick = function() {
+                console.log(`Requisição de Pix de ${sender} no valor de ${amount} confirmada`);
+                // Aqui você pode implementar a lógica real para lidar com a confirmação da requisição de Pix
+                // Por exemplo, enviar uma solicitação para o backend para liberar o Pix
+                // Depois de lidar com a confirmação, feche o modal
+                confirmationModal.style.display = "none";
+            };
+        }
+    });
 
-  // Função para lidar com o clique no botão "Rejeitar"
-  pixRequestsTable.addEventListener("click", function(event) {
-      if (event.target.classList.contains("rejectBtn")) {
-          const sender = event.target.getAttribute("data-sender");
-          const amount = event.target.getAttribute("data-amount");
-          // Aqui você pode implementar a lógica para lidar com a rejeição da requisição de Pix
-          console.log(`Requisição de Pix de ${sender} no valor de ${amount} rejeitada`);
-      }
-  });
+    // Função para lidar com o clique no botão "Não" (rejeitar)
+    pixRequestsTable.addEventListener("click", function(event) {
+        if (event.target.classList.contains("rejectBtn")) {
+            const sender = event.target.getAttribute("data-sender");
+            const amount = event.target.getAttribute("data-amount");
+            console.log(`Requisição de Pix de ${sender} no valor de ${amount} rejeitada`);
+            // Aqui você pode implementar a lógica real para lidar com a rejeição da requisição de Pix
+        }
+    });
 
-  // Aqui você deve fazer uma solicitação ao backend para obter os dados das requisições de Pix
-  // e chamar a função renderPixRequests com os dados recebidos
+    // Fechar o modal quando o usuário clica no botão de fechar
+    const closeButtons = document.getElementsByClassName("close");
+    for (let i = 0; i < closeButtons.length; i++) {
+        closeButtons[i].onclick = function() {
+            confirmationModal.style.display = "none";
+        };
+    }
 });
-
-
-fetch('https://restcountries.com/v3.1/all')
-  .then(response => response.json())
-  .then(data => {
-    // Processar os dados recebidos
-    console.log(data); // Exemplo: exibir os dados no console
-
-    // Atualizar o DOM com os dados recebidos
-    // Exemplo: criar elementos HTML e inserir os dados
-  })
-  .catch(error => {
-    console.error('Erro ao recuperar dados da API:', error);
-  });
