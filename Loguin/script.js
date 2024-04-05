@@ -83,6 +83,8 @@ function exibirMensagem(idElemento, mensagem, sucesso) {
   }
 }
 
+////////////////////////////////////////////
+
 app.post('/api/auth/user/login', (req, res) => {
   const { nomeDeUsuario, senhaDoUsuario } = req.body;
 
