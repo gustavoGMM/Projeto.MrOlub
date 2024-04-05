@@ -1,5 +1,6 @@
 document.addEventListener("DOMContentLoaded", function() {
     const pixRequestsTable = document.getElementById("pixRequestsTable");
+    const redirectionButton = document.getElementById("redirectionButton");
 
     // Função para renderizar a tabela de requisições de Pix
     function renderPixRequests(requests) {
@@ -9,7 +10,6 @@ document.addEventListener("DOMContentLoaded", function() {
                 <tr>
                     <td>${request.id}</td>
                     <td>${request.cnpj}</td>
-                    <td>${request.nomeMotorista}</td>
                     <td>${request.nomeFantasia}</td>
                     <td>${request.telefone}</td>
                     <td>${request.status}</td>
@@ -52,11 +52,9 @@ document.addEventListener("DOMContentLoaded", function() {
         }
     });
 
-    // Fechar o modal quando o usuário clica no botão de fechar
-    const closeButtons = document.getElementsByClassName("close");
-    for (let i = 0; i < closeButtons.length; i++) {
-        closeButtons[i].onclick = function() {
-            confirmationModal.style.display = "none";
-        };
-    }
+    // Função para lidar com o clique no botão de redirecionamento
+    redirectionButton.addEventListener("click", function() {
+        // Redirecionar para a homepage
+        window.location.href = "URL_DA_HOMEPAGE";
+    });
 });
