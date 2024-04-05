@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Login</title>
+  <link rel="stylesheet" type="text/css" href="/Loguin/style.css">
+</head>
+<body>
+  <div class="container">
+    <div class="container-login">
+      <div class="wrap-login">
+        <form id="loginForm" class="login-form">
+          <span class="login-form-title">Faça o login</span>
+
+          <div class="wrap-input margin-top-35 margin-bottom-35">
+            <input id="nomeDeUsuario" class="input-form" type="text" name="email" autocomplete="off" placeholder="Nome de usuário" required>
+            <span class="focus-input-form"></span>
+          </div>
+
+          <div class="input-password-container">
+            <div class="wrap-input margin-bottom-35">
+              <input id="senhaDoUsuario" class="input-form" type="password" name="password" placeholder="Senha" required>
+              <span class="focus-input-form"></span>
+            </div>
+            <button type="button" id="showPasswordBtn" class="password-btn">Mostrar Senha</button>
+            <button type="button" id="hidePasswordBtn" class="password-btn" style="display: none;">Ocultar Senha</button>
+          </div>
+
+          <div class="container-login-form-btn">
+            <button type="submit" class="login-form-btn">Login</button>
+          </div>
+
+          <ul class="login-utils">
+            <li class="margin-bottom-8 margin-top-8">
+              <span class="text1">Esqueceu sua</span>
+              <a href="/Recuperação de senha/index.html" class="text2">senha?</a>
+            </li>
+            <li>
+              <span class="text1">Ainda sem conta?</span>
+              <a href="/Cadrastro/index.html" class="text2">Criar</a>
+            </li>
+          </ul>
+        </form>
+        <div id="mensagemSucesso"></div>
+        <div id="mensagemErro"></div>
+
+      </div>
+      <img src="/assets/09 Logotipo BRANCO MR OLUC  - Calile Comunicação.png" class="margin-left-50" />
+    </div>
+  </div>
+  <!-- Elementos para exibir mensagens de sucesso e erro -->
+  <div id="mensagemSucesso"></div>
+  <div id="mensagemErro"></div>
+
+  <script>
+    document.getElementById('showPasswordBtn').addEventListener('click', function() {
+      togglePasswordVisibility(true);
+    });
+
+    document.getElementById('hidePasswordBtn').addEventListener('click', function() {
+      togglePasswordVisibility(false);
+    });
+
+    function togglePasswordVisibility(show) {
+      const senhaDoUsuario = document.getElementById('senhaDoUsuario');
+      const showPasswordBtn = document.getElementById('showPasswordBtn');
+      const hidePasswordBtn = document.getElementById('hidePasswordBtn');
+      
+      if (show) {
+          senhaDoUsuario.type = 'text';
+          showPasswordBtn.style.display = 'none';
+          hidePasswordBtn.style.display = 'block';
+      } else {
+          senhaDoUsuario.type = 'password';
+          showPasswordBtn.style.display = 'block';
+          hidePasswordBtn.style.display = 'none';
+      }
+    }
+
+    document.getElementById('loginForm').addEventListener('submit', function(event) {
+      event.preventDefault(); // Evita o envio do formulário padrão
+
+      // Obtém os valores dos campos de entrada
+      const nomeDeUsuario = document.getElementById('nomeDeUsuario').value;
+      const senhaDoUsuario = document.getElementById('senhaDoUsuario').value;
+
+      // Envia a solicitação para a API local
+      fetch('http://localhost:8080/api/coletas/register', {
+          method: 'POST',
+          headers: {
+              'Content-Type': 'application/json'
+          },
+          body: JSON.stringify({
+              username: nomeDeUsuario,
+              password: senhaDoUsuario
+          })
+      })
+      .then(response => {
+          if (!response.ok) {
+              throw new Error('Erro ao realizar o login. Por favor, verifique suas credenciais e tente novamente.');
+          }
+          return response.json();
+      })
+      .then(data => {
+          // Exibe mensagem de sucesso
+          exibirMensagem('mensagemSucesso', 'Login bem-sucedido!');
+      })
+      .catch(error => {
+          // Exibe mensagem de erro
+          exibirMensagem('mensagemErro', error.message);
+      });
+    });
+
+    // Função para exibir mensagem em um elemento
+    function exibirMensagem(idElemento, mensagem) {
+      const elemento = document.getElementById(idElemento);
+      elemento.innerHTML = mensagem;
+    }
+  </script>
+</body>
+</html>
+
