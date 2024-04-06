@@ -24,7 +24,7 @@ document.getElementById('loginForm').addEventListener('submit', function(event) 
     .then(data => {
         sessionStorage.setItem('userToken', data.token);
         if (data.role === "FUNCIONARIO_ADMINISTRACAO") {
-            window.location.href = "/pagAdm/index.html"; 
+            window.location.href = "/pages/pagAdm/index.html"; 
         } else {
             exibirMensagem('mensagemErro', 'Usuário não tem autorização.');
         }

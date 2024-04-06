@@ -1,60 +1,56 @@
-document.addEventListener("DOMContentLoaded", function() {
-    const pixRequestsTable = document.getElementById("pixRequestsTable");
-    const redirectionButton = document.getElementById("redirectionButton");
-
-    // Função para renderizar a tabela de requisições de Pix
-    function renderPixRequests(requests) {
-        pixRequestsTable.innerHTML = "";
-        requests.forEach(request => {
-            const row = `
-                <tr>
-                    <td>${request.id}</td>
-                    <td>${request.cnpj}</td>
-                    <td>${request.nomeFantasia}</td>
-                    <td>${request.telefone}</td>
-                    <td>${request.status}</td>
-                    <td>${new Date().toLocaleDateString('pt-BR')}</td> <!-- Adiciona a data atual -->
-                    <td>
-                        <button class="confirmBtn" data-sender="${request.sender}" data-amount="${request.amount}">Sim</button>
-                        <button class="rejectBtn" data-sender="${request.sender}" data-amount="${request.amount}">Não</button>
-                    </td>
-                </tr>
-            `;
-            pixRequestsTable.innerHTML += row;
-        });
-    }
-
-    // Função para lidar com o clique no botão "Sim" (confirmar)
-    pixRequestsTable.addEventListener("click", function(event) {
-        if (event.target.classList.contains("confirmBtn")) {
-            const sender = event.target.getAttribute("data-sender");
-            const amount = event.target.getAttribute("data-amount");
-            // Mostrar o modal de confirmação
-            confirmationModal.style.display = "block";
-            // Definir a lógica para confirmar a liberação do Pix quando o botão "Sim" é clicado
-            confirmButton.onclick = function() {
-                console.log(`Requisição de Pix de ${sender} no valor de ${amount} confirmada`);
-                // Aqui você pode implementar a lógica real para lidar com a confirmação da requisição de Pix
-                // Por exemplo, enviar uma solicitação para o backend para liberar o Pix
-                // Depois de lidar com a confirmação, feche o modal
-                confirmationModal.style.display = "none";
-            };
-        }
-    });
-
-    // Função para lidar com o clique no botão "Não" (rejeitar)
-    pixRequestsTable.addEventListener("click", function(event) {
-        if (event.target.classList.contains("rejectBtn")) {
-            const sender = event.target.getAttribute("data-sender");
-            const amount = event.target.getAttribute("data-amount");
-            console.log(`Requisição de Pix de ${sender} no valor de ${amount} rejeitada`);
-            // Aqui você pode implementar a lógica real para lidar com a rejeição da requisição de Pix
-        }
-    });
-
-    // Função para lidar com o clique no botão de redirecionamento
-    redirectionButton.addEventListener("click", function() {
-        // Redirecionar para a homepage
-        window.location.href = "URL_DA_HOMEPAGE";
-    });
+document.addEventListener('DOMContentLoaded', () => {
+    carregarFornecedoresNaoAutorizados();
 });
+
+function carregarFornecedoresNaoAutorizados() {
+    fazerRequisicaoComToken('http://localhost:8080/admin/fornecedores/naoAutorizados', 'GET')
+        .then(dados => {
+            popularTabelaPix(dados);
+        })
+        .catch(error => {
+            console.error('Erro ao carregar os dados de Pix:', error);
+        });
+}
+
+function popularTabelaPix(dados) {
+    const tabela = document.getElementById('pixRequestsTable');
+    tabela.innerHTML = ''; // Limpa a tabela antes de adicionar novos dados
+
+    dados.forEach(item => {
+        const linha = document.createElement('tr');
+
+        // Criação e adição das células na linha
+        linha.innerHTML = `
+            <td>${item.id}</td>
+            <td>${item.cnpj}</td>
+            <td>${item.nomeFantasia}</td>
+            <td>${item.telefone}</td>
+            <td>${item.autorizado ? 'Autorizado' : 'Não Autorizado'}</td>
+            <td>${item.dataConsulta}</td>
+            <td><button class="autorizarFornecedorBtn" data-id="${item.id}">Autorizar</button></td>
+        `;
+
+        tabela.appendChild(linha);
+    });
+
+    // Adicionar eventos nos botões para autorizar fornecedores
+    document.querySelectorAll('.autorizarFornecedorBtn').forEach(botao => {
+        botao.addEventListener('click', (evento) => {
+            const fornecedorId = evento.target.getAttribute('data-id');
+            autorizarFornecedor(fornecedorId);
+        });
+    });
+}
+
+function autorizarFornecedor(fornecedorId) {
+    fazerRequisicaoComToken(`http://localhost:8080/admin/fornecedores/autorizar/${fornecedorId}`, 'POST')
+        .then(response => {
+            console.log('Fornecedor autorizado com sucesso:', response);
+            // Gustavo se tu manjar aqui é onde carrega os fornecedores não sei se tem algo que atualiza automatico sei la
+
+            carregarFornecedoresNaoAutorizados();
+        })
+        .catch(error => {
+            console.error('Erro ao autorizar fornecedor:', error);
+        });
+}
