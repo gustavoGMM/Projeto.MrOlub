@@ -5,22 +5,34 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Admin Panel</title>
     <link href="https://fonts.googleapis.com/css2?family=Cabrini&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="/pages/pagAdm/styles.css">
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
     <header class="header">
+        <div class="logo">
+            <img src="/assets/imagens/logo-color (2).png" alt="Ícone Foto">
+        </div>
         <h1>Painel de Administrador</h1>
+        <div class="user-info">
+            <p>Bem-vindo, <span id="username">Nome</span></p>
+        </div>
         <a href="/pages/pagAdm/logout.php" class="logout">Sair da conta</a>
-        <button id="redirectionButton">Ir para a homepage</button>
     </header>
+    <nav class="navbar">
+        <ul>
+            <li><a href="#">Home</a></li>
+            <li><a href="#">Autorizados</a></li>
+            <li><a href="#">Cancelados</a></li>
+        </ul>
+    </nav>
     <div class="container">
         <section class="pix-requests">
             <h2>Requerimentos de Pix</h2>
             <table>
                 <thead>
                     <tr>
-                        <th>Id</th>
-                        <th>Cnpj</th>
+                        <th>ID</th>
+                        <th>CNPJ</th>
                         <th>Nome fantasia</th>
                         <th>Telefone</th>
                         <th>Status</th>
@@ -38,19 +50,10 @@
     <!-- Elemento para exibir a data atual -->
     <div id="currentDate"></div>
 
-    <!-- Modal de confirmação -->
-    <div id="confirmationModal" class="modal">
-        <div class="modal-content">
-            <span class="close">&times;</span>
-            <p>Você tem certeza de que deseja liberar o Pix?</p>
-            <button id="confirmButton">Sim</button>
-            <button id="cancelButton">Cancelar</button>
-        </div>
-    </div>
-
     <script src="/src/auth/apiService.js"></script>
-<script src="/src/admin/admin.js"></script>
+    <script src="/src/admin/admin.js"></script>
 </body>
 </html>
+
 
 
