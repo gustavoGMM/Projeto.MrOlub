@@ -1,3 +1,4 @@
+// faz o botao mostrar e ocultar senha
 document.getElementById('showPasswordBtn').addEventListener('click', function() {
     togglePasswordVisibility(true);
   });
