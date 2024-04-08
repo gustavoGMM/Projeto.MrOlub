@@ -21,9 +21,9 @@ width: 350px; /* Ajuste a largura conforme necessário */
 :root {
     --main-color: #4900da;
     --link-color: #666666;
-    --text1: #ffffff;
-    --highligth-text: #ffffff;
-    --input-text: #ffffff;
+    --text1: #050505;
+    --highligth-text: #e4e4e4;
+    --input-text: #4900da;
     --point-list: #CCCCCC;
     --line-input: #D9D9D9;
   }
@@ -112,7 +112,7 @@ width: 350px; /* Ajuste a largura conforme necessário */
   
   .wrap-login {
     width: 370px; /* Ajuste conforme necessário */
-    background-color: transparent; /* Cor transparente com base na primeira cor do gradiente */
+    background-color: white; /* Cor transparente com base na primeira cor do gradiente */
     backdrop-filter: blur(70px); /* Aplica um efeito de borrado com 10px */
     padding: 15px;
     border-radius: 15px; /* Adiciona um raio de borda de 15px para tornar o container mais redondinho */
@@ -131,7 +131,7 @@ width: 350px; /* Ajuste a largura conforme necessário */
   .login-form-title {
     display: block;
     font-size: 39px;
-    color: rgba(255, 255, 255, 0.8); /* Cor branca com 80% de transparência */
+    color: #4900da; /* Cor branca com 80% de transparência */
     line-height: 1.2;
     text-align: center;
   }
@@ -306,7 +306,7 @@ width: 350px; /* Ajuste a largura conforme necessário */
   }
   
   .password-btn:hover {
-    background-color: #ffffff;
+    background-color: #e4e4e4;
     color: #000000; /* Alterar a cor do texto para preto quando o mouse passar por cima */
   }
   
