@@ -306,25 +306,23 @@ width: 350px; /* Ajuste a largura conforme necessário */
     color: #000000; /* Alterar a cor do texto para preto quando o mouse passar por cima */
   }
   
-  .mensagem {
-    opacity: 0;
-    margin-top: 10px;
-    padding: 10px;
-    border-radius: 5px;
-    transition: opacity 0.3s ease;
+ /* Estilos para mensagens de autorização e não autorização */
+.mensagem {
+  display: none; /* Inicialmente oculto */
+  padding: 10px;
+  margin-top: 10px;
+  border-radius: 5px;
+  text-align: center;
 }
 
-.sucesso {
-    background-color: #4caf50; /* verde */
-    color: white;
+/* Estilos para mensagens de autorização */
+.mensagem-autorizado {
+  background-color: #4caf50; /* Cor de fundo verde */
+  color: white; /* Cor do texto branco */
 }
 
-.erro {
-    background-color: #f44336; /* vermelho */
-    color: white;
+/* Estilos para mensagens de não autorização */
+.mensagem-nao-autorizado {
+  background-color: #f44336; /* Cor de fundo vermelha */
+  color: white; /* Cor do texto branco */
 }
-
-.mostrar {
-    opacity: 1;
-}
-
