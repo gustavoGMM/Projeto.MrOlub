@@ -1,6 +1,29 @@
-document.addEventListener('DOMContentLoaded', () => {
-    carregarFornecedoresNaoAutorizados();
-});
+// Função para fazer requisições à API incluindo o token de autenticação
+function fazerRequisicaoComToken(url, metodo, corpo = null) {
+    const token = sessionStorage.getItem('userToken');
+    const configuracoes = {
+        method: metodo,
+        headers: {
+            'Content-Type': 'application/json',
+            'Authorization': `Bearer ${token}`
+        }
+    };
+
+    if (corpo) {
+        configuracoes.body = JSON.stringify(corpo);
+    }
+
+    return fetch(url, configuracoes)
+        .then(response => {
+            if (!response.ok) {
+                throw new Error('Falha na requisição: ' + response.statusText);
+            }
+            return response.json();
+        })
+        .catch(error => {
+            console.error('Erro na requisição:', error);
+        });
+}
 
 function carregarFornecedoresNaoAutorizados() {
     fazerRequisicaoComToken('http://localhost:8080/admin/fornecedores/naoAutorizados', 'GET')
@@ -46,8 +69,7 @@ function autorizarFornecedor(fornecedorId) {
     fazerRequisicaoComToken(`http://localhost:8080/admin/fornecedores/autorizar/${fornecedorId}`, 'POST')
         .then(response => {
             console.log('Fornecedor autorizado com sucesso:', response);
-            // Gustavo se tu manjar aqui é onde carrega os fornecedores não sei se tem algo que atualiza automatico sei la
-
+            // Aqui você pode atualizar a lista de fornecedores não autorizados
             carregarFornecedoresNaoAutorizados();
         })
         .catch(error => {
