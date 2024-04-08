@@ -76,3 +76,40 @@ function autorizarFornecedor(fornecedorId) {
             console.error('Erro ao autorizar fornecedor:', error);
         });
 }
+
+
+// Adiciona evento de clique aos botões de autorização
+
+document.addEventListener('DOMContentLoaded', () => {
+    carregarFornecedoresNaoAutorizados();
+    
+    document.querySelectorAll('.autorizarFornecedorBtn').forEach(botao => {
+        botao.addEventListener('click', (evento) => {
+            const fornecedorId = evento.target.getAttribute('data-id');
+            exibirModalConfirmacao(fornecedorId);
+        });
+    });
+
+    // Adiciona evento de clique ao botão "Sim" na modal de confirmação
+    document.getElementById('btnConfirmar').addEventListener('click', () => {
+        const fornecedorId = document.getElementById('modalConfirmacao').getAttribute('data-fornecedor-id');
+        autorizarFornecedor(fornecedorId);
+        fecharModal();
+    });
+
+    // Adiciona evento de clique ao botão "Cancelar" na modal de confirmação
+    document.getElementById('btnCancelar').addEventListener('click', () => {
+        fecharModal();
+    });
+});
+
+function exibirModalConfirmacao(fornecedorId) {
+    const modal = document.getElementById('modalConfirmacao');
+    modal.setAttribute('data-fornecedor-id', fornecedorId);
+    modal.style.display = 'block';
+}
+
+function fecharModal() {
+    const modal = document.getElementById('modalConfirmacao');
+    modal.style.display = 'none';
+}
