@@ -111,10 +111,14 @@ width: 350px; /* Ajuste a largura conforme necessário */
   
   
   .wrap-login {
-    width: 370px;
-    margin-right: 50px;
-    background: var(--white-color);
-  }
+    width: 370px; /* Ajuste conforme necessário */
+    background-color: w; /* Cor transparente com base na primeira cor do gradiente */
+    backdrop-filter: blur(70px); /* Aplica um efeito de borrado com 10px */
+    padding: 15px;
+    border-radius: 15px; /* Adiciona um raio de borda de 15px para tornar o container mais redondinho */
+}
+
+
   
   /*
     Formulário
