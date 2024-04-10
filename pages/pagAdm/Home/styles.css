@@ -17,14 +17,26 @@ body {
   margin-bottom: 20px;
 }
 
-.construction h1 {
-  font-size: 32px;
+.title {
+  font-size: 48px; /* Tamanho do título aumentado para 48px */
   margin: 10px 0;
 }
 
-.construction p {
-  font-size: 18px;
+.message {
+  font-size: 24px; /* Tamanho da mensagem aumentado para 24px */
   color: #666;
 }
 
+.btn-back {
+  display: inline-block;
+  padding: 10px 20px;
+  background-color: #2e004d;
+  color: #fff;
+  text-decoration: none;
+  border-radius: 5px;
+  margin-top: 20px;
+}
 
+.btn-back:hover {
+  background-color: #4900da;
+}
