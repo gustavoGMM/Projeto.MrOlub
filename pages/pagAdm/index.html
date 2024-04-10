@@ -21,9 +21,8 @@
     <nav class="navbar">
         <ul>
             <li><a href="#">Home</a></li>
-            <li><a href="#">Funcionarios</a></li>
-            <li><a href="#">Autorizados</a></li>
-            <li><a href="#">Não autorizados</a></li>
+            <li><a href="/pages/pagAdm/autorizados/index.html">Autorizados</a></li>
+            <li><a href="/pages/pagAdm/naoAutorizado/index.html">Não Autorizados</a></li>
         </ul>
     </nav>
     <div class="container">
@@ -62,8 +61,8 @@
     <!-- Elemento para exibir a data atual -->
     <div id="currentDate"></div>
 
-    <script src="/src/auth/apiService.js"></script>
-    <script src="/src/admin/admin.js"></script>
+<script src="/src/auth/apiService.js"></script>
+<script src="/src/admin/admin.js"></script>
     <script>
         document.addEventListener('DOMContentLoaded', () => {
             carregarFornecedoresNaoAutorizados();

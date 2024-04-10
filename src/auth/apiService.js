@@ -1,5 +1,4 @@
 // Função para fazer requisições à API incluindo o token de autenticação
-// metodo(função em javãoscripto ;-;) que tem que ser utilizado em tudo que precisa do token :3
 function fazerRequisicaoComToken(url, metodo, corpo = null) {
     const token = sessionStorage.getItem('userToken');
     const configuracoes = {
