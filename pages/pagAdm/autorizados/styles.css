@@ -12,17 +12,21 @@ body {
   background-color: #f0f0f0;
 }
 
+.logo img {
+  width: 150px; /* Aumenta o tamanho do ícone */
+  height: 60px; /* Aumenta o tamanho do ícone */
+}
+
+.user-info {
+  text-align: right;
+}
+
 .navbar {
   background-color: #2e004d; /* Cor de fundo mais sóbria */
   overflow: hidden;
   text-align: center;
   padding: 10px 0; /* Espaçamento interno reduzido */
-  position: fixed; /* Fixa a barra de navegação no topo */
-  width: 100%; /* Define a largura da barra de navegação como 100% */
-  top: 0; /* Posiciona a barra de navegação no topo da página */
-  z-index: 1000; /* Garante que a barra de navegação esteja acima de outros elementos */
 }
-
 
 .navbar ul {
   list-style-type: none;
@@ -63,6 +67,8 @@ body {
   margin-bottom: 40px; /* Aumenta o espaçamento inferior */
 }
 
+
+
 table {
   width: 100%;
   border-collapse: collapse;
@@ -78,6 +84,40 @@ th, td {
 
 th {
   background-color: #f2f2f2;
+}
+
+/* Estilo para a modal de confirmação */
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0,0,0,0.4);
+}
+
+.modal-content {
+  background-color: #fefefe;
+  margin: 15% auto;
+  padding: 20px;
+  border: 1px solid #888;
+  width: 80%;
+}
+
+.modal-buttons {
+  text-align: center;
+}
+
+.modal-buttons button {
+  margin: 5px;
+  padding: 10px 20px;
+}
+
+.modal-buttons button:hover {
+  cursor: pointer;
 }
 
 
