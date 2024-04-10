@@ -3,15 +3,35 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Em Construção</title>
+    <title>Admin Panel</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cabrini&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+    <header class="header">
+        <div class="logo">
+            <img src="/assets/imagens/logo-color (2).png" alt="Ícone Foto">
+        </div>
+        <h1>Home</h1>
+        <div class="user-info">
+            <p>Bem-vindo, <span id="username">Nome</span></p>
+        </div>
+        <a href="/pages/pagAdm/logout.php" class="logout">Sair da conta</a>
+    </header>
+    <nav class="navbar">
+        <ul>
+            <li><a href="/pages/pagAdm/Home/index.html">Home</a></li>
+            <li><a href="/pages/pagAdm/autorizados/index.html">Autorizados</a></li>
+            <li><a href="/pages/pagAdm/naoAutorizado/index.html">Não Autorizados</a></li>
+            <li><a href="/pages/pagAdm/funcionarios/index.html">Funcionarios</a></li>
+        </ul>
+    </nav>
+
+
+<body>
     <div class="construction">
-        <img src="/assets/imagens/logo-color (2).png" alt="Em Construção">
         <h1 class="title">Em Construção</h1>
         <p class="message">Estamos trabalhando nesta página. Por favor, volte em breve!</p>
-        <a href="/pages/pagAdm/index.html" class="btn-back">Voltar à Página de Administração</a>
     </div>
 </body>
 </html>
