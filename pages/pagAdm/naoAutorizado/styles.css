@@ -1,0 +1,123 @@
+body {
+  font-family: 'Cabrini', sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px;
+  background-color: #f0f0f0;
+}
+
+.logo img {
+  width: 150px; /* Aumenta o tamanho do ícone */
+  height: 60px; /* Aumenta o tamanho do ícone */
+}
+
+.user-info {
+  text-align: right;
+}
+
+.navbar {
+  background-color: #2e004d; /* Cor de fundo mais sóbria */
+  overflow: hidden;
+  text-align: center;
+  padding: 10px 0; /* Espaçamento interno reduzido */
+}
+
+.navbar ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+.navbar li {
+  display: inline-block;
+  margin-right: 20px; /* Espaçamento entre os itens da barra de navegação */
+}
+
+.navbar li:last-child {
+  margin-right: 0; /* Remove o espaço à direita do último item */
+}
+
+.navbar li a {
+  display: block;
+  color: #fff; /* Cor do texto */
+  text-decoration: none;
+  padding: 10px 20px;
+  font-size: 16px; /* Tamanho da fonte */
+  font-weight: bold; /* Peso da fonte */
+}
+
+.navbar li a:hover {
+  background-color: #4900da; /* Cor de fundo quando hover */
+}
+
+
+.container {
+  padding: 40px; /* Aumenta o preenchimento interno */
+  margin: 0 auto; /* Centraliza o contêiner horizontalmente */
+  max-width: 1200px; /* Define a largura máxima do contêiner */
+}
+
+.pix-requests {
+  margin-bottom: 40px; /* Aumenta o espaçamento inferior */
+}
+
+
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+table, th, td {
+  border: 1px solid black;
+}
+
+th, td {
+  padding: 8px;
+}
+
+th {
+  background-color: #f2f2f2;
+}
+
+/* Estilo para a modal de confirmação */
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0,0,0,0.4);
+}
+
+.modal-content {
+  background-color: #fefefe;
+  margin: 15% auto;
+  padding: 20px;
+  border: 1px solid #888;
+  width: 80%;
+}
+
+.modal-buttons {
+  text-align: center;
+}
+
+.modal-buttons button {
+  margin: 5px;
+  padding: 10px 20px;
+}
+
+.modal-buttons button:hover {
+  cursor: pointer;
+}
+
+

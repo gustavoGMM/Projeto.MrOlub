@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Panel</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cabrini&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header class="header">
+        <div class="logo">
+            <img src="/assets/imagens/logo-color (2).png" alt="Ícone Foto">
+        </div>
+        <h1>Painel de Não Autorizados</h1>
+        <div class="user-info">
+            <p>Bem-vindo, <span id="username">Nome</span></p>
+        </div>
+        <a href="/pages/pagAdm/logout.php" class="logout">Sair da conta</a>
+    </header>
+    <nav class="navbar">
+        <ul>
+            <li><a href="#">Home</a></li>
+            <li><a href="#">Funcionarios</a></li>
+            <li><a href="#">Autorizados</a></li>
+        </ul>
+    </nav>
+    <div class="container">
+        <section class="pix-requests">
+            <h2>Requerimentos de Pix</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>CNPJ</th>
+                        <th>Nome fantasia</th>
+                        <th>Telefone</th>
+                        <th>Status</th>
+                        <th>Data</th>
+                        <th>Ação</th>
+                    </tr>
+                </thead>
+                <tbody id="pixRequestsTable">
+                    <!-- Os requerimentos de Pix serão adicionados dinamicamente aqui -->
+                </tbody>
+            </table>
+        </section>
+        <!-- Modal de confirmação -->
+    <div id="modalConfirmacao" class="modal">
+    <div class="modal-content">
+      <p>Você tem certeza que deseja autorizar este fornecedor?</p>
+      <div class="modal-buttons">
+        <button id="btnConfirmar">Sim</button>
+        <button id="btnCancelar">Cancelar</button>
+      </div>
+    </div>
+  </div>
+  
+    </div>
+
+    <!-- Elemento para exibir a data atual -->
+    <div id="currentDate"></div>
+
+    <script src="/src/auth/apiService.js"></script>
+    <script src="/src/admin/admin.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            carregarFornecedoresNaoAutorizados();
+        });
+    </script>
+</body>
+</html>
+
+
