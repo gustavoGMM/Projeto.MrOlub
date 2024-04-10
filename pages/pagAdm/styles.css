@@ -22,8 +22,10 @@ body {
 }
 
 .navbar {
-  background-color: #2e004d;
-  overflow: hidden; /* Adiciona overflow hidden para ocultar elementos que não cabem na barra de navegação */
+  background-color: #2e004d; /* Cor de fundo mais sóbria */
+  overflow: hidden;
+  text-align: center;
+  padding: 10px 0; /* Espaçamento interno reduzido */
 }
 
 .navbar ul {
@@ -33,28 +35,39 @@ body {
 }
 
 .navbar li {
-  float: left;
+  display: inline-block;
+  margin-right: 20px; /* Espaçamento entre os itens da barra de navegação */
+}
+
+.navbar li:last-child {
+  margin-right: 0; /* Remove o espaço à direita do último item */
 }
 
 .navbar li a {
   display: block;
-  color: white;
-  text-align: center;
-  padding: 14px 16px;
+  color: #fff; /* Cor do texto */
   text-decoration: none;
+  padding: 10px 20px;
+  font-size: 16px; /* Tamanho da fonte */
+  font-weight: bold; /* Peso da fonte */
 }
 
 .navbar li a:hover {
-  background-color: #4900da;
+  background-color: #4900da; /* Cor de fundo quando hover */
 }
 
+
 .container {
-  padding: 100px; /* Diminui o padding do container */
+  padding: 40px; /* Aumenta o preenchimento interno */
+  margin: 0 auto; /* Centraliza o contêiner horizontalmente */
+  max-width: 1200px; /* Define a largura máxima do contêiner */
 }
 
 .pix-requests {
-  margin-bottom: 20px;
+  margin-bottom: 40px; /* Aumenta o espaçamento inferior */
 }
+
+
 
 table {
   width: 100%;

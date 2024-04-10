@@ -116,8 +116,6 @@ width: 350px; /* Ajuste a largura conforme necessário */
     padding: 15px;
     border-radius: 15px; /* Adiciona um raio de borda de 15px para tornar o container mais redondinho */
 }
-
-
   
   /*
     Formulário
@@ -242,9 +240,6 @@ width: 350px; /* Ajuste a largura conforme necessário */
     color: #000000; /* Alterar a cor do texto para preto quando o mouse passar por cima */
   }
   
-  
-  
-  
   /*
    Login
   */
@@ -329,3 +324,4 @@ width: 350px; /* Ajuste a largura conforme necessário */
   background-color: #f44336; /* Cor de fundo vermelha */
   color: white; /* Cor do texto branco */
 }
+
