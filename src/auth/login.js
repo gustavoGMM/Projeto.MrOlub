@@ -71,7 +71,7 @@ document.getElementById('loginForm').addEventListener('submit', function(event) 
     fazerLogin(nomeDeUsuario, senhaDoUsuario)
     .then(data => {
         if (data.role === "FUNCIONARIO_ADMINISTRACAO") {
-            window.location.href = "/pages/pagAdm/index.html"; 
+            window.location.href = "/pages/pagAdm/Home/home.html"; 
         } else {
             exibirMensagem('mensagemErro', 'Usuário não tem autorização.');
         }
