@@ -164,7 +164,7 @@ th {
 
 .modal-content {
   background-color: #ffffff;
-  margin: 15% auto; /* 15% do topo e centralizado horizontalmente */
+  margin: 500px 0 0 20%; /* Margem superior, direita, inferior e esquerda respectivamente */
   padding: 20px;
   border: 1px solid #888;
   width: 21%; /* Ou um valor fixo em px para larguras maiores */
@@ -172,6 +172,9 @@ th {
   border-radius: 10px;
   color: #2e004d;
 }
+
+
+
 
 .modal-buttons button {
   padding: 10px 20px;
