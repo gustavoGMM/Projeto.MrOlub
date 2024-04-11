@@ -243,3 +243,8 @@ td:last-child {
     max-width: 90%; /* ou qualquer valor que funcione melhor para o seu layout */
   }
 }
+
+.navbar a.active {
+  color: red;
+  /* Adicione outros estilos de destaque conforme necessário */
+}
