@@ -122,7 +122,7 @@ nav {
 }
 
 .footer {
-  position: absolute;
+  position: fixed; /* Alterado de 'absolute' para 'fixed' */
   bottom: 0;
   width: 100%;
   padding: 1rem;
@@ -130,6 +130,7 @@ nav {
   color: var(--white);
   text-align: center;
 }
+
 
 .footer p {
   font-size: 1rem;
