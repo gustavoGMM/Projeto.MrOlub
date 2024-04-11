@@ -1,38 +1,36 @@
 body {
-    font-family: 'Cabrini', sans-serif;
-    background-color: #f4f4f4;
-    color: #333;
-    line-height: 1.6;
-    margin: 0;
+  font-family: 'Cabrini', sans-serif;
+  background-color: #f4f4f4;
+  color: #333;
+  line-height: 1.6;
+  margin: 0;
 }
 
 a {
-    color: #333;
+  color: #333;
 }
 
 .header {
   background: #ffffff;
   color: #000000;
-  padding: 20px;
+  padding: 10px;
   text-align: center;
   position: sticky;
   top: 0;
   z-index: 1000;
-  display: flex; /* Altera o layout para flexbox */
-  justify-content: space-between; /* Alinha os elementos flexíveis ao longo do eixo principal, com espaço entre eles */
-  align-items: center; /* Alinha os itens ao centro verticalmente */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
 .header h1 {
-  margin-left: 10px; /* Adiciona um espaçamento entre o logo e o h1 */
+  margin-left: 10px;
 }
 
 .header .logo img {
   max-height: 60px;
-  margin-right: auto; /* Move o logo para o canto esquerdo */
+  margin-right: auto;
 }
-
-
 
 .user-info, .logout {
   text-align: right;
@@ -44,10 +42,10 @@ a {
 }
 
 .navbar {
-  background-color: #2e004d; /* Cor de fundo mais sóbria */
+  background-color: #2e004d;
   display: flex;
   justify-content: center;
-  padding: 10px 0; /* Espaçamento interno reduzido */
+  padding: 10px 0;
 }
 
 .navbar ul {
@@ -79,7 +77,6 @@ a {
   border-radius: 4px;
   font-size: 16px;
   box-sizing: border-box;
-
 }
 
 .input-valor:focus {
@@ -92,37 +89,25 @@ a {
   cursor: pointer;
 }
 
-
-
 .input-valor.valor-confirmado {
   cursor: default;
-  color: #555; /* Cor do texto após confirmação */
-  background-color: #e7e7e7; /* Fundo cinza claro para indicar que não é mais editável */
+  color: #555;
+  background-color: #e7e7e7;
 }
 
-
-
 .container {
-  padding: 40px; /* Aumenta o preenchimento interno */
-  margin: 0 auto; /* Centraliza o contêiner horizontalmente */
-  max-width: 1200px; /* Define a largura máxima do contêiner */
-  background-color: #ffffff; /* Cor de fundo cinza */
-  border: 2px solid #ccc; /* Adiciona uma borda sólida cinza mais escura */
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2); /* Sombra pronunciada */
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Sombra mais suave */
-  transition: box-shadow 0.3s ease; /* Transição suave para a sombra */
+  padding: 20px;
+  margin: 0 auto;
+  max-width: 100%;
+  background-color: #ffffff;
+  border: 2px solid #ccc;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
   border-radius: 10px;
 }
 
-.container:hover {
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2); /* Aumenta a sombra ao passar o mouse */
-}
-
 .pix-requests {
-  margin-bottom: 40px; /* Aumenta o espaçamento inferior */
+  margin-bottom: 40px;
 }
-
-
 
 table {
   width: 100%;
@@ -131,103 +116,94 @@ table {
 }
 
 thead {
-  background-color: #f2f2f2; /* Cor de fundo do cabeçalho da tabela */
+  background-color: #f2f2f2;
 }
-
 
 table, th, td {
   border: 1px solid black;
 }
 
 th, td {
-    padding: 10px;
-    border: 1px solid #ccc;
-    text-align: left;
+  padding: 10px;
+  border: 1px solid #ccc;
+  text-align: left;
 }
 
 th {
   font-weight: bold;
 }
 
-
 .modal {
-  display: none; /* Mudar para 'block' para exibir */
+  display: none;
   position: fixed;
-  z-index: 1; /* Fica na frente de outros itens */
+  z-index: 1;
   left: 0;
   top: 0;
   width: 100%;
   height: 100%;
-  overflow: auto; /* Habilita scroll se necessário */
-  background-color: rgba(0,0,0,0.4); /* Sombra escura semi-transparente */
+  overflow: auto;
+  background-color: rgba(0,0,0,0.4);
 }
 
 .modal-content {
   background-color: #ffffff;
-  margin: 500px 0 0 20%; /* Margem superior, direita, inferior e esquerda respectivamente */
+  margin: 200px auto; /* Muda de margin: 200px 0 0 5%; para margin: 200px auto; */
   padding: 20px;
   border: 1px solid #888;
-  width: 21%; /* Ou um valor fixo em px para larguras maiores */
-  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19); /* Sombra suave */
+  width: 22%;
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
   border-radius: 10px;
   color: #2e004d;
 }
 
 
-
-
 .modal-buttons button {
   padding: 10px 20px;
-  background-color: #06dd35; /* Fundo preto */
-  color: #ffffff; /* Cinza claro para texto */
+  background-color: #06dd35;
+  color: #ffffff;
   border: none;
   cursor: pointer;
   display: inline-block;
-  margin: 0 5px; /* Espaçamento entre botões */
+  margin: 0 5px;
   border-radius: 10px;
 }
 
 .modal-buttons button:hover {
-  background-color: #2c9701; /* Escurece um pouco ao passar o mouse */
+  background-color: #2c9701;
 }
 
 #btnCancelar {
-  background-color: #ff0800; /* Vermelho para ação de cancelamento */
-  
+  background-color: #ff0800;
 }
 
 #btnCancelar:hover {
-  background-color: #c9302c; /* Vermelho mais escuro ao passar o mouse */
+  background-color: #c9302c;
 }
 
 .autorizarFornecedorBtn {
-  background-color: #5cb85c; /* Verde suave */
-  color: white; /* Texto branco */
+  background-color: #5cb85c;
+  color: white;
   border: none;
   padding: 5px 10px;
-  border-radius: 4px; /* Bordas levemente arredondadas */
+  border-radius: 4px;
   cursor: pointer;
   transition: background-color 0.3s ease-in-out;
   font-size: 14px;
-  
 }
 
 .autorizarFornecedorBtn:hover {
-  background-color: #4cae4c; /* Um tom de verde mais escuro ao passar o mouse */
+  background-color: #4cae4c;
 }
 
-
 td:last-child {
-  text-align: center; /* Centraliza o conteúdo horizontalmente */
-  vertical-align: middle; /* Centraliza o conteúdo verticalmente */
-  border: none; /* Remove qualquer borda existente */
-  background-color: transparent; /* Garante que não haja cor de fundo */
-  padding: 10px; /* Espaçamento interno; ajuste conforme necessário */
+  text-align: center;
+  vertical-align: middle;
+  border: none;
+  background-color: transparent;
+  padding: 10px;
   padding-bottom: 0;
 }
 
 .modal-buttons {
   text-align: center;
 }
-
-
