@@ -10,6 +10,24 @@ a {
   color: #333;
 }
 
+.logout-btn {
+  display: inline-block;
+  padding: 6px 12px; /* Reduzindo ainda mais o padding */
+  font-size: 12px; /* Reduzindo o tamanho da fonte */
+  background-color: #ff0000; /* Cor de fundo do botão */
+  color: #ffffff; /* Cor do texto do botão */
+  text-decoration: none;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease; /* Efeito de transição suave */
+}
+
+.logout-btn:hover {
+  background-color: #cc0000; /* Cor de fundo do botão ao passar o mouse */
+}
+
+
 .header {
   background: #ffffff;
   color: #000000;
@@ -245,6 +263,6 @@ td:last-child {
 }
 
 .navbar a.active {
-  color: red;
+  color: rgb(0, 255, 34);
   /* Adicione outros estilos de destaque conforme necessário */
 }
