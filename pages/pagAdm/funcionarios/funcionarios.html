@@ -38,38 +38,22 @@
                         <th>Telefone</th>
                         <th>Função</th>
                         <th>Valor Adiantado</th>
-                        <th>Ação</th>
+
                     </tr>
                 </thead>
                 <tbody id="pixRequestsTable">
-                    <!-- Os requerimentos de Pix serão adicionados dinamicamente aqui -->
+                    <!-- Os registros serão inseridos aqui dinamicamente pelo JavaScript -->
                 </tbody>
             </table>
         </section>
         <!-- Modal de confirmação -->
-    <div id="modalConfirmacao" class="modal">
-    <div class="modal-content">
-      <p>Você tem certeza que deseja autorizar este fornecedor?</p>
-      <div class="modal-buttons">
-        <button id="btnConfirmar">Sim</button>
-        <button id="btnCancelar">Cancelar</button>
-      </div>
+        <div id="modalConfirmacao" class="modal">
+            <!-- Conteúdo do modal -->
+        </div>
     </div>
-  </div>
-  
-    </div>
-
-    <!-- Elemento para exibir a data atual -->
-    <div id="currentDate"></div>
-
     <script src="/src/auth/apiService.js"></script>
     <script src="/src/admin/admin.js"></script>
     <script src="/src/admin/funcionarios.js"></script>
-    <script>
-        document.addEventListener('DOMContentLoaded', () => {
-            carregarFornecedoresNaoAutorizados();
-        });
-    </script>
 </body>
 </html>
 

@@ -1,67 +1,103 @@
 body {
-  font-family: 'Cabrini', sans-serif;
-  margin: 0;
-  padding: 0;
+    font-family: 'Cabrini', sans-serif;
+    background-color: #f4f4f4;
+    color: #333;
+    line-height: 1.6;
+    margin: 0;
+}
+
+a {
+    color: #333;
 }
 
 .header {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
+  background: #ffffff;
+  color: #000000;
   padding: 20px;
-  background-color: #f0f0f0;
+  text-align: center;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
 }
 
-.logo img {
-  width: 150px; /* Aumenta o tamanho do ícone */
-  height: 60px; /* Aumenta o tamanho do ícone */
+.header .logo img {
+    max-height: 60px;
 }
 
-.user-info {
+
+.user-info, .logout {
   text-align: right;
+}
+
+.logout {
+  color: #000000;
+  text-decoration: none;
 }
 
 .navbar {
   background-color: #2e004d; /* Cor de fundo mais sóbria */
-  overflow: hidden;
-  text-align: center;
+  display: flex;
+  justify-content: center;
   padding: 10px 0; /* Espaçamento interno reduzido */
 }
 
 .navbar ul {
-  list-style-type: none;
-  margin: 0;
+  list-style: none;
   padding: 0;
 }
 
-.navbar li {
-  display: inline-block;
-  margin-right: 20px; /* Espaçamento entre os itens da barra de navegação */
+.navbar ul li {
+  display: inline;
+  margin: 0 10px;
 }
 
-.navbar li:last-child {
-  margin-right: 0; /* Remove o espaço à direita do último item */
-}
-
-.navbar li a {
-  display: block;
-  color: #fff; /* Cor do texto */
+.navbar a {
+  color: #fff;
   text-decoration: none;
-  padding: 10px 20px;
-  font-size: 16px; /* Tamanho da fonte */
-  font-weight: bold; /* Peso da fonte */
+  font-weight: bold;
 }
 
-.navbar li a:hover {
-  background-color: #4900da; /* Cor de fundo quando hover */
+.input-valor.valor-confirmado {
+  background-color: #e7e7e7; 
+  color: #555;
+  border: 1px solid #aaa;
 }
+
+.input-valor {
+  width: 100%;
+  border: 1px solid rgb(113, 109, 109);
+  padding: 8px 12px;
+  border-radius: 4px;
+  font-size: 16px;
+  box-sizing: border-box;
+
+}
+
+.input-valor:focus {
+  border-color: #4A90E2;
+  outline: none;
+}
+
+.input-valor.read-only {
+  background-color: #f3f3f3;
+  cursor: pointer;
+}
+
+
+
+.input-valor.valor-confirmado {
+  cursor: default;
+  color: #555; /* Cor do texto após confirmação */
+  background-color: #e7e7e7; /* Fundo cinza claro para indicar que não é mais editável */
+}
+
 
 
 .container {
   padding: 40px; /* Aumenta o preenchimento interno */
   margin: 0 auto; /* Centraliza o contêiner horizontalmente */
   max-width: 1200px; /* Define a largura máxima do contêiner */
-  background-color: #f2f2f2; /* Cor de fundo cinza */
+  background-color: #ffffff; /* Cor de fundo cinza */
   border: 2px solid #ccc; /* Adiciona uma borda sólida cinza mais escura */
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2); /* Sombra pronunciada */
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Sombra mais suave */
@@ -80,53 +116,100 @@ body {
 
 table {
   width: 100%;
+  margin-top: 20px;
   border-collapse: collapse;
 }
+
+thead {
+  background-color: #f2f2f2; /* Cor de fundo do cabeçalho da tabela */
+}
+
 
 table, th, td {
   border: 1px solid black;
 }
 
 th, td {
-  padding: 8px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    text-align: left;
 }
 
 th {
-  background-color: #f2f2f2;
+  font-weight: bold;
 }
 
-/* Estilo para a modal de confirmação */
+
 .modal {
-  display: none;
+  display: none; /* Mudar para 'block' para exibir */
   position: fixed;
-  z-index: 1;
+  z-index: 1; /* Fica na frente de outros itens */
   left: 0;
   top: 0;
   width: 100%;
   height: 100%;
-  overflow: auto;
-  background-color: rgba(0,0,0,0.4);
+  overflow: auto; /* Habilita scroll se necessário */
+  background-color: rgba(0,0,0,0.4); /* Sombra escura semi-transparente */
 }
 
 .modal-content {
   background-color: #fefefe;
-  margin: 15% auto;
+  margin: 15% auto; /* 15% do topo e centralizado horizontalmente */
   padding: 20px;
   border: 1px solid #888;
-  width: 80%;
+  width: 80%; /* Ou um valor fixo em px para larguras maiores */
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19); /* Sombra suave */
+}
+
+.modal-buttons button {
+  padding: 10px 20px;
+  background-color: #000000; /* Fundo preto */
+  color: #dcdcdc; /* Cinza claro para texto */
+  border: none;
+  cursor: pointer;
+  display: inline-block;
+  margin: 0 5px; /* Espaçamento entre botões */
+}
+
+.modal-buttons button:hover {
+  background-color: #555; /* Escurece um pouco ao passar o mouse */
+}
+
+#btnCancelar {
+  background-color: #d41e18; /* Vermelho para ação de cancelamento */
+}
+
+#btnCancelar:hover {
+  background-color: #c9302c; /* Vermelho mais escuro ao passar o mouse */
+}
+
+.autorizarFornecedorBtn {
+  background-color: #5cb85c; /* Verde suave */
+  color: white; /* Texto branco */
+  border: none;
+  padding: 5px 10px;
+  border-radius: 4px; /* Bordas levemente arredondadas */
+  cursor: pointer;
+  transition: background-color 0.3s ease-in-out;
+  font-size: 14px;
+}
+
+.autorizarFornecedorBtn:hover {
+  background-color: #4cae4c; /* Um tom de verde mais escuro ao passar o mouse */
+}
+
+
+td:last-child {
+  text-align: center; /* Centraliza o conteúdo horizontalmente */
+  vertical-align: middle; /* Centraliza o conteúdo verticalmente */
+  border: none; /* Remove qualquer borda existente */
+  background-color: transparent; /* Garante que não haja cor de fundo */
+  padding: 10px; /* Espaçamento interno; ajuste conforme necessário */
+  padding-bottom: 0;
 }
 
 .modal-buttons {
   text-align: center;
-}
-
-.modal-buttons button {
-  margin: 5px;
-  padding: 10px 20px;
-}
-
-.modal-buttons button:hover {
-  cursor: pointer;
 }
 
 
