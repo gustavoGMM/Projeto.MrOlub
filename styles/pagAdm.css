@@ -105,6 +105,7 @@ a {
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Sombra mais suave */
   transition: box-shadow 0.3s ease; /* Transição suave para a sombra */
   border-radius: 10px;
+  overflow-x: auto;
 }
 
 .container:hover {
@@ -116,9 +117,25 @@ a {
 }
 
 table {
-  width: 100%;
-  margin-top: 20px;
+  width: 100%; /* Ajuste para tornar a tabela responsiva */
   border-collapse: collapse;
+  margin-top: 20px;
+}
+
+table th,
+table td {
+  border: 1px solid #ddd;
+  padding: 8px;
+  text-align: left;
+}
+
+table th {
+  background-color: #f2f2f2;
+}
+
+/* Ajusta o tamanho dos botões */
+table td button {
+  font-size: 12px;
 }
 
 thead {
@@ -212,4 +229,17 @@ td:last-child {
 
 .modal-buttons {
   text-align: center;
+}
+
+@media only screen and (max-width: 390px) {
+  table th,
+  table td {
+      font-size: 10px; /* Reduz o tamanho da fonte em telas menores */
+  }
+}
+
+@media only screen and (max-width: 390px) {
+  .container {
+    max-width: 90%; /* ou qualquer valor que funcione melhor para o seu layout */
+  }
 }
