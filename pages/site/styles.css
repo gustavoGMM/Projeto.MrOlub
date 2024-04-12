@@ -386,15 +386,17 @@ nav {
   .nav__links {
     display: none;
     position: fixed;
-    top: 60px; /* Altura da barra de navegação */
+    top: 0.1px; /* Altura da barra de navegação */
     left: 0;
-    width: 100%;
+    width: 82%;
     background-color: var(--primary-color);
     flex-direction: column;
     align-items: center;
     justify-content: center;
     z-index: 1000;
     padding-top: 20px; /* Espaçamento superior */
+    border-radius: 0;
+    border-bottom-right-radius: 10px;
   }
   
   .nav__links.open {
