@@ -266,3 +266,8 @@ td:last-child {
   color: rgb(0, 255, 34);
   /* Adicione outros estilos de destaque conforme necessário */
 }
+
+td:last-child .autorizarFornecedorBtn {
+  margin-bottom: 25px; /* Adicione espaço abaixo do botão de autorização */
+}
+
