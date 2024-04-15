@@ -164,7 +164,7 @@ td:last-child .autorizarFornecedorBtn {
 /* Adicionando gradiente ao fundo do cabeçalho */
 .header {
   background: linear-gradient(45deg, #2e004d, #55008a);
-  color: #ffffff;
+  color: #48ff00;
 }
 
 /* Estilo do botão Sair */
