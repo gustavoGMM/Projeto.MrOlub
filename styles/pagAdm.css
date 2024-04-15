@@ -239,7 +239,6 @@ th {
 td:last-child {
   text-align: center;
   vertical-align: middle;
-  border: none;
   background-color: transparent;
   padding: 10px;
   padding-bottom: 0;
