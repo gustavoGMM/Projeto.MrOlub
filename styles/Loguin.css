@@ -12,6 +12,8 @@ body, html {
   height: 100%;
   font-family: Arial, Helvetica, sans-serif;
   background: linear-gradient(to bottom, #4A264A, #40e6cc, #2e004d);
+  overflow: hidden;
+  height: 100%;
 }
 
 .container-login img {
@@ -324,4 +326,26 @@ width: 350px; /* Ajuste a largura conforme necessário */
   background-color: #f44336; /* Cor de fundo vermelha */
   color: white; /* Cor do texto branco */
 }
+
+/* Estilos para dispositivos móveis */
+@media only screen and (max-width: 600px) {
+  .wrap-login {
+    width: 90%; /* Reduz a largura do formulário para 90% da largura da tela */
+    overflow: hidden; /* Oculta qualquer conteúdo que vaze para fora do contêiner */
+    padding: 10px; /* Adiciona um pouco de espaço interno ao contêiner */
+  }
+  .container-login img {
+    width: 250px; /* Reduz a largura da imagem para 250px */
+    margin-left: 0; /* Remove a margem esquerda */
+  }
+  .login-form-title {
+    font-size: 30px; /* Reduz o tamanho do título */
+    margin-bottom: 20px; /* Adiciona um pouco de espaço abaixo do título */
+  }
+  .input-form {
+    height: auto; /* Permite que a altura do campo de entrada seja ajustada automaticamente */
+  }
+  /* Adicione outras regras de estilo específicas para dispositivos móveis aqui */
+}
+
 
