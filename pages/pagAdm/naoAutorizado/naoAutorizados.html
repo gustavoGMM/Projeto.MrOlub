@@ -4,15 +4,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Admin Panel</title>
-    <link href="https://fonts.googleapis.com/css2?family=Cabrini&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="/styles/pagAdm.css">
 </head>
 <body>
     <header class="header">
         <div class="logo">
-            <img src="/assets/imagens/logo-color (2).png" alt="Ícone Foto">
+            <img src="/assets/imagens/logo-white (2).png" alt="Ícone Foto">
         </div>
-       
         <div class="user-info">
             <p>Bem-vindo, <span id="username">Nome</span></p>
         </div>
@@ -46,21 +44,16 @@
                 </tbody>
             </table>
         </section>
-        <!-- Modal de confirmação -->
+    </div>
     <div id="modalConfirmacao" class="modal">
-    <div class="modal-content">
-      <p>Você tem certeza que deseja autorizar este fornecedor?</p>
-      <div class="modal-buttons">
-        <button id="btnConfirmar">Sim</button>
-        <button id="btnCancelar">Cancelar</button>
-      </div>
+        <div class="modal-content">
+            <p>Você tem certeza que deseja autorizar este fornecedor?</p>
+            <div class="modal-buttons">
+                <button id="btnConfirmar">Sim</button>
+                <button id="btnCancelar">Cancelar</button>
+            </div>
+        </div>
     </div>
-  </div>
-    </div>
-
-    <!-- Elemento para exibir a data atual -->
-    <div id="currentDate"></div>
-
     <script src="/src/auth/apiService.js"></script>
     <script src="/src/admin/admin.js"></script>
     <script src="/src/admin/fornecedoresNaoAutorizados.js"></script>
@@ -72,5 +65,6 @@
     </script>
 </body>
 </html>
+
 
 
