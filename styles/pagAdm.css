@@ -241,6 +241,17 @@ table td button:hover {
   background-color: #2e004d;
 }
 
+/* Para telas menores que 600px (smartphones típicos) */
+@media only screen and (max-width: 600px) {
+  .navbar {
+    flex-direction: column; /* Altera a direção do flex para empilhar os itens verticalmente */
+    align-items: center; /* Centraliza os itens verticalmente */
+  }
+
+  .navbar ul li {
+    margin: 10px 0; /* Adiciona um pouco de margem entre cada item da barra de navegação */
+  }
+}
 
 
 
