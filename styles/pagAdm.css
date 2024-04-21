@@ -140,11 +140,11 @@ th {
 /* Estilos para o conteúdo do modal */
 .modal-content {
   background-color: #ffffff;
-  margin: 20% auto; /* Centraliza horizontalmente e define a margem superior */
+  margin: 20% auto; 
   padding: 20px;
   border: 1px solid #888;
-  width: 80%; /* Reduz a largura do container */
-  max-width: 300px; /* Define a largura máxima */
+  width: 80%; 
+  max-width: 300px; 
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
   border-radius: 10px;
   color: #2e004d;
@@ -176,9 +176,9 @@ th {
 @media only screen and (max-width: 600px) {
   .modal-content {
     margin: 50% auto 0; /* Ajusta a margem superior para se posicionar mais para baixo em telas menores */
-    width: 90%; /* Reduz ainda mais a largura do container */
-    max-width: none; /* Remove a largura máxima */
-    border-radius: 0; /* Remove o arredondamento das bordas para tornar o modal mais quadrado */
+    width: 90%; 
+    max-width: none; 
+    border-radius: 0; 
   }
 }
 
@@ -209,7 +209,7 @@ td:last-child .autorizarFornecedorBtn {
   color: #ffffff;
   border: none;
   border-radius: 5px;
-  padding: 8px 16px; /* Aumentando um pouco o padding para destacar o botão */
+  padding: 8px 16px; 
   font-size: 14px;
 }
 
@@ -228,9 +228,9 @@ td:last-child .autorizarFornecedorBtn {
   color: #ffffff;
   text-decoration: none;
   font-weight: bold;
-  padding: 8px 16px; /* Aumentando o padding para melhorar a usabilidade */
-  border-radius: 5px; /* Arredondando as bordas dos links */
-  transition: background-color 0.3s ease; /* Efeito de transição suave */
+  padding: 8px 16px; 
+  border-radius: 5px; 
+  transition: background-color 0.3s ease; 
 }
 
 /* Estilo dos links na barra de navegação no hover */
@@ -241,11 +241,11 @@ td:last-child .autorizarFornecedorBtn {
 /* Estilo do contêiner principal */
 .container {
   padding: 40px;
-  margin: 20px auto; /* Adicionando um pouco de margem superior e inferior para espaçamento */
+  margin: 30px auto; /* Adicionando um pouco de margem superior e inferior para espaçamento */
   max-width: 1200px;
   background-color: #ffffff;
   border: 2px solid #ccc;
-  border-radius: 10px;
+  border-radius: 20px;
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
   overflow-x: auto;
 }
@@ -289,5 +289,8 @@ table td button:hover {
   }
 }
 
-
+.autorizarFornecedorBtn {
+  display: block;
+  margin: 20px auto 0; /* Adiciona uma margem superior de 10px e mantém as margens automáticas para centralização horizontal */
+}
 
