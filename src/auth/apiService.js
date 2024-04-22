@@ -1,6 +1,10 @@
-// Função para fazer requisições à API incluindo o token de autenticação
 function fazerRequisicaoComToken(url, metodo, corpo = null) {
     const token = sessionStorage.getItem('userToken');
+    if (!token) {
+        console.error('Token de autenticação não encontrado');
+        return Promise.reject(new Error('Token de autenticação ausente'));
+    }
+
     const configuracoes = {
         method: metodo,
         headers: {
@@ -16,11 +20,22 @@ function fazerRequisicaoComToken(url, metodo, corpo = null) {
     return fetch(url, configuracoes)
         .then(response => {
             if (!response.ok) {
-                throw new Error('Falha na requisição: ' + response.statusText);
+                throw new Error(`Falha na requisição: ${response.statusText}`);
             }
-            return response.json();
+            
+            const contentType = response.headers.get('Content-Type');
+            if (contentType && contentType.includes('application/json')) {
+                return response.json(); // Se for JSON
+            } else {
+                return response.text(); // Se não for JSON, trate como texto
+            }
+        })
+        .then(data => {
+            console.log("Resposta recebida:", data);
+            return data; // Retorna os dados recebidos
         })
         .catch(error => {
             console.error('Erro na requisição:', error);
+            throw error; // Propaga o erro para o chamador
         });
 }

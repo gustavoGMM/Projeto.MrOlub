@@ -14,7 +14,7 @@
         <div class="user-info">
             <p>Bem-vindo <span id="username"></span></p>
         </div>
-        <a href="/pages/Loguin/loguin.html" class="logout-btn">Sair</a>
+        <button class="logout-btn" onclick="window.location.href='/pages/Loguin/loguin.html'">Sair</button>
     </header>
     <nav class="navbar">
         <ul>
@@ -32,6 +32,7 @@
                     <tr>
                         <th>ID</th>
                         <th>CNPJ</th>
+                        <th>Chave Pix</th>
                         <th>Nome fantasia</th>
                         <th>Telefone</th>
                         <th>Status</th>
@@ -54,6 +55,17 @@
             </div>
         </div>
     </div>
+    <div id="modalConfirmacaoAlteracao" class="modal">
+        <div class="modal-content">
+            <p>Tem certeza que deseja alterar a chave Pix? para</p>
+            <div class="modal-buttons">
+                <button id="btnConfirmarAlteracao">Sim</button>
+                <button id="btnCancelarAlteracao">Não</button>
+            </div>
+        </div>
+    </div>
+    
+    
     <script src="/src/auth/apiService.js"></script>
     <script src="/src/admin/admin.js"></script>
     <script src="/src/admin/fornecedoresNaoAutorizados.js"></script>
