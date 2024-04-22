@@ -16,7 +16,7 @@
         <div class="user-info">
             <p>Bem-vindo <span id="username"></span></p>
         </div>
-        <a href="/pages/Loguin/loguin.html" class="logout-btn">Sair</a>
+        <button class="logout-btn" onclick="window.location.href='/pages/Loguin/loguin.html'">Sair</button>
     </header>
     <nav class="navbar">
         <ul>
@@ -46,10 +46,17 @@
                 </tbody>
             </table>
         </section>
-        <!-- Modal de confirmação -->
-        <div id="modalConfirmacao" class="modal">
-            <!-- Conteúdo do modal -->
+        <!-- Modal para confirmar valor adiantado -->
+<div id="modalConfirmacaoValor" class="modal">
+    <div class="modal-content">
+        <p>Você tem certeza que deseja definir este valor para o PIX?</p>
+        <div class="modal-buttons">
+            <button id="btnConfirmarValor">Sim</button>
+            <button id="btnCancelarValor">Não</button>
         </div>
+    </div>
+</div>
+
     </div>
     <script src="/src/auth/apiService.js"></script>
     <script src="/src/admin/admin.js"></script>

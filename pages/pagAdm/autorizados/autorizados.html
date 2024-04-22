@@ -12,13 +12,10 @@
         <div class="logo">
             <img src="/assets/imagens//logo-white (2).png" alt="Ícone Foto">
         </div>
-        
         <div class="user-info">
             <p>Bem-vindo <span id="username"></span></p>
         </div>
-        <a href="/pages/Loguin/loguin.html" class="logout-btn">Sair</a>
-
-
+        <button class="logout-btn" onclick="window.location.href='/pages/Loguin/loguin.html'">Sair</button>
     </header>
     <nav class="navbar">
         <ul>
@@ -30,12 +27,13 @@
     </nav>
     <div class="container">
         <section class="pix-requests">
-            <h2>Fornecedores autorizados a receber pagamento via PIX</h2>
+            <h2>Lista de fornecedores Autorizados</h2>
             <table>
                 <thead>
                     <tr>
                         <th>ID</th>
                         <th>CNPJ</th>
+                        <th>Chave Pix</th>
                         <th>Nome fantasia</th>
                         <th>Telefone</th>
                         <th>Status</th>
@@ -48,18 +46,39 @@
                 </tbody>
             </table>
         </section>
-        <!-- Modal de confirmação -->
-    <div id="modalConfirmacao" class="modal">
+        <!-- Modal para desautorizar fornecedores -->
+<div id="modalConfirmacao" class="modal">
     <div class="modal-content">
-      <p>Você tem certeza que deseja retirar a autorização desse fornecedor ?</p>
-      <div class="modal-buttons">
-        <button id="btnConfirmar">Sim</button>
-        <button id="btnCancelar">não</button>
-      </div>
+        <p>Você tem certeza que deseja desautorizar este fornecedor?</p>
+        <div class="modal-buttons">
+            <button id="btnConfirmar">Sim</button>
+            <button id="btnCancelar">Não</button>
+        </div>
     </div>
-  </div>
-  
+</div>
+
+<!-- Modal para alteração de chave Pix -->
+<div id="modalConfirmacaoAlteracaoPix" class="modal">
+    <div class="modal-content">
+        <p>Você tem certeza que deseja alterar a chave Pix?</p>
+        <div class="modal-buttons">
+            <button id="btnConfirmarAlteracaoPix">Sim</button>
+            <button id="btnCancelarAlteracaoPix">Não</button>
+        </div>
     </div>
+</div>
+
+<!-- Modal para definir valor para o PIX -->
+<div id="modalConfirmacaoValor" class="modal">
+    <div class="modal-content">
+        <p>Você tem certeza que deseja definir este valor para o PIX?</p>
+        <div class="modal-buttons">
+            <button id="btnConfirmarValor">Sim</button>
+            <button id="btnCancelarValor">Não</button>
+        </div>
+    </div>
+</div>
+</div>
 
     <!-- Elemento para exibir a data atual -->
     <div id="currentDate"></div>
@@ -70,7 +89,7 @@
     <script src="/src/admin/script.js"></script>
     <script>
         document.addEventListener('DOMContentLoaded', () => {
-            carregarFornecedoresNaoAutorizados();
+            carregarFornecedoresAutorizados();
         });
     </script>
 </body>

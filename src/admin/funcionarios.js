@@ -16,11 +16,12 @@ function formatarParaMoeda(valor) {
 
 function popularTabelaFuncionarios(dados) {
     const tabela = document.getElementById('pixRequestsTable');
-    tabela.innerHTML = ''; // Limpa a tabela antes de adicionar novos dados
+    tabela.innerHTML = '';  // Limpa a tabela antes de adicionar novos dados
 
     dados.forEach(funcionario => {
         const linha = document.createElement('tr');
         const valorFormatado = formatarParaMoeda(funcionario.valorAdiantado || 0);
+
         linha.innerHTML = `
             <td>${funcionario.id}</td>
             <td>${funcionario.nomeDoContato}</td>
@@ -34,35 +35,32 @@ function popularTabelaFuncionarios(dados) {
         tabela.appendChild(linha);
 
         const inputValor = linha.querySelector('.input-valor');
+
         inputValor.addEventListener('click', function() {
-            this.readOnly = false; // Torna editável ao clicar
-            this.classList.remove('read-only'); // Remove a classe read-only
-            this.style.border = '1px solid #ccc'; // Mostra a borda para indicar editabilidade
-        });
-
-        document.addEventListener('input', function(evento) {
-            if (evento.target.classList.contains('input-valor')) {
-                let valor = evento.target.value.replace(/\D/g, ''); // Remove tudo que não é dígito
-                valor = (valor / 100).toFixed(2) + ''; // Converte para decimal
-                valor = valor.replace('.', ','); // Troca ponto por vírgula
-                valor = valor.replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1.'); // Adiciona ponto como separador de milhar
-                evento.target.value = `R$ ${valor}`; // Adiciona R$ na frente
-            }
-        });
-
-        inputValor.addEventListener('blur', function() {
-            this.readOnly = true; // Volta ao estado somente leitura ao perder foco
-            this.style.border = '1px solid #ccc';
+            this.readOnly = false;  // Torna editável ao clicar
+            this.style.border = '1px solid #ccc';  // Mostra a borda para indicar que é editável
         });
 
         inputValor.addEventListener('keydown', function(evento) {
             if (evento.key === 'Enter') {
-                evento.preventDefault(); // Impede ação padrão do Enter
-                confirmarValor(funcionario.nomeDoContato, this.value, funcionario.id, this);
+                evento.preventDefault();  // Impede a ação padrão do Enter
+
+                const valor = this.value;
+                const id = this.getAttribute('data-id');
+                const nome = linha.querySelector('td:nth-child(2)').textContent;  // Nome do funcionário
+
+                exibirModalConfirmacaoValor(nome, valor, id, this);  // Exibe o modal para confirmação
             }
+        });
+
+        inputValor.addEventListener('blur', function() {
+            this.readOnly = true;  // Torna o campo somente leitura ao perder o foco
+            this.style.border = 'none';  // Remove a borda
         });
     });
 }
+
+
 
 function confirmarValor(nome, valor, id, inputElement) {
     // Remove a formatação antes de verificar e enviar
@@ -89,7 +87,6 @@ function definirValorPIX(funcionarioId, valor, inputElement) {
     .then(() => {
         alert('Valor definido com sucesso.');
         inputElement.readOnly = true; // Torna o campo somente leitura após confirmar
-        inputElement.style.border = 'none'; // Remove a borda para parecer como texto
     })
     .catch(error => {
         console.error('Erro ao definir valor do PIX:', error);
@@ -106,3 +103,38 @@ function traduzirRole(role) {
 
     return roles[role] || role;
 }
+
+function exibirModalConfirmacaoValor(nome, valor, id, inputElement) {
+    const modal = document.getElementById('modalConfirmacaoValor');
+    
+    const valorFormatado = valor.replace("R$", "").trim(); 
+    const mensagem = `Você tem certeza que deseja definir este valor de R$${valorFormatado} para ${nome}?`;
+    
+    modal.querySelector('.modal-content p').textContent = mensagem;  // Atualiza a mensagem do modal
+    modal.setAttribute('data-nome', nome);
+    modal.setAttribute('data-valor', valor);
+    modal.setAttribute('data-id', id);
+    modal.setAttribute('data-input', inputElement);
+    modal.style.display = 'block';  // Exibe o modal
+}
+
+
+function fecharModalConfirmacaoValor() {
+    const modal = document.getElementById('modalConfirmacaoValor');
+    modal.style.display = 'none'; // Fecha o modal
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+    document.getElementById('btnConfirmarValor').addEventListener('click', () => {
+        const modal = document.getElementById('modalConfirmacaoValor');
+        const nome = modal.getAttribute('data-nome');
+        const valor = modal.getAttribute('data-valor');
+        const id = parseInt(modal.getAttribute('data-id'));
+        const inputElement = modal.getAttribute('data-input');
+
+        definirValorPIX(id, parseFloat(valor.replace('R$', '').trim()), inputElement); // Confirma o valor para o PIX
+        fecharModalConfirmacaoValor(); // Fecha o modal após confirmação
+    });
+
+    document.getElementById('btnCancelarValor').addEventListener('click', fecharModalConfirmacaoValor); // Fecha o modal ao cancelar
+});

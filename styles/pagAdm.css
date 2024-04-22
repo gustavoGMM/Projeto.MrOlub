@@ -1,44 +1,32 @@
 body {
-  font-family: 'Cabrini', sans-serif;
   background-color: #f4f4f4;
-  color: #333;
   line-height: 1.6;
   margin: 0;
-}
-
-a {
-  color: #333;
-}
-
-.logout-btn {
-  display: inline-block;
-  padding: 6px 12px; 
-  font-size: 12px; 
-  background-color: #ff0000; 
-  color: #ffffff; 
-  text-decoration: none;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-  transition: background-color 0.3s ease; 
 }
 
 .logout-btn:hover {
   background-color: #cc0000; 
 }
 
+/* Adicionando gradiente ao fundo do cabeçalho */
 .header {
-  background: #ffffff;
-  color: #000000;
+  background: linear-gradient(45deg, #2e004d, #55008a);
   padding: 10px;
   text-align: center;
   position: sticky;
   top: 0;
   z-index: 1000;
   display: flex;
+  color: #48ff00;
   justify-content: space-between;
   align-items: center;
 }
+
+/* Div que contem */
+.user-info {
+  margin-right: 100px;  
+}
+
 
 .header .logo img {
   max-height: 60px;
@@ -78,7 +66,6 @@ table {
   margin-top: 20px;
 }
 
-table th,
 table td {
   border: 1px solid #ddd;
   padding: 8px;
@@ -97,7 +84,20 @@ table th:nth-child(3),
 table th:nth-child(4),
 table th:nth-child(5),
 table th:nth-child(6),
-table th:nth-child(7) {
+table th:nth-child(7),
+table th:nth-child(8) {
+  text-align: center;
+}
+
+/* Mesma lógica de centralizar */
+table td:nth-child(1),
+table td:nth-child(2),
+table td:nth-child(3),
+table td:nth-child(4),
+table td:nth-child(5),
+table td:nth-child(6),
+table td:nth-child(7),
+table td:nth-child(8) {
   text-align: center;
 }
 
@@ -156,9 +156,10 @@ th {
   margin-top: 20px;
 }
 
+/* Estilo base para botões de modais */
 .modal-buttons button {
   padding: 10px 20px;
-  background-color: #06dd35;
+  background-color: #06dd35; /* Verde para confirmação */
   color: #ffffff;
   border: none;
   cursor: pointer;
@@ -169,38 +170,26 @@ th {
 }
 
 .modal-buttons button:hover {
-  background-color: #2c9701;
+  background-color: #2c9701; /* Verde escuro ao passar o mouse */
 }
 
-/* Media query para telas menores que 600px (smartphones típicos) */
-@media only screen and (max-width: 600px) {
-  .modal-content {
-    margin: 50% auto 0; /* Ajusta a margem superior para se posicionar mais para baixo em telas menores */
-    width: 90%; 
-    max-width: none; 
-    border-radius: 0; 
-  }
+/* Estilo para botão de cancelamento */
+.modal-buttons #btnCancelar,
+.modal-buttons #btnCancelarAlteracao,
+.modal-buttons #btnCancelarAlteracaoPix,
+.modal-buttons #btnCancelarValor {
+  background-color: #ff0800; /* Vermelho para cancelamento */
 }
 
-
-
-
-#btnCancelar {
-  background-color: #ff0800;
-}
-
-#btnCancelar:hover {
-  background-color: #c9302c;
+.modal-buttons #btnCancelar:hover,
+.modal-buttons #btnCancelarAlteracao:hover,
+.modal-buttons #btnCancelarAlteracaoPix:hover,
+.modal-buttons #btnCancelarValor:hover {
+  background-color: #c9302c; /* Vermelho escuro ao passar o mouse */
 }
 
 td:last-child .autorizarFornecedorBtn {
   margin-bottom: 25px;
-}
-
-/* Adicionando gradiente ao fundo do cabeçalho */
-.header {
-  background: linear-gradient(45deg, #2e004d, #55008a);
-  color: #48ff00;
 }
 
 /* Estilo do botão Sair */
@@ -209,8 +198,10 @@ td:last-child .autorizarFornecedorBtn {
   color: #ffffff;
   border: none;
   border-radius: 5px;
-  padding: 8px 16px; 
-  font-size: 14px;
+  padding: 15px 30px; 
+  display: inline-block;
+  cursor: pointer;
+  transition: background-color 0.3s ease; 
 }
 
 /* Estilo do botão Sair no hover */
@@ -277,20 +268,142 @@ table td button:hover {
   background-color: #2e004d;
 }
 
-/* Para telas menores que 600px (smartphones típicos) */
+.autorizarFornecedorBtn {
+  display: block;
+  margin: 20px auto 0;
+}
+
+/* Estilo base para campos editáveis */
+.input-valor, .input-chave-pix {
+  background-color: #f9f9f9; /* Fundo claro por padrão */
+  border: none; /* Sem borda */
+  border-radius: 5px; /* Bordas arredondadas */
+  padding: 5px; /* Espaçamento interno */
+  transition: all 0.3s ease; /* Transição suave */
+}
+
+/* Indica que o campo pode ser editado */
+.input-valor:focus, .input-chave-pix:focus {
+  border: 1px solid #ff00f7;
+  background-color: #ffffff; 
+}
+
+/* Quando o campo está em modo de edição (clicado) */
+.input-valor.editavel, .input-chave-pix.editavel {
+  border: 1px solid #e100ff; 
+  background-color: #ffffff; 
+}
+
+/* Quando perde o foco, volta ao estado padrão */
+.input-valor.editavel:blur, .input-chave-pix.editavel:blur {
+  border: 1px solid #ff00f7;
+  background-color: #a90296; 
+}
+
+
 @media only screen and (max-width: 600px) {
+
+  .header {
+    flex-direction: column; 
+    align-items: center; 
+    justify-content: center;  
+    padding: 5px;  
+    position: relative; 
+    width: 101%
+  }
+  
+
+  .user-info {
+    margin-right: -11px;  
+  }
+
+   body {
+    font-size: 14px;  
+    
+  }
+
+  .header .logo img {
+    max-height: 40px;  
+  }
+
   .navbar {
-    flex-direction: column; /* Altera a direção do flex para empilhar os itens verticalmente */
-    align-items: center; /* Centraliza os itens verticalmente */
+    padding: 5px;  
+    width: 101%;  
+  }
+  .navbar ul {
+    width: 100%;  
+    display: flex;
+    justify-content: center;  
+    white-space: nowrap;
   }
 
   .navbar ul li {
-    margin: 10px 0; /* Adiciona um pouco de margem entre cada item da barra de navegação */
+  margin: 5px 0;  
+}
+
+
+  .container {
+    padding: 0px;  
+    margin: 0px auto;  
+    width: 100%;  
+  }
+  }
+
+  .logout-btn {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 10px;
+  }
+
+
+/* Para telas menores que 475px */
+@media only screen and (max-width: 475px) {
+  .header {
+    flex-direction: column;
+    align-items: center;
+    padding: 5px;  
+    position: relative;
+    width: 101%
+  }
+  
+
+  .user-info {
+    margin-right: 0;  
+  }
+
+  body {
+    font-size: 11px;  
+    margin: 0;  
+    padding: 0;
+  }
+  .navbar {
+    padding: 5px;  
+    width: 101%;  
+  }
+  .navbar ul {
+    width: 100%; 
+    display: flex;
+    justify-content: center;  
+    white-space: nowrap;  
+  }
+
+  .navbar ul li {
+    margin: 5px 0;  
+  }
+  
+
+  .container {
+    padding: 5px;  
+    margin: 0;  
+    width: 100%;  
+  }
+  .logout-btn{
+    position: relative;
+  align-self: flex-end; 
+  font-size: 10px;
+  position: absolute;
+  top: 10px; 
+  right: 10px;
   }
 }
-
-.autorizarFornecedorBtn {
-  display: block;
-  margin: 20px auto 0; /* Adiciona uma margem superior de 10px e mantém as margens automáticas para centralização horizontal */
-}
-
