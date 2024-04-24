@@ -23,7 +23,7 @@
             <li><a href="/pages/pagAdm/autorizados/autorizados.html">Autorizados</a></li>
             <li><a href="/pages/pagAdm/naoAutorizado/naoAutorizados.html">Não Autorizados</a></li>
             <li><a href="/pages/pagAdm/funcionarios/funcionarios.html">Funcionários</a></li>
-            <li><a href="/pages/pagAdm/coleta diaria/ColetaDiaria.html">Coletas diárias </a></li>
+            <li><a href="/pages/pagAdm/coletadiariA/ColetaDiaria.html">Coletas diárias </a></li>
         </ul>
     </nav>
     <div class="container">
@@ -48,46 +48,13 @@
                 </tbody>
             </table>
         </section>
-        <!-- Modal para desautorizar fornecedores -->
-<div id="modalConfirmacao" class="modal">
-    <div class="modal-content">
-        <p>Você tem certeza que deseja desautorizar este fornecedor?</p>
-        <div class="modal-buttons">
-            <button id="btnConfirmar">Sim</button>
-            <button id="btnCancelar">Não</button>
-        </div>
-    </div>
-</div>
-
-<!-- Modal para alteração de chave Pix -->
-<div id="modalConfirmacaoAlteracaoPix" class="modal">
-    <div class="modal-content">
-        <p>Você tem certeza que deseja alterar a chave Pix?</p>
-        <div class="modal-buttons">
-            <button id="btnConfirmarAlteracaoPix">Sim</button>
-            <button id="btnCancelarAlteracaoPix">Não</button>
-        </div>
-    </div>
-</div>
-
-<!-- Modal para definir valor para o PIX -->
-<div id="modalConfirmacaoValor" class="modal">
-    <div class="modal-content">
-        <p>Você tem certeza que deseja definir este valor para o PIX?</p>
-        <div class="modal-buttons">
-            <button id="btnConfirmarValor">Sim</button>
-            <button id="btnCancelarValor">Não</button>
-        </div>
-    </div>
-</div>
-</div>
 
     <!-- Elemento para exibir a data atual -->
     <div id="currentDate"></div>
 
     <script src="/src/auth/apiService.js"></script>
     <script src="/src/admin/admin.js"></script>
-    <script src="/src/admin/fornecedoresAutorizados.js"></script>
+    <script src="/src/admin/Coleta.js"></script>
     <script src="/src/admin/script.js"></script>
     <script>
         document.addEventListener('DOMContentLoaded', () => {
