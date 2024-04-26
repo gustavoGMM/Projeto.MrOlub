@@ -407,3 +407,18 @@ table td button:hover {
   right: 10px;
   }
 }
+
+/* Estilos para os contêineres dos gráficos */
+.charts-container {
+  display: flex;
+  justify-content: space-around;
+  margin-top: 20px;
+}
+
+/* Estilos para os contêineres individuais dos gráficos */
+.canvas-container {
+  width: 45%;
+  margin-bottom: 20px;
+}
+
+@import url('integracao.css');

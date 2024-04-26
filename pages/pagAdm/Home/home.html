@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Admin Panel</title>
-    <link href="https://fonts.googleapis.com/css2?family=Cabrini&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="/styles/pagAdm.css">
 </head>
 <body>
@@ -12,7 +11,6 @@
         <div class="logo">
             <img src="/assets/imagens/logo-white (2).png" alt="Ícone Foto">
         </div>
-       
         <div class="user-info">
             <p>Bem-vindo <span id="username"></span></p>
         </div>
@@ -28,21 +26,19 @@
         </ul>
     </nav>
 
-
-<body>
-    <div class="construction">
-        <h1 class="title">Em Construção</h1>
-        <p class="message">Estamos trabalhando nesta página. Por favor, volte em breve!</p>
-        <script src="/src/auth/apiService.js"></script>
-        <script src="/src/admin/admin.js"></script>
-        <script src="/src/admin/script.js"></script>
-
+    <div class="charts-container">
+        <div class="canvas-container">
+            <canvas id="fornecedoresMaisColetadosChart" width="400" height="300"></canvas>
+        </div>
+        <div class="canvas-container">
+            <canvas id="valorPagoPorFornecedorChart" width="400" height="300"></canvas>
+        </div>
     </div>
+
+    <script src="/src/auth/apiService.js"></script>
+    <script src="/src/admin/admin.js"></script>
+    <script src="/src/admin/script.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="/src/admin/Coleta.js"></script>
 </body>
 </html>
-
-
-
-
-
-
