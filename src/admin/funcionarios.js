@@ -105,7 +105,6 @@ function traduzirRole(role) {
 }
 
 
-function mascaraTelefone(tele)
 
 function mascaraTelefone(telefone) {
     telefone = telefone.replace(/[^\d]+/g, '');
