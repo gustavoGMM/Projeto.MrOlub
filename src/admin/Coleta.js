@@ -1,13 +1,13 @@
 document.addEventListener('DOMContentLoaded', () => {
-    carregarFornecedoresAutorizados();
+    carregarColetasDiarias();
 });
 
-function carregarFornecedoresAutorizados() {
-    fazerRequisicaoComToken('URL_DO_SEU_ENDPOINT_ aqui joninha faz o teste :3', 'GET')
+function carregarColetasDiarias() {
+    fazerRequisicaoComToken('http://localhost:8080/api/coletas/list', 'GET')
         .then(dados => {
             popularTabelaColetasDiarias(dados);
         })
-        .catch(error => console.error('Erro ao carregar os fornecedores autorizados:', error));
+        .catch(error => console.error('Erro ao carregar as coletas diárias:', error));
 }
 
 function popularTabelaColetasDiarias(dados) {
@@ -31,12 +31,6 @@ function popularTabelaColetasDiarias(dados) {
         tabela.appendChild(linha);
     });
 }
-
-function fazerRequisicaoComToken(url, metodo, dados) {
-    // Lógica para fazer a requisição com token
-}
-
-
 
 
 // Obtendo dados da API para fornecedores mais coletados

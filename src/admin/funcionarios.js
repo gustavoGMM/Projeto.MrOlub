@@ -104,6 +104,18 @@ function traduzirRole(role) {
     return roles[role] || role;
 }
 
+
+
+function mascaraTelefone(telefone) {
+    telefone = telefone.replace(/[^\d]+/g, '');
+    if (telefone.length > 11) telefone = telefone.substring(0, 11);
+
+    telefone = telefone.replace(/^(\d{2})(\d)/, '($1) $2');
+    telefone = telefone.replace(/(\d{5})(\d{4})/, '$1-$2');
+
+    return telefone;
+}
+
 function exibirModalConfirmacaoValor(nome, valor, id, inputElement) {
     const modal = document.getElementById('modalConfirmacaoValor');
     
