@@ -421,4 +421,11 @@ table td button:hover {
   margin-bottom: 20px;
 }
 
+   
+   .pix-requests table td {
+    padding: 0; 
+}
+
+
+
 @import url('integracao.css');
