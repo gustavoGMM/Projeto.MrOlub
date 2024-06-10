@@ -1,10 +1,12 @@
 document.addEventListener('DOMContentLoaded', () => {
     carregarFornecedoresAutorizados();
-    document.getElementById('btnConfirmar').addEventListener('click', () => {
-        const fornecedorId = document.getElementById('modalConfirmacao').getAttribute('data-fornecedor-id');
+    $('#btnConfirmar').on('click', () => {
+        const fornecedorId = $('#modalConfirmacao').data('fornecedorId');
         desautorizarFornecedor(fornecedorId);
     });
-    document.getElementById('btnCancelar').addEventListener('click', fecharModal);
+    $('#btnCancelar').on('click', () => $('#modalConfirmacao').modal('hide'));
+    $('#btnConfirmarAlteracaoPix').on('click', confirmarAlteracaoPix);
+    $('#btnCancelarAlteracaoPix').on('click', () => $('#modalConfirmacaoAlteracaoPix').modal('hide'));
 });
 
 function carregarFornecedoresAutorizados() {
@@ -14,58 +16,51 @@ function carregarFornecedoresAutorizados() {
 }
 
 function popularTabelaAutorizados(dados) {
-    const tabela = document.getElementById('pixRequestsTable');
-    tabela.innerHTML = '';
+    const tabela = $('#autorizadosTable').DataTable();
+    tabela.clear();
 
     dados.forEach(item => {
-        const linha = document.createElement('tr');
-        linha.innerHTML = `
-            <td>${item.id}</td>
-            <td>${item.cnpj ? mascaraCNPJ(item.cnpj) : mascaraCPF(item.cpf)}</td>
-            <td>
-                <input type="text" class="input-chave-pix" value="${item.chave}" data-id="${item.id}" readonly />
-            </td>
-            <td>${item.nomeFantasia}</td>
-            <td>${mascaraTelefone(item.telefone)}</td>
-            <td>Autorizado</td>
-            <td>${item.dataConsulta || 'N/A'}</td>
-            <td><button class="desautorizarFornecedorBtn" data-id="${item.id}">Desautorizar</button></td>
-        `;
-        tabela.appendChild(linha);
+        tabela.row.add([
+            item.id,
+            item.cnpj ? mascaraCNPJ(item.cnpj) : mascaraCPF(item.cpf),
+            `<input type="text" class="input-chave-pix form-control" value="${item.chave}" data-id="${item.id}" readonly />`,
+            item.nomeFantasia,
+            mascaraTelefone(item.telefone),
+            'Autorizado',
+            item.dataConsulta || 'N/A',
+            `<button class="btn btn-danger desautorizarFornecedorBtn" data-id="${item.id}">Desautorizar</button>`
+        ]).draw(false);
 
-        const inputChavePix = linha.querySelector('.input-chave-pix');
+        const inputChavePix = $(`input[data-id="${item.id}"]`);
 
-        inputChavePix.addEventListener('click', () => {
-            inputChavePix.readOnly = false;
-            inputChavePix.style.border = '1px solid #ccc';
+        inputChavePix.on('click', () => {
+            inputChavePix.prop('readonly', false);
+            inputChavePix.addClass('editable');
         });
 
-        inputChavePix.addEventListener('keydown', function(evento) {
+        inputChavePix.on('keydown', function(evento) {
             if (evento.key === 'Enter') {
                 evento.preventDefault();
-
-                const fornecedorId = inputChavePix.getAttribute('data-id');
-                const novaChavePix = inputChavePix.value;
-                const nomeFantasia = linha.querySelector('td:nth-child(4)').textContent;
-
+                const fornecedorId = $(this).data('id');
+                const novaChavePix = $(this).val();
+                const nomeFantasia = $(this).closest('tr').find('td:nth-child(4)').text();
                 exibirModalAlteracaoPix(fornecedorId, novaChavePix, nomeFantasia);
             }
         });
 
-        inputChavePix.addEventListener('blur', () => {
-            inputChavePix.readOnly = true;
-            inputChavePix.style.border = 'none';
+        inputChavePix.on('blur', () => {
+            inputChavePix.prop('readonly', true);
+            inputChavePix.removeClass('editable');
         });
     });
+
     adicionarEventosDeDesautorizacao();
 }
 
 function adicionarEventosDeDesautorizacao() {
-    document.querySelectorAll('.desautorizarFornecedorBtn').forEach(botao => {
-        botao.addEventListener('click', evento => {
-            const fornecedorId = evento.target.getAttribute('data-id');
-            exibirModalConfirmacao(fornecedorId);
-        });
+    $('.desautorizarFornecedorBtn').on('click', evento => {
+        const fornecedorId = $(evento.target).data('id');
+        exibirModalConfirmacao(fornecedorId);
     });
 }
 
@@ -74,16 +69,16 @@ function desautorizarFornecedor(fornecedorId) {
         .then(() => {
             console.log('Fornecedor desautorizado com sucesso');
             carregarFornecedoresAutorizados();
-            fecharModal();
+            $('#modalConfirmacao').modal('hide');
         })
         .catch(error => console.error('Erro ao desautorizar fornecedor:', error));
 }
 
 function exibirModalConfirmacao(fornecedorId) {
-    const modal = document.getElementById('modalConfirmacao');
-    modal.querySelector('.modal-content p').textContent = 'Você tem certeza que deseja desautorizar este fornecedor?';
-    modal.setAttribute('data-fornecedor-id', fornecedorId);
-    modal.style.display = 'block';
+    const modal = $('#modalConfirmacao');
+    modal.find('.modal-body p').text('Você tem certeza que deseja desautorizar este fornecedor?');
+    modal.data('fornecedorId', fornecedorId);
+    modal.modal('show');
 }
 
 function mascaraCNPJ(cnpj) {
@@ -122,30 +117,31 @@ function mascaraTelefone(telefone) {
 }
 
 function exibirModalAlteracaoPix(fornecedorId, novaChavePix, nomeFantasia) {
-    const modal = document.getElementById('modalConfirmacaoAlteracaoPix');
+    const modal = $('#modalConfirmacaoAlteracaoPix');
     const mensagem = `Você tem certeza que deseja alterar a chave Pix de "${nomeFantasia}" para "${novaChavePix}"?`;
 
-    modal.querySelector('.modal-content p').textContent = mensagem;
-    modal.setAttribute('data-fornecedor-id', fornecedorId);
-    modal.setAttribute('data-nova-chave-pix', novaChavePix);
-    modal.style.display = 'block';
-}
-
-function fecharModal() {
-    const modal = document.getElementById('modalConfirmacao');
-    modal.style.display = 'none';
-}
-
-function fecharModalAlteracaoPix() {
-    const modal = document.getElementById('modalConfirmacaoAlteracaoPix');
-    modal.style.display = 'none';
+    modal.find('.modal-body p').text(mensagem);
+    modal.data('fornecedorId', fornecedorId);
+    modal.data('novaChavePix', novaChavePix);
+    modal.modal('show');
 }
 
 function confirmarAlteracaoPix() {
-    const modal = document.getElementById('modalConfirmacaoAlteracaoPix');
-    const fornecedorId = modal.getAttribute('data-fornecedor-id');
-    const novaChavePix = modal.getAttribute('data-nova-chave-pix');
+    const modal = $('#modalConfirmacaoAlteracaoPix');
+    const fornecedorId = modal.data('fornecedorId');
+    const novaChavePix = modal.data('novaChavePix');
 
-    fecharModalAlteracaoPix();
     atualizarChavePix(fornecedorId, novaChavePix);
+    modal.modal('hide');
+}
+
+function atualizarChavePix(fornecedorId, novaChavePix) {
+    fazerRequisicaoComToken(`http://localhost:8080/admin/${fornecedorId}/chavePix`, 'PUT', {
+        novaChave: novaChavePix
+    })
+    .then(() => {
+        console.log('Chave Pix atualizada com sucesso');
+        carregarFornecedoresAutorizados();
+    })
+    .catch(error => console.error('Erro ao atualizar a chave Pix:', error));
 }
