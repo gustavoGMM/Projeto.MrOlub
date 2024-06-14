@@ -3,7 +3,7 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 function carregarDadosColetas() {
-    fazerRequisicaoComToken('http://localhost:8080/api/coletas/list', 'GET')
+    fazerRequisicaoComToken('https://clownfish-app-w3y3q.ondigitalocean.app/api/coletas/list', 'GET')
         .then(dados => {
             atualizarResumo(dados);
             criarGraficoFornecedoresMaisColetados(dados);

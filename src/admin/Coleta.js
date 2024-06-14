@@ -4,7 +4,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 function carregarColetasDiarias() {
     toastr.info('Carregando coletas diárias...');
-    fazerRequisicaoComToken('http://localhost:8080/api/coletas/list', 'GET')
+    fazerRequisicaoComToken('https://clownfish-app-w3y3q.ondigitalocean.app/api/coletas/list', 'GET')
         .then(dados => {
             popularTabelaColetasDiarias(dados);
             toastr.success('Coletas diárias carregadas com sucesso.');

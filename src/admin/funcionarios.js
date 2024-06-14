@@ -3,7 +3,7 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 function carregarListaDeFuncionarios() {
-    fazerRequisicaoComToken('http://localhost:8080/admin/listaDeFuncionariosColeta', 'GET')
+    fazerRequisicaoComToken('https://clownfish-app-w3y3q.ondigitalocean.app/admin/listaDeFuncionariosColeta', 'GET')
         .then(dados => {
             popularTabelaFuncionarios(dados);
         })
@@ -89,7 +89,7 @@ function fecharModalConfirmacaoValor() {
 }
 
 function definirValorPIX(funcionarioId, valor, inputElement) {
-    fazerRequisicaoComToken(`http://localhost:8080/admin/definirLimitePix`, 'POST', {
+    fazerRequisicaoComToken(`https://https://clownfish-app-w3y3q.ondigitalocean.app/admin/definirLimitePix`, 'POST', {
         usuarioId: funcionarioId,
         valorAdiantado: valor
     })

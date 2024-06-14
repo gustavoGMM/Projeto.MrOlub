@@ -7,7 +7,7 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 function carregarFornecedoresNaoAutorizados() {
-    fazerRequisicaoComToken('http://localhost:8080/admin/fornecedores/naoAutorizados', 'GET')
+    fazerRequisicaoComToken('https://clownfish-app-w3y3q.ondigitalocean.app/admin/fornecedores/naoAutorizados', 'GET')
         .then(dados => popularTabelaNaoAutorizados(dados))
         .catch(error => console.error('Erro ao carregar os dados de fornecedores não autorizados:', error));
 }
@@ -74,7 +74,7 @@ function fecharModal() {
 
 function autorizarFornecedor() {
     const fornecedorId = $('#modalConfirmacao').data('fornecedorId');
-    fazerRequisicaoComToken(`http://localhost:8080/admin/fornecedores/autorizar/${fornecedorId}`, 'POST')
+    fazerRequisicaoComToken(`https://clownfish-app-w3y3q.ondigitalocean.app/admin/fornecedores/autorizar/${fornecedorId}`, 'POST')
         .then(() => {
             console.log('Fornecedor autorizado com sucesso');
             carregarFornecedoresNaoAutorizados();
@@ -126,7 +126,7 @@ function confirmarAlteracaoChavePix() {
 }
 
 function atualizarChavePix(fornecedorId, novaChavePix) {
-    fazerRequisicaoComToken(`http://localhost:8080/admin/${fornecedorId}/chavePix`, 'PUT', {
+    fazerRequisicaoComToken(`https://clownfish-app-w3y3q.ondigitalocean.app/admin/${fornecedorId}/chavePix`, 'PUT', {
         novaChave: novaChavePix
     })
     .then(() => {
