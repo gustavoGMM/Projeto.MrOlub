@@ -1,70 +1,99 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Admin Panel</title>
-    <link href="https://fonts.googleapis.com/css2?family=Cabrini&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="/styles/pagAdm.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.11.5/css/jquery.dataTables.min.css">
+    <link rel="stylesheet" href="https://cdn.datatables.net/buttons/1.7.1/css/buttons.dataTables.min.css">
 </head>
 <body>
-    <header class="header">
+    <header class="header bg-dark text-white d-flex justify-content-between align-items-center p-3">
         <div class="logo">
             <img src="/assets/imagens/logo-white (2).png" alt="Ícone Foto">
         </div>
         <div class="user-info">
             <p>Bem-vindo <span id="username"></span></p>
         </div>
-        <button class="logout-btn" onclick="window.location.href='/pages/Loguin/loguin.html'">Sair</button>
+        <button class="btn btn-danger logout-btn" onclick="window.location.href='/pages/Loguin/loguin.html'">Sair</button>
     </header>
-    <nav class="navbar">
-        <ul>
-            <li><a href="/pages/pagAdm/Home/home.html">Home</a></li>
-            <li><a href="/pages/pagAdm/autorizados/autorizados.html">Autorizados</a></li>
-            <li><a href="/pages/pagAdm/naoAutorizado/naoAutorizados.html">Não Autorizados</a></li>
-            <li><a href="/pages/pagAdm/funcionarios/funcionarios.html">Funcionários</a></li>
-            <li><a href="/pages/pagAdm/coletadiariA/ColetaDiaria.html">Coletas diárias</a></li>
-        </ul>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">
+                <li class="nav-item"><a class="nav-link" href="/pages/pagAdm/Home/home.html">Home</a></li>
+                <li class="nav-item"><a class="nav-link" href="/pages/pagAdm/autorizados/autorizados.html">Autorizados</a></li>
+                <li class="nav-item"><a class="nav-link" href="/pages/pagAdm/naoAutorizado/naoAutorizados.html">Não Autorizados</a></li>
+                <li class="nav-item"><a class="nav-link" href="/pages/pagAdm/funcionarios/funcionarios.html">Funcionários</a></li>
+                <li class="nav-item"><a class="nav-link" href="/pages/pagAdm/coletadiariA/ColetaDiaria.html">Coletas diárias</a></li>
+            </ul>
+        </div>
     </nav>
-    <div class="container">
+    <div class="container mt-4">
         <section class="pix-requests">
             <h2>Lista de fornecedores Autorizados</h2>
-            <table>
-                <thead>
-                    <tr>
-                        <th>ID</th>
-                        <th>CPF/CNPJ</th>
-                        <th>Chave Pix</th>
-                        <th>Nome fantasia</th>
-                        <th>Telefone</th>
-                        <th>Status</th>
-                        <th>Data</th>
-                        <th>Ação</th>
-                    </tr>
-                </thead>
-                <tbody id="pixRequestsTable">
-                    <!-- Os requerimentos de Pix serão adicionados dinamicamente aqui -->
-                </tbody>
-            </table>
+            <div class="table-responsive">
+                <table id="autorizadosTable" class="table table-bordered table-striped table-sm" style="white-space:nowrap">
+                    <thead class="thead-dark">
+                        <tr>
+                            <th>ID</th>
+                            <th>CPF/CNPJ</th>
+                            <th>Chave Pix</th>
+                            <th>Nome fantasia</th>
+                            <th>Telefone</th>
+                            <th>Status</th>
+                            <th>Data</th>
+                            <th>Ação</th>
+                        </tr>
+                    </thead>
+                    <tbody id="pixRequestsTable">
+                        <!-- Os requerimentos de Pix serão adicionados dinamicamente aqui -->
+                    </tbody>
+                </table>
+            </div>
         </section>
         <!-- Modal para desautorizar fornecedores -->
-        <div id="modalConfirmacao" class="modal">
-            <div class="modal-content">
-                <p>Você tem certeza que deseja desautorizar este fornecedor?</p>
-                <div class="modal-buttons">
-                    <button id="btnConfirmar">Sim</button>
-                    <button id="btnCancelar">Não</button>
+        <div class="modal fade" id="modalConfirmacao" tabindex="-1" role="dialog" aria-labelledby="modalConfirmacaoLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="modalConfirmacaoLabel">Confirmação</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <p>Você tem certeza que deseja desautorizar este fornecedor?</p>
+                    </div>
+                    <div class="modal-footer">
+                        <button id="btnConfirmar" class="btn btn-primary">Sim</button>
+                        <button id="btnCancelar" class="btn btn-secondary" data-dismiss="modal">Não</button>
+                    </div>
                 </div>
             </div>
         </div>
 
         <!-- Modal para alteração de chave Pix -->
-        <div id="modalConfirmacaoAlteracaoPix" class="modal">
-            <div class="modal-content">
-                <p>Você tem certeza que deseja alterar a chave Pix?</p>
-                <div class="modal-buttons">
-                    <button id="btnConfirmarAlteracaoPix">Sim</button>
-                    <button id="btnCancelarAlteracaoPix">Não</button>
+        <div class="modal fade" id="modalConfirmacaoAlteracaoPix" tabindex="-1" role="dialog" aria-labelledby="modalConfirmacaoAlteracaoPixLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="modalConfirmacaoAlteracaoPixLabel">Confirmação de Alteração</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <p>Você tem certeza que deseja alterar a chave Pix?</p>
+                    </div>
+                    <div class="modal-footer">
+                        <button id="btnConfirmarAlteracaoPix" class="btn btn-primary">Sim</button>
+                        <button id="btnCancelarAlteracaoPix" class="btn btn-secondary" data-dismiss="modal">Não</button>
+                    </div>
                 </div>
             </div>
         </div>
@@ -72,14 +101,16 @@
 
     <div id="currentDate"></div>
 
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="https://cdn.datatables.net/1.11.5/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/buttons/1.7.1/js/dataTables.buttons.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.3/jszip.min.js"></script>
+    <script src="https://cdn.datatables.net/buttons/1.7.1/js/buttons.html5.min.js"></script>
+    <script src="https://cdn.datatables.net/buttons/1.7.1/js/buttons.print.min.js"></script>
     <script src="/src/auth/apiService.js"></script>
     <script src="/src/admin/admin.js"></script>
     <script src="/src/admin/fornecedoresAutorizados.js"></script>
     <script src="/src/admin/script.js"></script>
-    <script>
-        document.addEventListener('DOMContentLoaded', () => {
-            carregarFornecedoresAutorizados();
-        });
-    </script>
 </body>
 </html>

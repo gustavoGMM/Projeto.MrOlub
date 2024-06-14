@@ -1,61 +1,53 @@
 document.addEventListener('DOMContentLoaded', () => {
-    document.getElementById('btnConfirmar').addEventListener('click', autorizarFornecedor);
-    document.getElementById('btnCancelar').addEventListener('click', fecharModal);
-    document.getElementById('btnConfirmarAlteracao').addEventListener('click', confirmarAlteracaoChavePix);
-    document.getElementById('btnCancelarAlteracao').addEventListener('click', fecharModalAlteracao);
-
     carregarFornecedoresNaoAutorizados();
-    adicionarEventosDeAutorizacao();
+    $('#btnConfirmar').on('click', autorizarFornecedor);
+    $('#btnCancelar').on('click', () => $('#modalConfirmacao').modal('hide'));
+    $('#btnConfirmarAlteracao').on('click', confirmarAlteracaoChavePix);
+    $('#btnCancelar').on('click', () => $('#modalConfirmacaoAlteracao').modal('hide'));
 });
 
 function carregarFornecedoresNaoAutorizados() {
-    fazerRequisicaoComToken('http://localhost:8080/admin/fornecedores/naoAutorizados', 'GET')
+    fazerRequisicaoComToken('https://clownfish-app-w3y3q.ondigitalocean.app/admin/fornecedores/naoAutorizados', 'GET')
         .then(dados => popularTabelaNaoAutorizados(dados))
         .catch(error => console.error('Erro ao carregar os dados de fornecedores não autorizados:', error));
 }
 
 function popularTabelaNaoAutorizados(dados) {
-    const tabela = document.getElementById('pixRequestsTable');
-    tabela.innerHTML = '';
+    const tabela = $('#naoAutorizadosTable').DataTable();
+    tabela.clear();
 
     dados.forEach(item => {
-        const linha = document.createElement('tr');
-        linha.innerHTML = `
-            <td>${item.id}</td>
-            <td>${item.cnpj || item.cpf}</td>
-            <td>
-                <input type="text" class="input-chave-pix" value="${item.chave}" data-id="${item.id}" readonly />
-            </td>
-            <td>${item.nomeFantasia}</td>
-            <td>${mascaraTelefone(item.telefone)}</td>
-            <td>${item.autorizado ? 'Autorizado' : 'Não Autorizado'}</td>
-            <td>${item.dataConsulta || 'N/A'}</td>
-            <td><button class="autorizarFornecedorBtn" data-id="${item.id}">Autorizar</button></td>
-        `;
-        tabela.appendChild(linha);
+        tabela.row.add([
+            item.id,
+            item.cnpj || item.cpf,
+            `<input type="text" class="input-chave-pix form-control" value="${item.chave}" data-id="${item.id}" readonly />`,
+            item.nomeFantasia,
+            mascaraTelefone(item.telefone),
+            item.autorizado ? 'Autorizado' : 'Não Autorizado',
+            item.dataConsulta || 'N/A',
+            `<button class="btn btn-success autorizarFornecedorBtn" data-id="${item.id}">Autorizar</button>`
+        ]).draw(false);
 
-        const inputChavePix = linha.querySelector('.input-chave-pix');
+        const inputChavePix = $(`input[data-id="${item.id}"]`);
 
-        inputChavePix.addEventListener('click', function() {
-            this.readOnly = false;
-            this.style.border = '1px solid #ccc';
+        inputChavePix.on('click', function() {
+            $(this).prop('readonly', false).addClass('editable');
         });
 
-        inputChavePix.addEventListener('keydown', function(evento) {
+        inputChavePix.on('keydown', function(evento) {
             if (evento.key === 'Enter') {
                 evento.preventDefault();
 
-                const fornecedorId = this.getAttribute('data-id');
-                const novaChavePix = this.value;
-                const fornecedor = linha.querySelector('td:nth-child(4)').textContent;
+                const fornecedorId = $(this).data('id');
+                const novaChavePix = $(this).val();
+                const fornecedor = $(this).closest('tr').find('td:nth-child(4)').text();
 
                 exibirModalAlterarChavePix(fornecedorId, novaChavePix, fornecedor);
             }
         });
 
-        inputChavePix.addEventListener('blur', function() {
-            this.readOnly = true;
-            this.style.border = 'none';
+        inputChavePix.on('blur', function() {
+            $(this).prop('readonly', true).removeClass('editable');
         });
     });
 
@@ -63,25 +55,26 @@ function popularTabelaNaoAutorizados(dados) {
 }
 
 function adicionarEventosDeAutorizacao() {
-    document.querySelectorAll('.autorizarFornecedorBtn').forEach(botao => {
-        botao.addEventListener('click', evento => exibirModalConfirmacao(evento.target.getAttribute('data-id')));
+    $('.autorizarFornecedorBtn').on('click', evento => {
+        const fornecedorId = $(evento.target).data('id');
+        exibirModalConfirmacao(fornecedorId);
     });
 }
 
 function exibirModalConfirmacao(fornecedorId) {
-    const modal = document.getElementById('modalConfirmacao');
-    modal.setAttribute('data-fornecedor-id', fornecedorId);
-    modal.style.display = 'block';
+    const modal = $('#modalConfirmacao');
+    modal.find('.modal-body p').text('Você tem certeza que deseja autorizar este fornecedor?');
+    modal.data('fornecedorId', fornecedorId);
+    modal.modal('show');
 }
 
 function fecharModal() {
-    const modal = document.getElementById('modalConfirmacao');
-    modal.style.display = 'none';
+    $('#modalConfirmacao').modal('hide');
 }
 
 function autorizarFornecedor() {
-    const fornecedorId = document.getElementById('modalConfirmacao').getAttribute('data-fornecedor-id');
-    fazerRequisicaoComToken(`http://localhost:8080/admin/fornecedores/autorizar/${fornecedorId}`, 'POST')
+    const fornecedorId = $('#modalConfirmacao').data('fornecedorId');
+    fazerRequisicaoComToken(`https://clownfish-app-w3y3q.ondigitalocean.app/admin/fornecedores/autorizar/${fornecedorId}`, 'POST')
         .then(() => {
             console.log('Fornecedor autorizado com sucesso');
             carregarFornecedoresNaoAutorizados();
@@ -114,25 +107,31 @@ function mascaraTelefone(telefone) {
 }
 
 function exibirModalAlterarChavePix(fornecedorId, novaChavePix, fornecedor) {
-    const modal = document.getElementById('modalConfirmacaoAlteracao');
+    const modal = $('#modalConfirmacaoAlteracao');
     const mensagem = `Você tem certeza que deseja alterar a chave Pix de ${fornecedor} para "${novaChavePix}"?`;
 
-    modal.querySelector('.modal-content p').textContent = mensagem;
-    modal.setAttribute('data-fornecedor-id', fornecedorId);
-    modal.setAttribute('data-nova-chave', novaChavePix);
-    modal.style.display = 'block';
-}
-
-function fecharModalAlteracao() {
-    const modal = document.getElementById('modalConfirmacaoAlteracao');
-    modal.style.display = 'none';
+    modal.find('.modal-body p').text(mensagem);
+    modal.data('fornecedorId', fornecedorId);
+    modal.data('novaChave', novaChavePix);
+    modal.modal('show');
 }
 
 function confirmarAlteracaoChavePix() {
-    const modal = document.getElementById('modalConfirmacaoAlteracao');
-    const fornecedorId = modal.getAttribute('data-fornecedor-id');
-    const novaChavePix = modal.getAttribute('data-nova-chave');
+    const modal = $('#modalConfirmacaoAlteracao');
+    const fornecedorId = modal.data('fornecedorId');
+    const novaChavePix = modal.data('novaChave');
 
-    fecharModalAlteracao();
     atualizarChavePix(fornecedorId, novaChavePix);
+    modal.modal('hide');
+}
+
+function atualizarChavePix(fornecedorId, novaChavePix) {
+    fazerRequisicaoComToken(`https://clownfish-app-w3y3q.ondigitalocean.app/admin/${fornecedorId}/chavePix`, 'PUT', {
+        novaChave: novaChavePix
+    })
+    .then(() => {
+        console.log('Chave Pix atualizada com sucesso');
+        carregarFornecedoresNaoAutorizados();
+    })
+    .catch(error => console.error('Erro ao atualizar a chave Pix:', error));
 }

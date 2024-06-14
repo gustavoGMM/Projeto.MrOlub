@@ -1,6 +1,6 @@
 
 function fazerLogin(nomeDeUsuario, senhaDoUsuario) {
-    return fetch('http://localhost:8080/api/auth/user/login', {
+    return fetch('https://clownfish-app-w3y3q.ondigitalocean.app/api/auth/user/login', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
